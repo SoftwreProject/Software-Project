@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane prefHeight="622.0" prefWidth="781.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddWorker">
+   <children>
+      <Text fill="#fac457" layoutX="259.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Worker">
+         <font>
+            <Font name="Blackadder ITC" size="65.0" />
+         </font>
+      </Text>
+      <TextField fx:id="nameTextField" layoutX="98.0" layoutY="188.0" prefHeight="35.0" prefWidth="218.0" style="-fx-border-width: 0 0 3 0; -fx-background-color: #FFFFFF; -fx-border-color: #fac355;" />
+      <TextField fx:id="idTextField" layoutX="545.0" layoutY="189.0" prefHeight="35.0" prefWidth="218.0" style="-fx-border-width: 0 0 3 0; -fx-background-color: #FFFFFF; -fx-border-color: #fac355;" />
+      <TextField fx:id="phoneTextField" layoutX="98.0" layoutY="262.0" prefHeight="35.0" prefWidth="218.0" style="-fx-border-width: 0 0 3 0; -fx-background-color: #FFFFFF; -fx-border-color: #fac355;" />
+      <TextField fx:id="addressTextField" layoutX="549.0" layoutY="262.0" prefHeight="35.0" prefWidth="218.0" style="-fx-border-width: 0 0 3 0; -fx-background-color: #FFFFFF; -fx-border-color: #fac355;" />
+      <TextField fx:id="specializationTextField" layoutX="369.0" layoutY="336.0" prefHeight="35.0" prefWidth="218.0" style="-fx-border-width: 0 0 3 0; -fx-background-color: #FFFFFF; -fx-border-color: #fac355;" />
+      <Text layoutX="32.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
+         <font>
+            <Font name="Bell MT" size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="32.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phome">
+         <font>
+            <Font name="Bell MT" size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="413.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address">
+         <font>
+            <Font name="Bell MT" size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="413.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID">
+         <font>
+            <Font name="Bell MT" size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="215.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Specialization">
+         <font>
+            <Font name="Bell MT" size="24.0" />
+         </font>
+      </Text>
+      <Label fx:id="confirmOperationLabel" alignment="CENTER" layoutX="73.0" layoutY="548.0" prefHeight="60.0" prefWidth="652.0" textAlignment="CENTER" textFill="#1d8aea">
+         <font>
+            <Font name="Bodoni MT Bold" size="37.0" />
+         </font>
+      </Label>
+      <Button fx:id="addWorkerButton" layoutX="309.0" layoutY="435.0" mnemonicParsing="false" onAction="#addWorker" prefHeight="51.0" prefWidth="163.0" style="-fx-background-color: #fac457; -fx-background-radius: 10px;" text="Add Worker">
+         <font>
+            <Font name="Bernard MT Condensed" size="24.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="116.0" fitWidth="99.0" layoutX="551.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images1/man-cleaner-icon-cleaning-service-worker-vector-16201112_prev_ui.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="116.0" fitWidth="99.0" layoutX="157.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images1/man-cleaner-icon-cleaning-service-worker-vector-16201112_prev_ui.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>
