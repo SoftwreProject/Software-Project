@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import javafx.scene.control.Button?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.StackedBarChart?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="HomePagePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="947.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomePage">
+<BorderPane fx:id="HomePagePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomePage">
    <left>
       <Pane prefHeight="487.0" prefWidth="166.0" style="-fx-background-color: #000000;" BorderPane.alignment="CENTER">
          <children>
-            <JFXButton fx:id="customerPageButton" layoutX="-1.0" layoutY="187.0" onAction="#customerPage" prefHeight="48.0" prefWidth="168.0" style="-fx-border-color: #2C3333; -fx-border-width: 1 0 1 0;" text=" Customer" textFill="#fac355">
+            <JFXButton fx:id="customerPageButton" layoutX="-1.0" layoutY="187.0" onAction="#customerPage" prefHeight="48.0" prefWidth="168.0" style="-fx-border-color: #2C3333; -fx-border-width: 1 0 1 0;" text="View All" textFill="#fac355">
                <font>
                   <Font name="Bookman Old Style Bold" size="16.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="productPageButton" layoutX="-1.0" layoutY="235.0" onAction="#productHomePage" prefHeight="48.0" prefWidth="168.0" style="-fx-border-color: #2C3333; -fx-border-width: 0 0 1 0;" text=" Product" textFill="#fac355">
+            <JFXButton fx:id="productPageButton" layoutX="-1.0" layoutY="235.0" onAction="#productHomePage" prefHeight="48.0" prefWidth="168.0" style="-fx-border-color: #2C3333; -fx-border-width: 0 0 1 0;" text="Add " textFill="#fac355">
                <font>
                   <Font name="Bookman Old Style Bold" size="16.0" />
                </font>
@@ -27,22 +32,7 @@
                   <Image url="@images1/227-2277419_janitorial-service-in-sri-lanka-cleaning-service-icon_prev_ui.png" />
                </image>
             </ImageView>
-            <JFXButton fx:id="workerPageButton" layoutY="283.0" onAction="#workerHomePage" prefHeight="48.0" prefWidth="168.0" style="-fx-border-color: #2C3333; -fx-border-width: 0 0 1 0;" text="Worker" textFill="#fac355">
-               <font>
-                  <Font name="Bookman Old Style Bold" size="16.0" />
-               </font>
-            </JFXButton>
-            <Button fx:id="backButton" layoutX="14.0" layoutY="581.0" mnemonicParsing="false" onAction="#backToLogin" prefHeight="25.0" prefWidth="71.0" style="-fx-background-color: #fac355; -fx-background-radius: 5px;" text="&lt;&lt;Back">
-               <font>
-                  <Font name="Bodoni MT Bold" size="14.0" />
-               </font>
-            </Button>
-            <JFXButton layoutX="-1.0" layoutY="331.0" prefHeight="48.0" prefWidth="168.0" style="-fx-border-color: #2C3333; -fx-border-width: 0 0 1 0;" text="Sending Email" textFill="#fac355">
-               <font>
-                  <Font name="Bookman Old Style Bold" size="16.0" />
-               </font>
-            </JFXButton>
-            <JFXButton fx:id="homePageButton" layoutY="139.0" onAction="#centerHomePage" prefHeight="48.0" prefWidth="168.0" style="-fx-border-color: #2C3333; -fx-border-width: 1 0 1 0;" text="Home Page" textFill="#fac355">
+            <JFXButton fx:id="homePageButton" layoutY="139.0" onAction="#centerHomePage" prefHeight="49.0" prefWidth="168.0" style="-fx-border-color: #2C3333; -fx-border-width: 1 0 1 0;" text="Home Page" textFill="#fac355">
                <font>
                   <Font name="Bookman Old Style Bold" size="16.0" />
                </font>
@@ -50,4 +40,146 @@
          </children>
       </Pane>
    </left>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <StackedBarChart layoutX="10.0" layoutY="279.0" prefHeight="344.0" prefWidth="405.0">
+               <xAxis>
+                  <CategoryAxis side="BOTTOM" />
+               </xAxis>
+               <yAxis>
+                  <NumberAxis side="LEFT" />
+               </yAxis>
+            </StackedBarChart>
+            <StackedBarChart layoutX="414.0" layoutY="279.0" prefHeight="344.0" prefWidth="405.0">
+               <xAxis>
+                  <CategoryAxis side="BOTTOM" />
+               </xAxis>
+               <yAxis>
+                  <NumberAxis side="LEFT" />
+               </yAxis>
+            </StackedBarChart>
+            <Pane layoutX="47.0" layoutY="14.0" prefHeight="212.0" prefWidth="371.0" style="-fx-background-color: #fac355; -fx-background-radius: 10px;">
+               <children>
+                  <Text fill="WHITE" layoutX="26.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type" textAlignment="CENTER" wrappingWidth="132.0">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="14.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" ">
+                     <font>
+                        <Font name="Cambria" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="281.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Count" textAlignment="CENTER">
+                     <font>
+                        <Font name="Cambria Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="9.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Worker" textAlignment="CENTER" wrappingWidth="166.0">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Line endX="154.0" layoutX="209.0" layoutY="40.0" startX="-209.0" stroke="#d1e0e4" />
+                  <Text layoutX="3.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer" textAlignment="CENTER" wrappingWidth="166.0">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="3.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Carpets Worker" textAlignment="CENTER" wrappingWidth="198.99999999999994">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="1.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Covers Worker" textAlignment="CENTER" wrappingWidth="198.99999999999994">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Label fx:id="ScientificStudentCount" alignment="CENTER" layoutX="262.0" layoutY="47.0" prefHeight="17.0" prefWidth="87.0" text="xxx">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="LiteraryStudentCount" alignment="CENTER" layoutX="262.0" layoutY="83.0" prefHeight="17.0" prefWidth="87.0" text="xxx">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="CommercialStudentCount" alignment="CENTER" layoutX="262.0" layoutY="118.0" prefHeight="17.0" prefWidth="87.0" text="xxx">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="IndustrialStudentCount" alignment="CENTER" layoutX="262.0" layoutY="154.0" prefHeight="17.0" prefWidth="87.0" text="xxx">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="455.0" layoutY="14.0" prefHeight="212.0" prefWidth="371.0" style="-fx-background-color: #fac355; -fx-background-radius: 10px;">
+               <children>
+                  <Text fill="WHITE" layoutX="26.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type" textAlignment="CENTER" wrappingWidth="132.0">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="14.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" ">
+                     <font>
+                        <Font name="Cambria" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="281.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Count" textAlignment="CENTER">
+                     <font>
+                        <Font name="Cambria Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="9.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Carpets" textAlignment="CENTER" wrappingWidth="166.0">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Line endX="148.5" layoutX="209.0" layoutY="40.0" startX="-209.0" stroke="#d1e0e4" />
+                  <Text layoutX="3.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Covers" textAlignment="CENTER" wrappingWidth="166.0">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="3.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="All money for Carpets" textAlignment="CENTER" wrappingWidth="198.99999999999994">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="-3.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="All money for Covers" textAlignment="CENTER" wrappingWidth="198.99999999999994">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Label fx:id="ScientificStudentCount1" alignment="CENTER" layoutX="262.0" layoutY="47.0" prefHeight="17.0" prefWidth="87.0" text="xxx">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="LiteraryStudentCount1" alignment="CENTER" layoutX="262.0" layoutY="83.0" prefHeight="17.0" prefWidth="87.0" text="xxx">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="CommercialStudentCount1" alignment="CENTER" layoutX="262.0" layoutY="118.0" prefHeight="17.0" prefWidth="87.0" text="xxx">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="IndustrialStudentCount1" alignment="CENTER" layoutX="262.0" layoutY="154.0" prefHeight="17.0" prefWidth="87.0" text="xxx">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </center>
 </BorderPane>
