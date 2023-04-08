@@ -4,82 +4,58 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class Worker {
     SimpleStringProperty id;
-
-
-
     SimpleStringProperty name ;
     SimpleStringProperty phone;
     SimpleStringProperty address;
-    SimpleStringProperty city;
-    SimpleStringProperty street;
-
-
-
     SimpleStringProperty specialization;
 
 
 
     public Worker () {}
-    public Worker(SimpleStringProperty id, SimpleStringProperty name, SimpleStringProperty phone, SimpleStringProperty address, SimpleStringProperty city, SimpleStringProperty street, SimpleStringProperty specialization) {
-        this.id = id;
-        this.name = name;
-        this.phone = phone;
-        this.address = address;
-        this.city = city;
-        this.street = street;
-        this.specialization = specialization;
+    public Worker(String id, String name, String phone, String address,  String specialization) {
+        this.id = new SimpleStringProperty(id);
+        this.name = new SimpleStringProperty (name);
+        this.phone =  new SimpleStringProperty (phone);
+        this.address =  new SimpleStringProperty(address);
+        this.specialization = new SimpleStringProperty (specialization);
     }
-    public void setId(SimpleStringProperty id) {
-        this.id = id;
+    public void setId(String id) {
+        this.id = new SimpleStringProperty(id);
     }
 
-    public void setName(SimpleStringProperty name) {
-        this.name = name;
+    public void setName(String name) {
+        this.name = new SimpleStringProperty(name);
     }
 
-    public void setPhone(SimpleStringProperty phone) {
-        this.phone = phone;
+    public void setPhone(String phone) {
+        this.phone =new SimpleStringProperty(phone);
     }
 
-    public void setAddress(SimpleStringProperty address) {
-        this.address = address;
+    public void setAddress(String address) {
+        this.address = new SimpleStringProperty(address);
     }
-
-    public void setCity(SimpleStringProperty city) {
-        this.city = city;
-    }
-
-    public void setStreet(SimpleStringProperty street) {
-        this.street = street;
-    }
-    public void setSpecialization(SimpleStringProperty specialization) {
-        this.specialization = specialization;
+    public void setSpecialization(String specialization) {
+        this.specialization = new SimpleStringProperty( specialization);
     }
 
 
-    public SimpleStringProperty getId() {
-        return id;
+
+    public String getId() {
+        return id.get();
     }
-    public SimpleStringProperty getName() {
-        return name;
+    public String getName() {
+        return name.get();
     }
 
-    public SimpleStringProperty getPhone() {
-        return phone;
+    public String getPhone() {
+        return phone.get();
     }
 
-    public SimpleStringProperty getAddress() {
-        return address;
+    public String getAddress() {
+        return address.get();
     }
 
-    public SimpleStringProperty getCity() {
-        return city;
-    }
-
-    public SimpleStringProperty getStreet() {
-        return street;
-    }
-    public SimpleStringProperty getSpecialization() {
-        return specialization;
+    public String getSpecialization() {
+        return specialization.get();
     }
 }

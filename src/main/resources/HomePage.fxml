@@ -17,12 +17,12 @@
    <left>
       <Pane prefHeight="487.0" prefWidth="166.0" style="-fx-background-color: #000000;" BorderPane.alignment="CENTER">
          <children>
-            <JFXButton fx:id="customerPageButton" layoutX="-1.0" layoutY="187.0" onAction="#customerPage" prefHeight="48.0" prefWidth="168.0" style="-fx-border-color: #2C3333; -fx-border-width: 1 0 1 0;" text="View All" textFill="#fac355">
+            <JFXButton layoutX="-1.0" layoutY="187.0" onAction="#ViewAll" prefHeight="48.0" prefWidth="168.0" style="-fx-border-color: #2C3333; -fx-border-width: 1 0 1 0;" text="View All" textFill="#fac355">
                <font>
                   <Font name="Bookman Old Style Bold" size="16.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="productPageButton" layoutX="-1.0" layoutY="235.0" onAction="#productHomePage" prefHeight="48.0" prefWidth="168.0" style="-fx-border-color: #2C3333; -fx-border-width: 0 0 1 0;" text="Add " textFill="#fac355">
+            <JFXButton layoutX="-1.0" layoutY="235.0" onAction="#Add" prefHeight="48.0" prefWidth="168.0" style="-fx-border-color: #2C3333; -fx-border-width: 0 0 1 0;" text="Add " textFill="#fac355">
                <font>
                   <Font name="Bookman Old Style Bold" size="16.0" />
                </font>
@@ -32,7 +32,12 @@
                   <Image url="@images1/227-2277419_janitorial-service-in-sri-lanka-cleaning-service-icon_prev_ui.png" />
                </image>
             </ImageView>
-            <JFXButton fx:id="homePageButton" layoutY="139.0" onAction="#centerHomePage" prefHeight="49.0" prefWidth="168.0" style="-fx-border-color: #2C3333; -fx-border-width: 1 0 1 0;" text="Home Page" textFill="#fac355">
+            <JFXButton layoutY="139.0" onAction="#centerHomePage" prefHeight="49.0" prefWidth="168.0" style="-fx-border-color: #2C3333; -fx-border-width: 1 0 1 0;" text="Home Page" textFill="#fac355">
+               <font>
+                  <Font name="Bookman Old Style Bold" size="16.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutY="282.0" onAction="#backToLogin" prefHeight="49.0" prefWidth="168.0" style="-fx-border-color: #2C3333; -fx-border-width: 1 0 1 0;" text="Logout" textFill="#fac355">
                <font>
                   <Font name="Bookman Old Style Bold" size="16.0" />
                </font>
@@ -41,7 +46,7 @@
       </Pane>
    </left>
    <center>
-      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <Pane fx:id="HomePane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <StackedBarChart layoutX="10.0" layoutY="279.0" prefHeight="344.0" prefWidth="405.0">
                <xAxis>
