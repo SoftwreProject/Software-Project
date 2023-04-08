@@ -18,14 +18,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-//import net.sf.jasperreports.engine.JasperCompileManager;
-//import net.sf.jasperreports.engine.JasperExportManager;
-//import net.sf.jasperreports.engine.JasperFillManager;
-//import net.sf.jasperreports.engine.JasperPrint;
-//import net.sf.jasperreports.engine.JasperReport;
-//import net.sf.jasperreports.engine.design.JRDesignQuery;
-//import net.sf.jasperreports.engine.design.JasperDesign;
-//import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import oracle.jdbc.pool.OracleDataSource;
 
 public class LoginController {
@@ -40,12 +32,14 @@ public class LoginController {
 
     @FXML
     private Pane LoginPane;
-    public LoginController(){}
+
+    public LoginController() {
+    }
 
 
     public void Login(ActionEvent event) throws Exception {
+        int flag = 0;
         int Managerusername = 0;
-        int flag = -1;
         OracleDataSource orc = new OracleDataSource();
         orc.setURL("jdbc:oracle:thin:@localhost:1521:orcl");
         orc.setUser("software");
@@ -55,43 +49,54 @@ public class LoginController {
 
         String username = usernameTextField.getText();
         String password = passwordTextField.getText();
-
-        if ((username.equals("") && password.equals("")) ) {
-            usernameTextField.setStyle("-fx-background-color: #D1E0E4 ; -fx-border-width:0 0 2 0 ; -fx-border-color : red");
-            passwordTextField.setStyle("-fx-background-color: #D1E0E4 ; -fx-border-width:0 0 2 0 ; -fx-border-color : red");
-//            new animatefx.animation.Shake(usernameTextField).play();
-//            new animatefx.animation.Shake(passwordTextField).play();
+        if ((username.equals("") && password.equals(""))) {
+            usernameTextField.setStyle("-fx-background-color:  #000000 ; -fx-border-width:0 0 2 0 ; -fx-border-color : red ; -fx-text-inner-color: white");
+            passwordTextField.setStyle("-fx-background-color:  #000000 ; -fx-border-width:0 0 2 0 ; -fx-border-color : red ;-fx-text-inner-color: white");
+            new animatefx.animation.Shake(usernameTextField).play();
+            new animatefx.animation.Shake(passwordTextField).play();
             wrongMessage.setText("Empty UserName and Password!!");
-        }
-        else if (!username.equals("") && password.equals("")){
-//          passwordTextField.setStyle("-fx-background-color: #D1E0E4 ; -fx-border-width:0 0 2 0 ; -fx-border-color : red");
-//            new animatefx.animation.Shake(passwordTextField).play();
+        } else if (!username.equals("") && password.equals("")) {
+            usernameTextField.setStyle("-fx-background-color:  #000000 ; -fx-border-width:0 0 2 0 ; -fx-border-color :#fac355 ; -fx-text-inner-color: white ");
+            passwordTextField.setStyle("-fx-background-color:  #000000 ; -fx-border-width:0 0 2 0 ; -fx-border-color : red ; -fx-text-inner-color: white");
+            new animatefx.animation.Shake(passwordTextField).play();
             wrongMessage.setText("Empty Password!!");
-        }
-        else if (username.equals("") && !password.equals("")){
-            usernameTextField.setStyle("-fx-background-color: #D1E0E4 ; -fx-border-width:0 0 2 0 ; -fx-border-color : red");
-            passwordTextField.setStyle("-fx-background-color: #D1E0E4 ; -fx-border-width:0 0 2 0 ; -fx-border-color : #0D0332");
-//            new animatefx.animation.Shake(usernameTextField).play();
+        } else if (username.equals("") && !password.equals("")) {
+            usernameTextField.setStyle("-fx-background-color: #000000 ; -fx-border-width:0 0 2 0 ; -fx-border-color : red ; -fx-text-inner-color: white");
+            passwordTextField.setStyle("-fx-background-color: #000000 ; -fx-border-width:0 0 2 0 ; -fx-border-color :  #fac355 ; -fx-text-inner-color: white");
+            new animatefx.animation.Shake(usernameTextField).play();
             wrongMessage.setText("Empty UserName!!");
-        }
-        else {
+        } else {
             wrongMessage.setText("");
-            usernameTextField.setStyle("-fx-background-color: #D1E0E4 ; -fx-border-width:0 0 2 0 ; -fx-border-color :  #0D0332");
-            passwordTextField.setStyle("-fx-background-color: #D1E0E4 ; -fx-border-width:0 0 2 0 ; -fx-border-color :  #0D0332");
+            usernameTextField.setStyle("-fx-background-color: #000000 ; -fx-border-width:0 0 2 0 ; -fx-border-color : #fac355");
+            passwordTextField.setStyle("-fx-background-color: #000000 ; -fx-border-width:0 0 2 0 ; -fx-border-color : #fac355");
             try {
                 Managerusername = Integer.parseInt(usernameTextField.getText());
-            } catch (Exception ex) { }
+            } catch (Exception ex) {
+            }
+            String Query1 = "SELECT ID , PASSWORD FROM MANAGER WHERE ID = " + Managerusername + "";
+            String Query2 = "SELECT ID , PASSWORD FROM CUSTOMER WHERE ID = '" + usernameTextField.getText() + "'";
 
-            String Query1 = "SELECT MNAGERID , PASSWORD FROM MANAGER WHERE MNAGERID" +
-                    " = " + Managerusername + "";
             ResultSet rs = stm.executeQuery(Query1);
+
             while (rs.next()) {
-                if (usernameTextField.getText().equals(rs.getString(1)) &&  passwordTextField.getText().equals(rs.getString(2))) {
-                     flag = 1; // for manager
+                if (usernameTextField.getText().equals(rs.getString(1)) && passwordTextField.getText().equals(rs.getString(2))) {
+                    flag = 1; // for manager
                     Managerusername = rs.getInt(1);
                     password = rs.getString(2);
+                    //JOptionPane.showMessageDialog(null, "Truee");
                 }
             }
+
+            rs = stm.executeQuery(Query2);
+            while (rs.next()) {
+                if (usernameTextField.getText().equals(rs.getString(1)) && passwordTextField.getText().equals(rs.getString(2))) {
+                    flag = 2; // for Customer
+                    username = rs.getString(1);
+                    password = rs.getString(2);
+
+                }
+            }
+
             if (flag == 1) {
                 //JOptionPane.showMessageDialog(null, "Truee1");
                 Stage stage = (Stage) LoginPane.getScene().getWindow();
@@ -99,32 +104,64 @@ public class LoginController {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/HomePage.fxml"));
                 Parent root = loader.load();
                 HomePage ref = loader.getController();
-//                ref.managerid = Managerusername;
-                Stage stage1 = (Stage)((Node)event.getSource()).getScene().getWindow();
+                ref.managerid = Managerusername;
+//                ref.Date();
+                Stage stage1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 Scene scene1 = new Scene(root);
                 stage1.setScene(scene1);
                 stage1.setResizable(false);
                 stage1.show();
 
-
-
-
+            } else if (flag == 2) {
+                Stage stage = (Stage) LoginPane.getScene().getWindow();
+                stage.close();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/HomePage.fxml"));
+                Parent root = loader.load();
+//                T_TeacherPageController ref = loader.getController();
+//                ref.username = username;
+//                ref.welcome();
+//                ref.initi();
+                Stage stage1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                Scene scene1 = new Scene(root);
+                stage1.setScene(scene1);
+                stage1.setResizable(false);
+                stage1.show();
+//
+//
+//            }
+//
+//            else {
+////
+////                InputStream in = new FileInputStream (new File ("Test.jrxml"));
+////                JasperDesign j = JRXmlLoader.load(in) ;
+////                JasperReport jr = JasperCompileManager.compileReport(j);
+////                JasperPrint jp = JasperFillManager.fillReport(jr , null , conn) ;
+////                JRDesignQuery query = new JRDesignQuery();
+////                query.setText("""
+////                              SELECT "STUDENT"."STUDENTID",
+////                              \t"STUDENT"."FIRSTNAME"
+////                              FROM "STUDENT"
+////                              WHERE
+////                              \t "STUDENT"."STUDENTID" = '9S'""");
+////                j.setQuery(query);
+////                OutputStream out = new FileOutputStream (new File ("Output11141.pdf"));
+////                JasperExportManager.exportReportToPdfStream(jp, out);
+////                out.close();
+////                in.close();
+//                label.setText("Wrong Password Or User Name!!");
+//                new animatefx.animation.Flash(UserNameTextField).play();
+//                new animatefx.animation.Flash(PasswordTextField).play();
+//            }
             }
-            else{
-
-                wrongMessage.setText("Username or Password is Incorrect");
-            }
-
 
         }
-
-
     }
-
-
-
-
-
-
-
 }
+
+
+
+
+
+
+
+

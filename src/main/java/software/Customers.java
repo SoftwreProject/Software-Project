@@ -18,65 +18,56 @@ public class Customers {
 
     public Customers () {}
 
-    public Customers(SimpleStringProperty id, SimpleStringProperty name, SimpleStringProperty phone, SimpleStringProperty address, SimpleStringProperty city, SimpleStringProperty street) {
-        this.id = id;
-        this.name = name;
-        this.phone = phone;
-        this.address = address;
-        this.city = city;
-        this.street = street;
+    public Customers(String id, String name, String phone, String address, String city, String street , String email) {
+        this.id = new SimpleStringProperty(id);
+        this.name =new SimpleStringProperty(name);
+        this.phone =new SimpleStringProperty(phone);
+        this.address = new SimpleStringProperty(address);
+        this.city =new SimpleStringProperty(city);
+        this.street =new SimpleStringProperty(street);
+        this.email = new SimpleStringProperty(email);
     }
-    public void setId(SimpleStringProperty id) {
-        this.id = id;
+    public void setId(String id) {
+        this.id = new SimpleStringProperty(id);
     }
-
-    public void setEmail(SimpleStringProperty email) {this.email = email;}
-
-    public SimpleStringProperty getId() {
-        return id;
+    public void setEmail(String email) {this.email = new SimpleStringProperty(email);}
+    public String getId() {
+        return id.get();
     }
-
-    public void setName(SimpleStringProperty name) {
-        this.name = name;
+    public void setName(String name) {
+        this.name = new SimpleStringProperty(name);
     }
-
-    public void setPhone(SimpleStringProperty phone) {
-        this.phone = phone;
+    public void setPhone(String phone) {
+        this.phone = new SimpleStringProperty(phone);
     }
-
-    public void setAddress(SimpleStringProperty address) {
-        this.address = address;
+    public void setAddress(String address) {
+        this.address = new SimpleStringProperty(address);
     }
-
-    public void setCity(SimpleStringProperty city) {
-        this.city = city;
+    public void setCity(String city) {
+        this.city = new SimpleStringProperty(city);
     }
-
-    public void setStreet(SimpleStringProperty street) {
-        this.street = street;
+    public void setStreet(String street) {
+        this.street = new SimpleStringProperty(street);
+    }
+    public String getName() {
+        return name.get();
     }
 
-
-
-    public SimpleStringProperty getName() {
-        return name;
+    public String getPhone() {
+        return phone.get();
     }
 
-    public SimpleStringProperty getPhone() {
-        return phone;
+    public String getAddress() {
+        return address.get();
     }
 
-    public SimpleStringProperty getAddress() {
-        return address;
+    public String getCity() {
+        return city.get();
     }
 
-    public SimpleStringProperty getCity() {
-        return city;
+    public String getStreet() {
+        return street.get();
     }
-
-    public SimpleStringProperty getStreet() {
-        return street;
-    }
-    public SimpleStringProperty getEmail () {return email;}
+    public String getEmail () {return email.get();}
 
 }
