@@ -85,20 +85,14 @@ public class HomePage {
 
     }
     @FXML
-    void Add(ActionEvent event) {
-
-
+    void Add(ActionEvent event) throws Exception {
+        loadpage("/AddAll");
     }
 
     @FXML
     void ViewAll(ActionEvent event) throws Exception {
         loadpage("/ViewAll");
     }
-
-
-
-
-
     private void loadpage (String page) throws Exception
     {
         Parent root = null ;
