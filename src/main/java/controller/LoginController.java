@@ -126,32 +126,6 @@ public class LoginController {
                 stage1.setScene(scene1);
                 stage1.setResizable(false);
                 stage1.show();
-//
-//
-//            }
-//
-//            else {
-////
-////                InputStream in = new FileInputStream (new File ("Test.jrxml"));
-////                JasperDesign j = JRXmlLoader.load(in) ;
-////                JasperReport jr = JasperCompileManager.compileReport(j);
-////                JasperPrint jp = JasperFillManager.fillReport(jr , null , conn) ;
-////                JRDesignQuery query = new JRDesignQuery();
-////                query.setText("""
-////                              SELECT "STUDENT"."STUDENTID",
-////                              \t"STUDENT"."FIRSTNAME"
-////                              FROM "STUDENT"
-////                              WHERE
-////                              \t "STUDENT"."STUDENTID" = '9S'""");
-////                j.setQuery(query);
-////                OutputStream out = new FileOutputStream (new File ("Output11141.pdf"));
-////                JasperExportManager.exportReportToPdfStream(jp, out);
-////                out.close();
-////                in.close();
-//                label.setText("Wrong Password Or User Name!!");
-//                new animatefx.animation.Flash(UserNameTextField).play();
-//                new animatefx.animation.Flash(PasswordTextField).play();
-//            }
             }
 
         }
