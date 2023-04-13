@@ -1,5 +1,6 @@
 package software;
 
+import controller.LoginController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,10 +12,9 @@ import java.util.Scanner;
 public class Login extends Application {
 
 
-
+    LoginController ref = new LoginController();
     @Override
     public void start(Stage stage) throws Exception {
-
         Parent root = FXMLLoader.load(getClass().getResource("/login.fxml"));
         stage.setTitle("Cleaning Services ");
         stage.setScene(new Scene(root, 770, 561));
