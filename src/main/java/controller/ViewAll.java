@@ -82,7 +82,6 @@ public class ViewAll implements Initializable {
 
         // for Product
         ProductID.setCellValueFactory(new PropertyValueFactory<>("Id"));
-        ProductName.setCellValueFactory(new PropertyValueFactory<>("Name"));
         ProductCategory.setCellValueFactory(new PropertyValueFactory<>("Category"));
         ProductHigh.setCellValueFactory(new PropertyValueFactory<>("High"));
         ProductWidth.setCellValueFactory(new PropertyValueFactory<>("Width"));
@@ -118,7 +117,7 @@ public class ViewAll implements Initializable {
             rs = st.executeQuery(query);
             while(rs.next())
             {
-                Product s1 = new Product(rs.getString(1) ,rs.getString(2) , rs.getString(3) , rs.getString(4) , rs.getString(5), rs.getString(6) );
+                Product s1 = new Product(rs.getString(1) ,rs.getString(2) , rs.getString(3) , rs.getString(4) , rs.getString(5));
                 ProductTable.getItems().add(s1);
             }
 
@@ -131,19 +130,5 @@ public class ViewAll implements Initializable {
 
     }
 
-    public void  Sql (String s) throws SQLException {
-        OracleDataSource orc = new OracleDataSource ();
-        orc.setURL("jdbc:oracle:thin:@localhost:1521:orcl");
-        orc.setUser("software");
-        orc.setPassword("123123");
-        Connection conn = orc.getConnection();
-        Statement st = conn.createStatement();
-        ResultSet rs = st.executeQuery(s);
-        workerTable.getItems().clear();
-        while(rs.next())
-        {
-            Worker s1 = new Worker(rs.getString(1) ,rs.getString(2) , rs.getString(3) , rs.getString(4) , rs.getString(5));
-            workerTable.getItems().add(s1);
-        }
-    }
+
 }

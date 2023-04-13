@@ -39,17 +39,16 @@
       <TextField fx:id="CustomerStreet" layoutX="189.0" layoutY="417.0" prefHeight="35.0" prefWidth="144.0" promptText="Street" style="-fx-border-width: 0 0 3 0; -fx-background-color: #000000; -fx-border-color: #fac355; -fx-text-inner-color: white;" />
       <TextField fx:id="EmailCustomer" layoutX="339.0" layoutY="417.0" prefHeight="35.0" prefWidth="144.0" promptText="Email" style="-fx-border-width: 0 0 3 0; -fx-background-color: #000000; -fx-border-color: #fac355; -fx-text-inner-color: white;" />
       <TextField fx:id="CustomerPassword" layoutX="489.0" layoutY="417.0" prefHeight="35.0" prefWidth="144.0" promptText="Password" style="-fx-border-width: 0 0 3 0; -fx-background-color: #000000; -fx-border-color: #fac355; -fx-text-inner-color: white;" />
-      <Label layoutX="12.0" layoutY="481.0" prefHeight="39.0" prefWidth="130.0" text="Add Product:">
+      <Label layoutX="12.0" layoutY="472.0" prefHeight="39.0" prefWidth="130.0" text="Add Product:">
          <font>
             <Font name="Cambria Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="ProductID" layoutX="6.0" layoutY="535.0" prefHeight="35.0" prefWidth="144.0" promptText="ID" style="-fx-border-width: 0 0 3 0; -fx-background-color: #000000; -fx-border-color: #fac355; -fx-text-inner-color: white;" />
-      <TextField fx:id="ProductName" layoutX="156.0" layoutY="534.0" prefHeight="35.0" prefWidth="144.0" promptText="Name" style="-fx-border-width: 0 0 3 0; -fx-background-color: #000000; -fx-border-color: #fac355; -fx-text-inner-color: white;" />
-      <TextField fx:id="ProductHigh" layoutX="306.0" layoutY="535.0" prefHeight="35.0" prefWidth="144.0" promptText="High" style="-fx-border-width: 0 0 3 0; -fx-background-color: #000000; -fx-border-color: #fac355; -fx-text-inner-color: white;" />
-      <TextField fx:id="ProductWidth" layoutX="456.0" layoutY="535.0" prefHeight="35.0" prefWidth="144.0" promptText="Width" style="-fx-border-width: 0 0 3 0; -fx-background-color: #000000; -fx-border-color: #fac355; -fx-text-inner-color: white;" />
-      <TextField fx:id="ProductOwner" layoutX="606.0" layoutY="535.0" prefHeight="35.0" prefWidth="156.0" promptText="Owner" style="-fx-border-width: 0 0 3 0; -fx-background-color: #000000; -fx-border-color: #fac355; -fx-text-inner-color: white;" />
-      <JFXRadioButton fx:id="CoversRadiButton" layoutX="290.0" layoutY="597.0" text="Covers">
+      <TextField fx:id="ProductID" layoutX="11.0" layoutY="518.0" prefHeight="35.0" prefWidth="144.0" promptText="ID" style="-fx-border-width: 0 0 3 0; -fx-background-color: #000000; -fx-border-color: #fac355; -fx-text-inner-color: white;" />
+      <TextField fx:id="ProductHigh" layoutX="162.0" layoutY="518.0" prefHeight="35.0" prefWidth="144.0" promptText="High" style="-fx-border-width: 0 0 3 0; -fx-background-color: #000000; -fx-border-color: #fac355; -fx-text-inner-color: white;" />
+      <TextField fx:id="ProductWidth" layoutX="162.0" layoutY="562.0" prefHeight="35.0" prefWidth="144.0" promptText="Width" style="-fx-border-width: 0 0 3 0; -fx-background-color: #000000; -fx-border-color: #fac355; -fx-text-inner-color: white;" />
+      <TextField fx:id="ProductOwner" layoutX="11.0" layoutY="562.0" prefHeight="35.0" prefWidth="144.0" promptText="Owner" style="-fx-border-width: 0 0 3 0; -fx-background-color: #000000; -fx-border-color: #fac355; -fx-text-inner-color: white;" />
+      <JFXRadioButton fx:id="CoversRadiButton" layoutX="19.0" layoutY="608.0" onAction="#CoversFunc" text="Covers">
          <selectedColor>
             <Color red="0.9473684430122375" green="0.9026315808296204" blue="0.2763157784938812" />
          </selectedColor>
@@ -60,7 +59,7 @@
             <ToggleGroup fx:id="toggle" />
          </toggleGroup>
       </JFXRadioButton>
-      <JFXRadioButton fx:id="CarpetsRadioButton" layoutX="418.0" layoutY="597.0" text="Carpets" toggleGroup="$toggle">
+      <JFXRadioButton fx:id="CarpetsRadioButton" layoutX="154.0" layoutY="608.0" onAction="#CarpetFunc" text="Carpets" toggleGroup="$toggle">
          <selectedColor>
             <Color red="0.9473684430122375" green="0.9026315808296204" blue="0.2763157784938812" />
          </selectedColor>
@@ -100,7 +99,22 @@
             <Font name="Cambria Bold" size="18.0" />
          </font>
       </JFXRadioButton>
-      <JFXButton fx:id="Add" layoutX="700.0" layoutY="612.0" prefHeight="35.0" prefWidth="96.0" style="-fx-background-color: #fac355;" text="Add">
+      <JFXButton fx:id="Add" layoutX="411.0" layoutY="516.0" onAction="#Add" prefHeight="39.0" prefWidth="130.0" style="-fx-background-color: #fac355;" text="Add">
+         <font>
+            <Font name="Cambria Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <Label fx:id="label" layoutX="547.0" layoutY="562.0" prefHeight="35.0" prefWidth="235.0">
+         <font>
+            <Font name="Cambria Bold" size="15.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="Add1" layoutX="411.0" layoutY="560.0" onAction="#Delete" prefHeight="39.0" prefWidth="130.0" style="-fx-background-color: #fac355;" text="Delete">
+         <font>
+            <Font name="Cambria Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="Add2" layoutX="547.0" layoutY="516.0" onAction="#Update" prefHeight="39.0" prefWidth="130.0" style="-fx-background-color: #fac355;" text="Update">
          <font>
             <Font name="Cambria Bold" size="15.0" />
          </font>

@@ -10,18 +10,14 @@ public class Product {
     SimpleStringProperty width;
     SimpleStringProperty owner;
     public Product() {}
-    public Product(String id, String name, String category, String high, String width , String owner) {
+    public Product(String id, String owner,String category, String high, String width ) {
         this.id = new SimpleStringProperty(id);
-        this.name = new SimpleStringProperty(name);
         this.category = new SimpleStringProperty(category);
         this.high = new SimpleStringProperty(high);
         this.width = new SimpleStringProperty(width);
         this.owner = new SimpleStringProperty(owner);
     }
     public void setId(String id) {this.id = new SimpleStringProperty(id);}
-    public void setName(String name) {
-        this.name =new SimpleStringProperty(name);
-    }
 
     public void setCategory(String category) {
         this.category = new SimpleStringProperty(category);
@@ -36,9 +32,6 @@ public class Product {
         this.width = new SimpleStringProperty(width);
     }
     public String getId() {return id.get();}
-    public String getName() {
-        return name.get();
-    }
 
     public String getCategory() {
         return category.get();
