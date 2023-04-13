@@ -1,14 +1,18 @@
 package controller;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ResourceBundle;
 
+import animatefx.animation.FadeIn;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -18,9 +22,10 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import oracle.jdbc.pool.OracleDataSource;
 
-public class LoginController {
+public class LoginController implements Initializable {
     @FXML
     private PasswordField passwordTextField;
 
@@ -32,6 +37,8 @@ public class LoginController {
 
     @FXML
     private Pane LoginPane;
+    @FXML
+    Pane SigninPane;
 
     public LoginController() {
     }
@@ -117,10 +124,6 @@ public class LoginController {
                 stage.close();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/HomePage.fxml"));
                 Parent root = loader.load();
-//                T_TeacherPageController ref = loader.getController();
-//                ref.username = username;
-//                ref.welcome();
-//                ref.initi();
                 Stage stage1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 Scene scene1 = new Scene(root);
                 stage1.setScene(scene1);
@@ -129,6 +132,60 @@ public class LoginController {
             }
 
         }
+    }
+
+    public void SignUP(ActionEvent event) throws Exception {
+        Stage stage = (Stage) SigninPane.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/SignUp.fxml"));
+        Parent root = loader.load();
+        new animatefx.animation.ZoomIn(root).play();
+        SigninPane.getChildren().setAll(root);
+        stage.setTitle("SignUp");
+        stage.show();
+    }
+
+//    public void SignIN () throws IOException {
+//        Stage stage = (Stage) pane.getScene().getWindow();
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/LoginPage.fxml"));
+//        Parent root = loader.load();
+//        new animatefx.animation.ZoomIn(root).play();
+//        pane.getChildren().setAll(root);
+//        stage.setTitle("SignUp");
+//        stage.show();
+//    }
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+//        try {
+//            Stage stage = (Stage) pane.getScene().getWindow();
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/LoginPage.fxml"));
+//            Parent root = loader.load();
+//            //new animatefx.animation.ZoomIn(root).play();
+//            pane.getChildren().setAll(root);
+//            stage.setTitle("SignUp");
+//            stage.show();
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//        try {
+//            Stage stage = null;
+//            Scene scene = pane.getScene();
+//            if (scene != null) {
+//                stage = (Stage) scene.getWindow();
+//            } else {
+//                scene = new Scene(pane);
+//                stage = new Stage();
+//                stage.setScene(scene);
+//            }
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/LoginPage.fxml"));
+//            Parent root = loader.load();
+//            pane.getChildren().setAll(root);
+//            stage.setTitle("SignUp");
+//            stage.show();
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//
+//    }
     }
 }
 
