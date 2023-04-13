@@ -20,63 +20,26 @@ import javafx.fxml.FXML;
 
 
 public class AddWorker {
-    @FXML
-    private ResourceBundle resources;
-//
-    @FXML
-    private URL location;
-
-    @FXML
-    private TextField addressTextField;
-
-    @FXML
-    private TextField idTextField;
-
-    @FXML
-    private TextField nameTextField;
-
-    @FXML
-    private TextField phoneTextField;
-
-    @FXML
-    private TextField specializationTextField;
-
-    @FXML
-    private Button addWorkerButton;
-
-    @FXML
-    private Label confirmOperationLabel;
+    AddCustomer ref = new AddCustomer();
+    public void AddWorkers(TextField id, TextField name, TextField phone, TextField address, TextField specialization, Label label) throws SQLException {
 
 
-    public void addWorker(ActionEvent event) throws SQLException {
-        OracleDataSource orc = new OracleDataSource();
-        orc.setURL("jdbc:oracle:thin:@localhost:1521:orcl");
-        orc.setUser("software");
-        orc.setPassword("123123");
-        Connection conn = orc.getConnection();
-        Statement stm = conn.createStatement();
-
-        if(idTextField.getText().equals("") || nameTextField.getText().equals("") || phoneTextField.getText().equals("") || addressTextField.getText().equals("")|| specializationTextField.getText().equals("")){
-            confirmOperationLabel.setText("Please Fill All information About worker <3");
-        }
-        else{
-
-            String s = "insert into WORKER values ('"+idTextField.getText()+"'"+","+"'"+nameTextField.getText()+"'"+","+"'"+phoneTextField.getText()+"'"+","+"'"+addressTextField.getText()+"'"+","+"'"+specializationTextField.getText()+"')";
+        if (id.getText().equals("") || name.getText().equals("") || phone.getText().equals("") || address.getText().equals("") || specialization.getText().equals("")) {
+            label.setText("Please Fill All information About worker <3");
+        } else {
+            String s = "insert into WORKER values ('" + id.getText() + "'" + "," + "'" + name.getText() + "'" + "," + "'" + phone.getText() + "'" + "," + "'" + address.getText() + "'" + "," + "'" + specialization.getText() + "')";
             try {
-                stm.executeUpdate(s);
-                confirmOperationLabel.setText("The Worker has been added successfully");
-                idTextField.setText("");
-                nameTextField.setText("");
-                phoneTextField.setText("");
-                addressTextField.setText("");
-                specializationTextField.setText("");
-            }
-            catch (Exception ex){
+                ref.sql(s);
+                label.setText("Worker Added Successfully");
+                id.setText("");
+                name.setText("");
+                phone.setText("");
+                address.setText("");
+                specialization.setText("");
+            } catch (Exception ex) {
                 System.out.println(ex.toString());
             }
         }
+
     }
-
-
-
 }

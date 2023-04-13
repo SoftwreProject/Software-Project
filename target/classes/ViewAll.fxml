@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ViewAll">
    <children>
       <TableView fx:id="workerTable" layoutY="37.0" prefHeight="142.0" prefWidth="800.0">
          <columns>
@@ -41,12 +40,11 @@
       </Label>
       <TableView fx:id="ProductTable" layoutY="445.0" prefHeight="206.0" prefWidth="800.0">
          <columns>
-            <TableColumn fx:id="ProductID" prefWidth="134.0" text="ID" />
-            <TableColumn fx:id="ProductName" prefWidth="134.0" text="Name" />
-            <TableColumn fx:id="ProductCategory" prefWidth="134.0" text="Category" />
-            <TableColumn fx:id="ProductHigh" prefWidth="134.0" text="High" />
-            <TableColumn fx:id="ProductWidth" prefWidth="134.0" text="Width" />
-            <TableColumn fx:id="ProductOwner" prefWidth="134.0" text="Owner" />
+            <TableColumn fx:id="ProductID" prefWidth="160.0" text="ID" />
+            <TableColumn fx:id="ProductOwner" prefWidth="160.0" text="Owner" />
+            <TableColumn fx:id="ProductCategory" prefWidth="160.0" text="Category" />
+            <TableColumn fx:id="ProductWidth" prefWidth="160.0" text="Width" />
+            <TableColumn fx:id="ProductHigh" prefWidth="160.0" text="High" />
          </columns>
       </TableView>
       <Label layoutX="369.0" layoutY="423.0" text="Product">

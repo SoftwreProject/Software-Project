@@ -20,51 +20,35 @@ public class AddCustomer {
     String result;
     int flag = 0;
 
-//    @FXML
-//    private TextField nameTextField;
-//    @FXML
-//    private TextField phoneTextField;
-//    @FXML
-//    private TextField addressTextField;
-//    @FXML
-//    private TextField cityTextField;
-//    @FXML
-//    private TextField streetTextField;
-//    @FXML
-//    private Button addbutton;
-//    @FXML
-
-//    @FXML
-//    private AnchorPane anchor;
-
-    public void sql (String s){
-
-    }
-    @FXML
-    public void addcustomer(SimpleStringProperty id, SimpleStringProperty name, SimpleStringProperty phone, SimpleStringProperty address, SimpleStringProperty city, SimpleStringProperty street , SimpleStringProperty email) throws SQLException {
+    public void sql(String s) throws SQLException {
         OracleDataSource orc = new OracleDataSource();
         orc.setURL("jdbc:oracle:thin:@localhost:1521:orcl");
         orc.setUser("software");
         orc.setPassword("123123");
         Connection conn = orc.getConnection();
         Statement stm = conn.createStatement();
-        if (id.get().equals("") || name.get().equals("") || phone.get().equals("") || address.get().equals("") || city.get().equals("") || street.get().equals("") || email.get().equals("")) {
-               flag = 1;
+        stm.executeUpdate(s);
+    }
 
+    @FXML
+    public void AddCustomerTest(SimpleStringProperty id, SimpleStringProperty name, SimpleStringProperty phone, SimpleStringProperty address, SimpleStringProperty city, SimpleStringProperty street, SimpleStringProperty email, SimpleStringProperty password) throws SQLException {
+
+        if (id.get().equals("") || name.get().equals("") || phone.get().equals("") || address.get().equals("") || city.get().equals("") || street.get().equals("") || email.get().equals("") || password.get().equals("")) {
+            flag = 1;
         } else {
-            String s = "insert into CUSTOMER values ( '" + id.get() +"','" + name.get() +"','" + phone.get() +"','" + address.get() +"','" +city.get() +"','" + street.get() +"','" + email.get() + "')";
+            String s = "insert into CUSTOMER values ( '" + id.get() + "','" + name.get() + "','" + phone.get() + "','" + address.get() + "','" + city.get() + "','" + street.get() + "','" + email.get() + "','" + street.get() + "') ";
             try {
-                stm.executeUpdate(s);
+                sql(s);
                 flag = 0;
-            }catch (Exception ex){
+            } catch (Exception ex) {
                 flag = 2;
             }
 
 
         }
     }
-    @FXML
 
+    @FXML
     public String GetResult() {
         if (flag == 1)
             result = "Please fill in all information about yourself";
@@ -74,9 +58,19 @@ public class AddCustomer {
         return result;
 
     }
-    @FXML
-    void addcustomer(ActionEvent event) {
+
+    public void AddCustomerGUI(TextField id, TextField name, TextField phone, TextField address, TextField city, TextField street, TextField email, TextField password, Label label) {
+        if (id.getText().equals("") || name.getText().equals("") || phone.getText().equals("") || address.getText().equals("") || city.getText().equals("") || street.getText().equals("") || email.getText().equals("") || password.getText().equals("")) {
+            label.setText("Please Enter All information");
+        } else {
+            String s = "insert into CUSTOMER values ( '" + id.getText() + "','" + name.getText() + "','" + phone.getText() + "','" + address.getText() + "','" + city.getText() + "','" + street.getText() + "','" + email.getText() + "','" + password.getText() + "')";
+            label.setText("Customer Added Successfully");
+            try {
+                sql(s);
+            } catch (Exception ex) {
+                System.out.println(ex);
+            }
+        }
 
     }
-
 }

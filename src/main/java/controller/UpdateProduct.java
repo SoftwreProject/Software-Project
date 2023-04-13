@@ -10,7 +10,7 @@ public class UpdateProduct {
     String result;
     int flag = 0;
     public SimpleStringProperty id;
-    public SimpleStringProperty name;
+    public SimpleStringProperty owner;
     public SimpleStringProperty category;
     public SimpleStringProperty high;
     public SimpleStringProperty width;
@@ -22,7 +22,7 @@ public class UpdateProduct {
         orc.setPassword("123123");
         Connection conn = orc.getConnection();
         Statement stm = conn.createStatement();
-        String query = "update product set name = '" + name.get() +"' , category = '" + category.get() +"' ,high =  '" + high.get() +"', " +
+        String query = "update product set name = '" + owner.get() +"' , category = '" + category.get() +"' ,high =  '" + high.get() +"', " +
                 "width = '" + width.get() +"' where id = '" +id.get()+"'";
 
         int t = stm.executeUpdate(query);

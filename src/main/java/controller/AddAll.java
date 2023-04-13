@@ -5,10 +5,12 @@ import com.jfoenix.controls.JFXRadioButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class AddAll implements Initializable {
@@ -43,8 +45,6 @@ public class AddAll implements Initializable {
     @FXML
     private TextField ProductID;
     @FXML
-    private TextField ProductName;
-    @FXML
     private TextField ProductHigh;
     @FXML
     private TextField ProductWidth;
@@ -66,6 +66,16 @@ public class AddAll implements Initializable {
     private JFXRadioButton ProductRadioButton;
     @FXML
     private JFXButton Add;
+    @FXML
+    private Label label;
+    AddWorker worker = new AddWorker();
+    AddCustomer customer = new AddCustomer();
+    AddProduct product = new AddProduct();
+    DeleteCustomer customer1 = new DeleteCustomer();
+    @FXML
+    private JFXButton Add1;
+    @FXML
+    private JFXButton Add2;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -82,8 +92,6 @@ public class AddAll implements Initializable {
         WorkerEnable(false);
         ProductEnable(true);
         Add.setDisable(false);
-
-
     }
 
     @FXML
@@ -125,7 +133,6 @@ public class AddAll implements Initializable {
 
     private void ProductEnable (boolean x) {
         ProductID.setDisable(x);
-        ProductName.setDisable(x);
         ProductHigh.setDisable(x);
         ProductWidth.setDisable(x);
         ProductOwner.setDisable(x);
@@ -134,4 +141,75 @@ public class AddAll implements Initializable {
     }
 
 
+    @FXML
+    public void Add(ActionEvent actionEvent) throws SQLException {
+        if (WorkerRadioButton.isSelected()) {
+            worker.AddWorkers(WorkerID , WorkerName , WorkerPhone , WorkerAddress ,WorkerSpecilization ,label );
+        }
+        else if (CustomerRadioButton.isSelected()) {
+            customer.AddCustomerGUI(CustomerID , CustomerName , CustoemrPhone , CustomerAddress , CustomerCity , CustomerStreet  , EmailCustomer , CustomerPassword , label);
+        }
+        else{
+            if (CoversRadiButton.isSelected()) {
+
+                product.AddProductGUI(ProductID , ProductOwner ,"Cover"  , "0" , "0"  , label);
+            }
+            else if (CarpetsRadioButton.isSelected()){
+
+                product.AddProductGUI(ProductID , ProductOwner , "Carpet" , ProductHigh.getText() , ProductWidth.getText() , label);
+            }
+
+        }
+    }
+
+    @FXML
+    public void CoversFunc(ActionEvent actionEvent) {
+        ProductHigh.setDisable(true);
+        ProductWidth.setDisable(true);
+    }
+
+    @FXML
+    public void CarpetFunc(ActionEvent actionEvent) {
+        ProductHigh.setDisable(false);
+        ProductWidth.setDisable(false);
+    }
+
+    public void SqlDelete (String x) {
+
+    }
+    @FXML
+    public void Delete(ActionEvent actionEvent) throws SQLException {
+        if (WorkerRadioButton.isSelected()) {
+            try{
+                String query = "Delete from WORKER where id = '" + WorkerID.getText()+ "'";
+                customer.sql(query);
+                label.setText("Worker Deleted Successfully");
+            }catch (Exception ex){
+                label.setText("Please Enter The ID");
+            }
+        } else if (CustomerRadioButton.isSelected()) {
+            try{
+                String query = "Delete from Customer where id = '" + CustomerID.getText() +"'";
+                customer.sql(query);
+                label.setText("Customer Deleted Successfully");
+            }catch (Exception ex){
+                label.setText("Please Enter The ID");
+            }
+
+        } else {
+            try{
+                String query = "Delete from PRODUCT where id = '" + ProductID.getText() +"'";
+                customer.sql(query);
+                label.setText("Product Deleted Successfully");
+            }catch (Exception ex){
+                label.setText("Please Enter The ID");
+            }
+
+        }
+    }
+
+    @FXML
+    public void Update(ActionEvent actionEvent) {
+
+    }
 }
