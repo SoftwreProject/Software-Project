@@ -8,12 +8,12 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ViewAll">
    <children>
-      <TableView fx:id="workerTable" layoutY="37.0" prefHeight="142.0" prefWidth="800.0">
+      <TableView fx:id="workerTable" editable="true" layoutY="37.0" prefHeight="142.0" prefWidth="800.0">
          <columns>
             <TableColumn fx:id="IDWorker" prefWidth="161.0" text="ID" />
-            <TableColumn fx:id="WorkerName" prefWidth="161.0" text="Name" />
-            <TableColumn fx:id="WorkerPhoneNumber" prefWidth="161.0" text="Phone Number" />
-            <TableColumn fx:id="WorkerAddress" prefWidth="161.0" text="Address" />
+            <TableColumn fx:id="WorkerName" onEditCommit="#UpdateWorkerName" prefWidth="161.0" text="Name" />
+            <TableColumn fx:id="WorkerPhoneNumber" onEditCommit="#UpdateWorkerPhone" prefWidth="161.0" text="Phone Number" />
+            <TableColumn fx:id="WorkerAddress" onEditCommit="#UpdateWorkerAddress" prefWidth="161.0" text="Address" />
             <TableColumn fx:id="WorkerSpecialization" prefWidth="161.0" text="Specialization" />
          </columns>
       </TableView>
@@ -22,15 +22,15 @@
             <Font name="Cambria Bold" size="18.0" />
          </font>
       </Label>
-      <TableView fx:id="CustomerTable" layoutY="215.0" prefHeight="200.0" prefWidth="800.0">
+      <TableView fx:id="CustomerTable" editable="true" layoutY="215.0" prefHeight="200.0" prefWidth="800.0">
          <columns>
             <TableColumn fx:id="CustomerID" prefWidth="112.0" text="ID" />
-            <TableColumn fx:id="CustomerName" prefWidth="112.0" text="Name" />
-            <TableColumn fx:id="CustomerPhoneNumber" prefWidth="112.0" text="Phone Number" />
-            <TableColumn fx:id="CustomerCity" prefWidth="112.0" text="City" />
-            <TableColumn fx:id="CustomerStreet" prefWidth="112.0" text="Street" />
-            <TableColumn fx:id="CustomerAddress" prefWidth="112.0" text="Address" />
-            <TableColumn fx:id="CustomerEmail" prefWidth="132.0" text="Email" />
+            <TableColumn fx:id="CustomerName" onEditCommit="#UpdateCustomerName" prefWidth="112.0" text="Name" />
+            <TableColumn fx:id="CustomerPhoneNumber" onEditCommit="#UpdateCustomerPhone" prefWidth="112.0" text="Phone Number" />
+            <TableColumn fx:id="CustomerCity" onEditCommit="#UpdateCustomerCity" prefWidth="112.0" text="City" />
+            <TableColumn fx:id="CustomerStreet" onEditCommit="#UpdateCustomerStreet" prefWidth="112.0" text="Street" />
+            <TableColumn fx:id="CustomerAddress" onEditCommit="#UpdateCustomerAddress" prefWidth="112.0" text="Address" />
+            <TableColumn fx:id="CustomerEmail" onEditCommit="#UpdateCustomerEmail" prefWidth="132.0" text="Email" />
          </columns>
       </TableView>
       <Label layoutX="358.0" layoutY="193.0" text="Customers">
@@ -38,13 +38,13 @@
             <Font name="Cambria Bold" size="18.0" />
          </font>
       </Label>
-      <TableView fx:id="ProductTable" layoutY="445.0" prefHeight="206.0" prefWidth="800.0">
+      <TableView fx:id="ProductTable" editable="true" layoutY="445.0" prefHeight="206.0" prefWidth="800.0">
          <columns>
             <TableColumn fx:id="ProductID" prefWidth="160.0" text="ID" />
             <TableColumn fx:id="ProductOwner" prefWidth="160.0" text="Owner" />
-            <TableColumn fx:id="ProductCategory" prefWidth="160.0" text="Category" />
-            <TableColumn fx:id="ProductWidth" prefWidth="160.0" text="Width" />
-            <TableColumn fx:id="ProductHigh" prefWidth="160.0" text="High" />
+            <TableColumn fx:id="ProductCategory" onEditCommit="#UpdateProductCategory" prefWidth="160.0" text="Category" />
+            <TableColumn fx:id="ProductWidth" onEditCommit="#UpdateProductWidth" prefWidth="160.0" text="Width" />
+            <TableColumn fx:id="ProductHigh" onEditCommit="#UpdateProductHigh" prefWidth="160.0" text="High" />
          </columns>
       </TableView>
       <Label layoutX="369.0" layoutY="423.0" text="Product">
