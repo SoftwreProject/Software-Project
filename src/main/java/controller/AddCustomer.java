@@ -36,7 +36,7 @@ public class AddCustomer {
         if (id.get().equals("") || name.get().equals("") || phone.get().equals("") || address.get().equals("") || city.get().equals("") || street.get().equals("") || email.get().equals("") || password.get().equals("")) {
             flag = 1;
         } else {
-            String s = "insert into CUSTOMER values ( '" + id.get() + "','" + name.get() + "','" + phone.get() + "','" + address.get() + "','" + city.get() + "','" + street.get() + "','" + email.get() + "','" + street.get() + "') ";
+            String s = "insert into CUSTOMER values ( '" + id.get() + "','" + name.get() + "','" + phone.get() + "','" + address.get() + "','" + city.get() + "','" + street.get() + "','" + email.get() + "','" + password.get() + "') ";
             try {
                 sql(s);
                 flag = 0;
