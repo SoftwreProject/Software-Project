@@ -106,7 +106,7 @@ public class LoginController implements Initializable {
 
             if (flag == 1) {
                 //JOptionPane.showMessageDialog(null, "Truee1");
-                Stage stage = (Stage) LoginPane.getScene().getWindow();
+                Stage stage = (Stage) SigninPane.getScene().getWindow();
                 stage.close();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/HomePage.fxml"));
                 Parent root = loader.load();
@@ -120,7 +120,7 @@ public class LoginController implements Initializable {
                 stage1.show();
 
             } else if (flag == 2) {
-                Stage stage = (Stage) LoginPane.getScene().getWindow();
+                Stage stage = (Stage) SigninPane.getScene().getWindow();
                 stage.close();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/HomePage.fxml"));
                 Parent root = loader.load();
