@@ -155,11 +155,9 @@ public class AddAll implements Initializable {
         }
         else{
             if (CoversRadiButton.isSelected()) {
-
                 product.AddProductGUI(ProductID , ProductOwner ,"Cover"  , "0" , "0"  , label);
             }
             else if (CarpetsRadioButton.isSelected()){
-
                 product.AddProductGUI(ProductID , ProductOwner , "Carpet" , ProductHigh.getText() , ProductWidth.getText() , label);
             }
 
@@ -178,9 +176,7 @@ public class AddAll implements Initializable {
         ProductWidth.setDisable(false);
     }
 
-    public void SqlDelete (String x) {
 
-    }
     @FXML
     public void Delete(ActionEvent actionEvent) throws SQLException {
         if (WorkerRadioButton.isSelected()) {
@@ -212,8 +208,4 @@ public class AddAll implements Initializable {
         }
     }
 
-    @FXML
-    public void Update(ActionEvent actionEvent) {
-
-    }
 }

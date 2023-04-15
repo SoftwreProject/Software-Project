@@ -14,7 +14,7 @@ public class UpdateProductSteps {
     String result;
     @When("you type in {string} ,{string}, {string}, {string}, {string}")
     public void youTypeIn(String arg0, String arg1, String arg2, String arg3, String arg4) throws SQLException {
-    ref.name = new SimpleStringProperty(arg1);
+    ref.owner = new SimpleStringProperty(arg1);
     ref.category = new SimpleStringProperty(arg2);
     ref.high = new SimpleStringProperty(arg3);
     ref.width = new SimpleStringProperty(arg4);
