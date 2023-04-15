@@ -4,7 +4,6 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class Product {
     SimpleStringProperty id;
-    SimpleStringProperty name ;
     SimpleStringProperty category;
     SimpleStringProperty high;
     SimpleStringProperty width;

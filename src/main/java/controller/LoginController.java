@@ -39,6 +39,7 @@ public class LoginController implements Initializable {
     private Pane LoginPane;
     @FXML
     Pane SigninPane;
+    CustomerHomePage ref = new CustomerHomePage();
 
     public LoginController() {
     }
@@ -122,8 +123,12 @@ public class LoginController implements Initializable {
             } else if (flag == 2) {
                 Stage stage = (Stage) SigninPane.getScene().getWindow();
                 stage.close();
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/HomePage.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/CustomerHomePage.fxml"));
                 Parent root = loader.load();
+                CustomerHomePage ref = loader.getController();
+                ref.id = username; // to pass the username to next page;
+                ref.SetName();
+                ref.SetDate();
                 Stage stage1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 Scene scene1 = new Scene(root);
                 stage1.setScene(scene1);
