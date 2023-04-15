@@ -8,6 +8,8 @@ import oracle.jdbc.datasource.impl.OracleDataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class AddProduct {
     String result;
@@ -47,18 +49,31 @@ public class AddProduct {
     }
 
     public void AddProductGUI(TextField id, TextField owner, String category, String high, String width, Label label) {
+        String s = null;
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        Date date = new Date();
         if (id.getText().equals("") || owner.getText().equals("") || category.isEmpty() ||
                 high.equals("") || width.equals("")) {
             label.setText("Please Fill All Informations");
 
         } else {
-            String s = "insert into product values ( '" + id.getText() + "','" + owner.getText() + "','" + category
-                    + "','" + high+ "','" + width+ "')";
-            label.setText("Product Added Successfully");
+            if (category.equals("Cover")) {
+                 s = "insert into product values ( '" + id.getText() + "','" + owner.getText() + "','" + category
+                        + "','" + high + "','" + width + "','" + formatter.format(date) + "','" + "Waiting" + "','" + "25" + "')";
+                label.setText("Product Added Successfully");
+
+            }
+            else if (category.equals("Carpet")){
+                int price = Integer.parseInt(high) * Integer.parseInt(width) * 4;
+                 s = "insert into product values ( '" + id.getText() + "','" + owner.getText() + "','" + category
+                        + "','" + high + "','" + width + "','" + formatter.format(date) + "','" + "Waiting" + "','" + price + "')";
+                label.setText("Product Added Successfully");
+
+            }
             try {
                 ref.sql(s);
             } catch (Exception ex) {
-//                label.setText("Check The Owner ID");
+                label.setText("Check The Owner ID or Enter new ID ofr product");
                 System.out.println(ex);
             }
         }

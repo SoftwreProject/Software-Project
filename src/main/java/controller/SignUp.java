@@ -70,13 +70,7 @@ public class SignUp {
     }
     public boolean ShowID(String id) throws SQLException {
         String query = "SELECT ID FROM Customer";
-        OracleDataSource orc = new OracleDataSource();
-        orc.setURL("jdbc:oracle:thin:@localhost:1521:orcl");
-        orc.setUser("software");
-        orc.setPassword("123123");
-        Connection conn = orc.getConnection();
-        Statement st = conn.createStatement();
-        ResultSet rs = st.executeQuery(query);
+        ResultSet rs =  sql(query);
         while (rs.next()){
             if (id.equals(rs.getString(1)));
             return true;
@@ -92,5 +86,15 @@ public class SignUp {
         SignUpStreet.setText("");
         SignUpEmail.setText("");
         SignUpPassword.setText("");
+    }
+    public ResultSet sql(String x) throws SQLException {
+        OracleDataSource orc = new OracleDataSource();
+        orc.setURL("jdbc:oracle:thin:@localhost:1521:orcl");
+        orc.setUser("software");
+        orc.setPassword("123123");
+        Connection conn = orc.getConnection();
+        Statement st = conn.createStatement();
+        ResultSet rs = st.executeQuery(x);
+        return rs;
     }
 }

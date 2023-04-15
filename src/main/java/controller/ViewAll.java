@@ -62,7 +62,7 @@ public class ViewAll implements Initializable {
     private TableColumn<Product , String> ProductWidth;
     @FXML
     private TableColumn<Product , String> ProductOwner;
-
+    SignUp ref1 = new SignUp();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // for Worker
@@ -73,7 +73,7 @@ public class ViewAll implements Initializable {
         WorkerSpecialization.setCellValueFactory(new PropertyValueFactory<>("Specialization"));
 
         // for Customer
-        CustomerID.setCellValueFactory(new PropertyValueFactory<>("Id"));
+        CustomerID.setCellValueFactory(new PropertyValueFactory<>("ID"));
         CustomerName.setCellValueFactory(new PropertyValueFactory<>("Name"));
         CustomerPhoneNumber.setCellValueFactory(new PropertyValueFactory<>("Phone"));
         CustomerCity.setCellValueFactory(new PropertyValueFactory<>("City"));
@@ -110,13 +110,7 @@ public class ViewAll implements Initializable {
 
         try {
             String query = "SELECT * FROM Worker";
-            OracleDataSource orc = new OracleDataSource();
-            orc.setURL("jdbc:oracle:thin:@localhost:1521:orcl");
-            orc.setUser("software");
-            orc.setPassword("123123");
-            Connection conn = orc.getConnection();
-            Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery(query);
+            ResultSet rs = ref1.sql(query);
             workerTable.getItems().clear();
             // Workers
             while(rs.next())
@@ -126,7 +120,7 @@ public class ViewAll implements Initializable {
             }
             // Customers
             query = "SELECT * FROM CUSTOMER";
-            rs = st.executeQuery(query);
+            rs = ref1.sql(query);
             while(rs.next())
             {
                 Customers s1 = new Customers(rs.getString(1) ,rs.getString(2) , rs.getString(3) , rs.getString(4) , rs.getString(5), rs.getString(6) , rs.getString(7));
@@ -134,7 +128,7 @@ public class ViewAll implements Initializable {
             }
 
             query = "SELECT * FROM PRODUCT";
-            rs = st.executeQuery(query);
+            rs = ref1.sql(query);
             while(rs.next())
             {
                 Product s1 = new Product(rs.getString(1) ,rs.getString(2) , rs.getString(3) , rs.getString(4) , rs.getString(5));

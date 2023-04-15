@@ -83,6 +83,7 @@ public class AddAll implements Initializable {
         WorkerEnable(true);
         ProductEnable(true);
         Add.setDisable(true);
+        Add1.setDisable(true);
     }
 
 
@@ -92,6 +93,7 @@ public class AddAll implements Initializable {
         WorkerEnable(false);
         ProductEnable(true);
         Add.setDisable(false);
+        Add1.setDisable(false);
     }
 
     @FXML
@@ -100,6 +102,7 @@ public class AddAll implements Initializable {
         WorkerEnable(true);
         ProductEnable(true);
         Add.setDisable(false);
+        Add1.setDisable(false);
     }
 
 
@@ -110,6 +113,7 @@ public class AddAll implements Initializable {
         WorkerEnable(true);
         ProductEnable(false);
         Add.setDisable(false);
+        Add1.setDisable(false);
     }
 
     public void WorkerEnable (boolean x ) {
