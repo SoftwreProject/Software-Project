@@ -4,6 +4,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import oracle.jdbc.datasource.impl.OracleDataSource;
+import software.Customers;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -16,7 +17,7 @@ public class AddProduct {
     int flag;
 
     AddCustomer ref = new AddCustomer();
-
+    CustomerHomePage customerHomePage = new CustomerHomePage();
     public void AddProduct(SimpleStringProperty id, SimpleStringProperty owner, SimpleStringProperty category, SimpleStringProperty high, SimpleStringProperty width) throws SQLException {
 
         if (id.get().equals("") || owner.get().equals("") || category.get().equals("") ||
@@ -72,10 +73,21 @@ public class AddProduct {
             }
             try {
                 ref.sql(s);
+                s = "Select Sum(TotalPrice) from Product where owner = '" + owner.getText() +"'";
+               int x = customerHomePage.getCount(s);
+               s = "Update Customer " +
+                       "Set TotalPrice = '" + x +"' " +
+                       "Where id = '" +owner.getText()+"'";
+               ref.sql(s);
+
+
             } catch (Exception ex) {
                 label.setText("Check The Owner ID or Enter new ID ofr product");
                 System.out.println(ex);
             }
         }
+    }
+    public void ClearTextField() {
+
     }
 }

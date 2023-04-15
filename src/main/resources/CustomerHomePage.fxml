@@ -20,7 +20,7 @@
          </font>
       </Label>
       <Line endX="581.0" layoutX="105.0" layoutY="57.0" startX="-105.0" stroke="#c7dd1c" />
-      <Label fx:id="TodyDate" layoutX="499.0" layoutY="14.0" prefHeight="29.0" prefWidth="173.0">
+      <Label fx:id="TodyDate" layoutX="485.0" layoutY="14.0" prefHeight="29.0" prefWidth="195.0">
          <font>
             <Font name="Cambria Bold" size="18.0" />
          </font>
@@ -61,19 +61,28 @@
             <Font name="Cambria Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="TotalPriceTextField" layoutX="133.0" layoutY="309.0" prefHeight="25.0" prefWidth="173.0" />
+      <TextField fx:id="TotalPriceTextField" layoutX="133.0" layoutY="309.0" prefHeight="25.0" prefWidth="173.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></TextField>
       <Label layoutX="14.0" layoutY="262.0" prefHeight="29.0" prefWidth="128.0" text="# Of Product">
          <font>
             <Font name="Cambria Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="NumberOfProduct" layoutX="133.0" layoutY="264.0" prefHeight="25.0" prefWidth="173.0" />
+      <TextField fx:id="NumberOfProduct" layoutX="133.0" layoutY="264.0" prefHeight="25.0" prefWidth="173.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></TextField>
       <Label layoutX="14.0" layoutY="355.0" prefHeight="29.0" prefWidth="128.0" text="You Paid:">
          <font>
             <Font name="Cambria Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="YouPaid" layoutX="133.0" layoutY="357.0" prefHeight="25.0" prefWidth="173.0" />
+      <TextField fx:id="YouPaid" layoutX="133.0" layoutY="357.0" prefHeight="25.0" prefWidth="173.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></TextField>
       <Label layoutX="14.0" layoutY="452.0" prefHeight="29.0" prefWidth="128.0" text="The Rest">
          <font>
             <Font name="Cambria Bold" size="18.0" />
@@ -84,6 +93,14 @@
             <Font name="Cambria Bold" size="19.0" />
          </font>
       </JFXButton>
-      <TextField fx:id="TheRest" layoutX="133.0" layoutY="452.0" prefHeight="29.0" prefWidth="173.0" />
+      <TextField fx:id="TheRest" layoutX="133.0" layoutY="452.0" prefHeight="29.0" prefWidth="173.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></TextField>
+      <Label fx:id="label" layoutX="312.0" layoutY="310.0" prefHeight="29.0" prefWidth="371.0">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

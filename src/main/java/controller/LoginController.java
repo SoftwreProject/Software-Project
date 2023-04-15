@@ -75,8 +75,8 @@ public class LoginController implements Initializable {
             wrongMessage.setText("Empty UserName!!");
         } else {
             wrongMessage.setText("");
-            usernameTextField.setStyle("-fx-background-color: #000000 ; -fx-border-width:0 0 2 0 ; -fx-border-color : #fac355");
-            passwordTextField.setStyle("-fx-background-color: #000000 ; -fx-border-width:0 0 2 0 ; -fx-border-color : #fac355");
+            usernameTextField.setStyle("-fx-background-color: #000000 ; -fx-border-width:0 0 2 0 ; -fx-border-color : #fac355 ;-fx-text-inner-color: white ");
+            passwordTextField.setStyle("-fx-background-color: #000000 ; -fx-border-width:0 0 2 0 ; -fx-border-color : #fac355; -fx-text-inner-color: white");
             try {
                 Managerusername = Integer.parseInt(usernameTextField.getText());
             } catch (Exception ex) {
@@ -134,6 +134,11 @@ public class LoginController implements Initializable {
                 stage1.setScene(scene1);
                 stage1.setResizable(false);
                 stage1.show();
+            }
+            else {
+                new animatefx.animation.Flash(usernameTextField).play();
+                new animatefx.animation.Flash(passwordTextField).play();
+                wrongMessage.setText("Wrong password or username");
             }
 
         }
