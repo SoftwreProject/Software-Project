@@ -2,12 +2,17 @@ package controller;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+
+import javax.swing.*;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,6 +22,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import java.util.jar.JarOutputStream;
 
 public class CustomerHomePage implements Initializable {
     SignUp ref = new SignUp();
@@ -60,6 +66,12 @@ public class CustomerHomePage implements Initializable {
     float count;
     @FXML
     private Label label;
+    @FXML
+    private Label rest;
+    @FXML
+    private JFXButton paidbutton;
+    @FXML
+    private Pane customerpane;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -73,7 +85,7 @@ public class CustomerHomePage implements Initializable {
         NumberOfProduct.setEditable(false);
         TheRest.setEditable(false);
         TotalPriceTextField.setEditable(false);
-
+        paidbutton.setDisable(true);
     }
 
 
@@ -129,11 +141,11 @@ public class CustomerHomePage implements Initializable {
     @FXML
     public void ShowAllInformation(ActionEvent actionEvent) throws SQLException {
         ShowAll();
+        paidbutton.setDisable(false);
 
     }
     @FXML
     void Refresh(ActionEvent event) throws SQLException {
-//        String Query = "Select ID, Date " + "FROM Product " + "WHERE owner = '"+ id + "'";
         RefreshStat(id);
     }
 
@@ -200,6 +212,23 @@ public class CustomerHomePage implements Initializable {
     @FXML
     void Paid(ActionEvent event) {
 
+        float paid;
+        int sum;
+    try{
+        paid = Float.parseFloat(YouPaid.getText());
+        paid = paid - count;
+        TheRest.setText("" + paid);
+        paid*= -1;
+        String s = "Update Customer " +
+                "Set TotalPrice = '" + paid +"' " +
+                "Where id = '" +id+"'";
+        rest.setText("You have money left");
+        ref1.sql(s);
+
+
+    }catch(Exception ex) {
+        JOptionPane.showMessageDialog(null , "Please Enter a Number");
+    }
 
     }
     public int getCount(String Query) throws SQLException {
@@ -210,4 +239,21 @@ public class CustomerHomePage implements Initializable {
         return x;
     }
 
+    @FXML
+    void Logout(ActionEvent event) throws IOException {
+        Alert alert = new Alert (Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Logout");
+        alert.setHeaderText("You are about to logout?");
+        if(alert.showAndWait().get() == ButtonType.OK )
+        {
+            Stage stage = (Stage) customerpane.getScene().getWindow();
+            stage.close();
+            Parent root = FXMLLoader.load(getClass().getResource("/login.fxml"));
+            stage.setTitle("Cleaning Services");
+            stage.setScene(new Scene(root, 770, 561));
+            stage.show();
+
+
+        }
+    }
 }
