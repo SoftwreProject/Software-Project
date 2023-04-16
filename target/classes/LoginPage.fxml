@@ -16,7 +16,7 @@
    <children>
       <TextField fx:id="usernameTextField" layoutX="78.0" layoutY="152.0" prefHeight="35.0" prefWidth="218.0" promptText="Username" style="-fx-border-width: 0 0 3 0; -fx-background-color: #000000; -fx-border-color: #fac355; -fx-text-inner-color: white;" />
       <PasswordField fx:id="passwordTextField" layoutX="78.0" layoutY="213.0" prefHeight="25.0" prefWidth="218.0" promptText="Password" style="-fx-background-color: #000000; -fx-border-width: 0 0 3 0; -fx-border-color: #fac355; -fx-text-inner-color: white;" />
-      <Button layoutX="79.0" layoutY="293.0" mnemonicParsing="false" onAction="#Login" prefHeight="26.0" prefWidth="218.0" style="-fx-background-color: #fac355; -fx-background-radius: 8;" text="Login">
+      <Button layoutX="79.0" layoutY="306.0" mnemonicParsing="false" onAction="#Login" prefHeight="26.0" prefWidth="218.0" style="-fx-background-color: #fac355; -fx-background-radius: 8;" text="Login">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
@@ -57,7 +57,7 @@
             <Font name="Bell MT" size="22.0" />
          </font>
       </Hyperlink>
-      <Label fx:id="wrongMessage" alignment="CENTER" contentDisplay="CENTER" layoutX="57.0" layoutY="271.0" prefHeight="22.0" prefWidth="261.0" textFill="#f20303">
+      <Label fx:id="wrongMessage" alignment="CENTER" contentDisplay="CENTER" layoutX="57.0" layoutY="267.0" prefHeight="22.0" prefWidth="261.0" textFill="#f20303">
          <font>
             <Font name="Berlin Sans FB" size="18.0" />
          </font>

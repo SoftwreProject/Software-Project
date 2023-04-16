@@ -73,14 +73,6 @@ public class HomePage {
 
     @FXML
     void centerHomePage(ActionEvent event) throws Exception {
-//        loadpage("/HomePage");
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/HomePage.fxml"));
-//        Parent root = loader.load();
-//        AddWorker ref = loader.getController();
-//        ref.username1 = managerid;
-//        ref.Fill(managerid);
-//        Stage stage1 = (Stage)((Node)event.getSource()).getScene().getWindow();
-//        Scene scene1 = new Scene(root);
         HomePagePane.setCenter(HomePane);
 
     }
@@ -99,35 +91,4 @@ public class HomePage {
         root = FXMLLoader.load(getClass().getResource(page+".fxml"));
         HomePagePane.setCenter(root);
     }
-//    public void Date () {
-//        String name ="";
-//        try {
-//            String Query = "Select Name From Manager where Managerid = " + managerid ;
-//            OracleDataSource orc = new OracleDataSource();
-//            orc.setURL("jdbc:oracle:thin:@localhost:1521:orcl");
-//            orc.setUser("testuser");
-//            orc.setPassword("123456");
-//            Connection conn = orc.getConnection();
-//            Statement stm = conn.createStatement();
-//            ResultSet rs = stm.executeQuery(Query);
-//            while (rs.next()) {
-//                name = rs.getString(1);
-//            }
-//        } catch (SQLException ex) {
-//            Logger.getLogger(FXMLController.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//
-//        Date date = new Date();
-//        SimpleDateFormat formatter = new SimpleDateFormat("HH");
-//        int x = Integer.parseInt(formatter.format(date));
-//        if (x >=0 && x<= 12)
-//            WelcomLabel.setText("Good Morning, " + name);
-//        else if (x >=13 && x<= 17)
-//            WelcomLabel.setText("Good Afternoon, " + name);
-//        else
-//            WelcomLabel.setText("Good Evening, " + name);
-//
-//    }
-
-
 }
