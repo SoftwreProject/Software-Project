@@ -49,7 +49,7 @@ public class AddProduct {
 
     }
 
-    public void AddProductGUI(TextField id, TextField owner, String category, String high, String width, Label label) {
+    public void AddProductGUI(TextField id, TextField owner, String category, String high, String width , String worker, String status,String EndDate ,  Label label) {
         String s = null;
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         Date date = new Date();
@@ -60,14 +60,14 @@ public class AddProduct {
         } else {
             if (category.equals("Cover")) {
                  s = "insert into product values ( '" + id.getText() + "','" + owner.getText() + "','" + category
-                        + "','" + high + "','" + width + "','" + formatter.format(date) + "','" + "Waiting" + "','" + "25" + "')";
+                        + "','" + high + "','" + width + "','" + formatter.format(date) + "','" + status + "','" + "25" + "','" + EndDate + "','" + worker +"')";
                 label.setText("Product Added Successfully");
 
             }
             else if (category.equals("Carpet")){
                 int price = Integer.parseInt(high) * Integer.parseInt(width) * 4;
                  s = "insert into product values ( '" + id.getText() + "','" + owner.getText() + "','" + category
-                        + "','" + high + "','" + width + "','" + formatter.format(date) + "','" + "Waiting" + "','" + price + "')";
+                        + "','" + high + "','" + width + "','" + formatter.format(date) + "','" + status + "','" + price +"','" + EndDate+"','" + worker + "')";
                 label.setText("Product Added Successfully");
 
             }
@@ -83,6 +83,7 @@ public class AddProduct {
 
             } catch (Exception ex) {
                 label.setText("Check The Owner ID or Enter new ID ofr product");
+                new animatefx.animation.Shake(label).play();
                 System.out.println(ex);
             }
         }

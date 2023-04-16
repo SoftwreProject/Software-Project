@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXRadioButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -25,7 +26,6 @@
       <TextField fx:id="WorkerName" layoutX="168.0" layoutY="220.0" prefHeight="35.0" prefWidth="144.0" promptText="Name" style="-fx-border-width: 0 0 3 0; -fx-background-color: #000000; -fx-border-color: #fac355; -fx-text-inner-color: white;" />
       <TextField fx:id="WorkerPhone" layoutX="318.0" layoutY="220.0" prefHeight="35.0" prefWidth="144.0" promptText="Phone" style="-fx-border-width: 0 0 3 0; -fx-background-color: #000000; -fx-border-color: #fac355; -fx-text-inner-color: white;" />
       <TextField fx:id="WorkerAddress" layoutX="468.0" layoutY="220.0" prefHeight="35.0" prefWidth="144.0" promptText="Address" style="-fx-border-width: 0 0 3 0; -fx-background-color: #000000; -fx-border-color: #fac355; -fx-text-inner-color: white;" />
-      <TextField fx:id="WorkerSpecilization" layoutX="618.0" layoutY="220.0" prefHeight="35.0" prefWidth="156.0" promptText="Specialization" style="-fx-border-width: 0 0 3 0; -fx-background-color: #000000; -fx-border-color: #fac355; -fx-text-inner-color: white;" />
       <Label layoutX="18.0" layoutY="306.0" prefHeight="39.0" prefWidth="130.0" text="Add Customer:">
          <font>
             <Font name="Cambria Bold" size="18.0" />
@@ -99,20 +99,40 @@
             <Font name="Cambria Bold" size="18.0" />
          </font>
       </JFXRadioButton>
-      <JFXButton fx:id="Add" layoutX="411.0" layoutY="516.0" onAction="#Add" prefHeight="39.0" prefWidth="130.0" style="-fx-background-color: #fac355;" text="Add">
+      <JFXButton fx:id="Add" layoutX="516.0" layoutY="516.0" onAction="#Add" prefHeight="39.0" prefWidth="130.0" style="-fx-background-color: #fac355;" text="Add">
          <font>
             <Font name="Cambria Bold" size="15.0" />
          </font>
       </JFXButton>
-      <Label fx:id="label" layoutX="410.0" layoutY="562.0" prefHeight="35.0" prefWidth="263.0">
+      <Label fx:id="label" contentDisplay="CENTER" layoutX="523.0" layoutY="562.0" prefHeight="35.0" prefWidth="263.0">
          <font>
             <Font name="Cambria Bold" size="15.0" />
          </font>
       </Label>
-      <JFXButton fx:id="Add1" layoutX="547.0" layoutY="516.0" onAction="#Delete" prefHeight="39.0" prefWidth="130.0" style="-fx-background-color: #fac355;" text="Delete">
+      <JFXButton fx:id="Add1" layoutX="654.0" layoutY="516.0" onAction="#Delete" prefHeight="39.0" prefWidth="130.0" style="-fx-background-color: #fac355;" text="Delete">
          <font>
             <Font name="Cambria Bold" size="15.0" />
          </font>
       </JFXButton>
+      <JFXRadioButton fx:id="WorkerSpecCovers" layoutX="654.0" layoutY="209.0" text="Cover">
+         <selectedColor>
+            <Color red="0.9473684430122375" green="0.9026315808296204" blue="0.2763157784938812" />
+         </selectedColor>
+         <font>
+            <Font name="Cambria Bold" size="18.0" />
+         </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="Specilization" />
+         </toggleGroup>
+      </JFXRadioButton>
+      <JFXRadioButton fx:id="WorkerSpecCarpets" layoutX="654.0" layoutY="238.0" text="Carpet" toggleGroup="$Specilization">
+         <selectedColor>
+            <Color red="0.9473684430122375" green="0.9026315808296204" blue="0.2763157784938812" />
+         </selectedColor>
+         <font>
+            <Font name="Cambria Bold" size="18.0" />
+         </font>
+      </JFXRadioButton>
+      <JFXComboBox fx:id="workerCombobox" focusColor="#ffe96f" layoutX="318.0" layoutY="523.0" onAction="#SelectWorker" prefHeight="25.0" prefWidth="144.0" />
    </children>
 </Pane>

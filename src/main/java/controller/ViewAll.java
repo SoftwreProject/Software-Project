@@ -1,22 +1,18 @@
 package controller;
-
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
-import oracle.jdbc.datasource.impl.OracleDataSource;
 import software.Customers;
 import software.Product;
 import software.Worker;
-
 import java.net.URL;
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ResourceBundle;
 
 public class ViewAll implements Initializable {
@@ -110,34 +106,33 @@ public class ViewAll implements Initializable {
 
         try {
             String query = "SELECT * FROM Worker";
-            ResultSet rs = ref1.sql(query);
-            workerTable.getItems().clear();
-            // Workers
-            while(rs.next())
-            {
-                Worker s1 = new Worker(rs.getString(1) ,rs.getString(2) , rs.getString(3) , rs.getString(4) , rs.getString(5));
-                workerTable.getItems().add(s1);
-            }
+            ShowWorkerResultSet(query);
             // Customers
             query = "SELECT * FROM CUSTOMER";
-            rs = ref1.sql(query);
-            while(rs.next())
-            {
-                Customers s1 = new Customers(rs.getString(1) ,rs.getString(2) , rs.getString(3) , rs.getString(4) , rs.getString(5), rs.getString(6) , rs.getString(7));
-                CustomerTable.getItems().add(s1);
+            try{
+                ResultSet rs = ref1.sql(query);
+                while(rs.next())
+                {
+                    Customers s1 = new Customers(rs.getString(1) ,rs.getString(2) , rs.getString(3) , rs.getString(4) , rs.getString(5), rs.getString(6) , rs.getString(7));
+                    CustomerTable.getItems().add(s1);
+                }
+
+                query = "SELECT * FROM PRODUCT";
+                rs = ref1.sql(query);
+                while(rs.next())
+                {
+                    Product s1 = new Product(rs.getString(1) ,rs.getString(2) , rs.getString(3) , rs.getString(4) , rs.getString(5));
+                    ProductTable.getItems().add(s1);
+                }
+
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
             }
 
-            query = "SELECT * FROM PRODUCT";
-            rs = ref1.sql(query);
-            while(rs.next())
-            {
-                Product s1 = new Product(rs.getString(1) ,rs.getString(2) , rs.getString(3) , rs.getString(4) , rs.getString(5));
-                ProductTable.getItems().add(s1);
-            }
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        }catch (Exception ex) {
+                System.out.println(ex);
+            }
 
 
 
@@ -362,5 +357,21 @@ public class ViewAll implements Initializable {
             System.out.println(exception);
         }
 
+    }
+    @FXML
+    void AvailableWorker(ActionEvent event) throws SQLException {
+        String query = "SELECT * FROM Worker where status = 'available'";
+        ShowWorkerResultSet(query);
+    }
+    public void ShowWorkerResultSet(String query) throws SQLException {
+        ResultSet rs = ref1.sql(query);
+        workerTable.getItems().clear();
+        // Workers
+        workerTable.getItems().clear();
+        while(rs.next())
+        {
+            Worker s1 = new Worker(rs.getString(1) ,rs.getString(2) , rs.getString(3) , rs.getString(4) , rs.getString(5));
+            workerTable.getItems().add(s1);
+        }
     }
 }

@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="489.0" prefWidth="686.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CustomerHomePage">
+<Pane fx:id="customerpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="489.0" prefWidth="686.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CustomerHomePage">
    <children>
       <Label fx:id="welcome" layoutX="277.0" layoutY="14.0" prefHeight="29.0" prefWidth="173.0">
          <font>
@@ -88,7 +88,7 @@
             <Font name="Cambria Bold" size="18.0" />
          </font>
       </Label>
-      <JFXButton layoutX="133.0" layoutY="403.0" onAction="#Paid" prefHeight="35.0" prefWidth="173.0" style="-fx-background-color: #fac355;" text="Paid">
+      <JFXButton fx:id="paidbutton" layoutX="133.0" layoutY="403.0" onAction="#Paid" prefHeight="35.0" prefWidth="173.0" style="-fx-background-color: #fac355;" text="Paid">
          <font>
             <Font name="Cambria Bold" size="19.0" />
          </font>
@@ -102,5 +102,15 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
+      <Label fx:id="rest" layoutX="312.0" layoutY="452.0" prefHeight="29.0" prefWidth="217.0">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="507.0" layoutY="448.0" onAction="#Logout" prefHeight="35.0" prefWidth="173.0" style="-fx-background-color: #fac355;" text="Logout">
+         <font>
+            <Font name="Cambria Bold" size="19.0" />
+         </font>
+      </JFXButton>
    </children>
 </Pane>
