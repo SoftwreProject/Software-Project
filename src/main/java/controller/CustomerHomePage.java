@@ -86,6 +86,7 @@ public class CustomerHomePage implements Initializable {
         TheRest.setEditable(false);
         TotalPriceTextField.setEditable(false);
         paidbutton.setDisable(true);
+
     }
 
 
@@ -164,39 +165,29 @@ public class CustomerHomePage implements Initializable {
 
 
     public void RefreshStat(String id) {
-        String Query = "SELECT ID, \"DATE\" " + "FROM Product " + "WHERE owner = '"+ id + "'";
+        String Query = "SELECT ID , EndDate , Status + FROM Product " + "WHERE owner = '"+ id + "'";
         try {
             ResultSet resultSet = ref.sql(Query);
             SimpleDateFormat formatter = new SimpleDateFormat("dd");
             Date date = new Date();
             while (resultSet.next()) {
-
                 String[] DayOfDate = resultSet.getString(2).split("/");
-                int start = Integer.parseInt(DayOfDate[0]);
-                int ready = Integer.parseInt(DayOfDate[0]) + 4; // the product deadline
-                int DayDate = Integer.parseInt(formatter.format(date)); // date of today
-                if (ready <= DayDate)
+                int end = Integer.parseInt(DayOfDate[0]); // deadline
+                int today = Integer.parseInt(formatter.format(date)); // date of today
+                if (today >= end)
                 {
                     String query = "UPDATE PRODUCT " +
                             "SET STATUS = 'Complete' " +
                             "WHERE ID = '"+ resultSet.getString(1) +"'";
                     ref1.sql(query);
+                    query = "update Worker " +
+                            "set status = ' Busy' " +
+                            "where ID = '" + resultSet.getString(1) + "'";
+                    ref1.sql(query);
                     flag = 1;
                 }
-                else if (DayDate - start == 1) {
-                    String query = "UPDATE PRODUCT " +
-                            "SET STATUS = 'Waiting' " +
-                            "WHERE ID = '"+ resultSet.getString(1) +"'";
-                    ref1.sql(query);
-                    flag = 2;
-                }
-                else if (DayDate > start && DayDate < ready) {
-                    String query = "UPDATE PRODUCT " +
-                            "SET STATUS = 'In Treatment' " +
-                            "WHERE ID = '"+ resultSet.getString(1) +"'";
-                    ref1.sql(query);
-                    flag = 3;
-                }
+
+
             }
             ShowAll();
 
@@ -256,4 +247,6 @@ public class CustomerHomePage implements Initializable {
 
         }
     }
+
+
 }

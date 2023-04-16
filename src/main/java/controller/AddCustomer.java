@@ -68,7 +68,8 @@ public class AddCustomer {
             try {
                 sql(s);
             } catch (Exception ex) {
-                System.out.println(ex);
+                label.setText("Use Another ID");
+                new animatefx.animation.Shake(label).play();
             }
         }
 
