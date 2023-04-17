@@ -35,7 +35,12 @@
                   <Font name="Bookman Old Style Bold" size="16.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutY="282.0" onAction="#backToLogin" prefHeight="49.0" prefWidth="168.0" style="-fx-border-color: #2C3333; -fx-border-width: 1 0 1 0;" text="Logout" textFill="#fac355">
+            <JFXButton layoutY="332.0" onAction="#backToLogin" prefHeight="49.0" prefWidth="168.0" style="-fx-border-color: #2C3333; -fx-border-width: 1 0 1 0;" text="Logout" textFill="#fac355">
+               <font>
+                  <Font name="Bookman Old Style Bold" size="16.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutY="283.0" onAction="#openSendEmailPane" prefHeight="49.0" prefWidth="168.0" style="-fx-border-color: #2C3333; -fx-border-width: 1 0 1 0;" text="Done Product" textFill="#fac355">
                <font>
                   <Font name="Bookman Old Style Bold" size="16.0" />
                </font>

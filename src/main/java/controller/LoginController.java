@@ -119,6 +119,13 @@ public class LoginController implements Initializable {
                 stage1.setScene(scene1);
                 stage1.setResizable(false);
                 stage1.show();
+                
+
+
+
+
+
+
 
             } else if (flag == 2) {
                 Stage stage = (Stage) SigninPane.getScene().getWindow();

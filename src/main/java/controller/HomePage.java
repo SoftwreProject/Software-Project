@@ -28,55 +28,40 @@ public class HomePage {
     int managerid;
 
     @FXML
-    private BorderPane HomePagePane;
+    public BorderPane HomePagePane;
+
 
     @FXML
-    private Label ScientificStudentCount;
+    public Pane HomePane;
     @FXML
-    private Label LiteraryStudentCount;
-    @FXML
-    private Label CommercialStudentCount;
-    @FXML
-    private Label IndustrialStudentCount;
-    @FXML
-    private Label ScientificStudentCount1;
-    @FXML
-    private Label LiteraryStudentCount1;
-    @FXML
-    private Label CommercialStudentCount1;
-    @FXML
-    private Label IndustrialStudentCount1;
-    @FXML
-    private Pane HomePane;
-    @FXML
-    private Label WorkerCountLabel;
+    public Label WorkerCountLabel ;
 
     @FXML
-    private Label carpetsWorkerCountLabel;
+    public Label carpetsWorkerCountLabel;
 
     @FXML
-    private Label coverWorkerContLabel;
+    public Label coverWorkerContLabel;
 
     @FXML
-    private Label customerCountLabel;
+    public Label customerCountLabel;
 
     @FXML
-    private PieChart personChart;
+    public PieChart personChart;
 
     @FXML
-    private PieChart productChart;
+    public PieChart productChart;
 
     @FXML
-    private Label carpetProductCountLabel;
+    public Label carpetProductCountLabel;
 
     @FXML
-    private Label coverProductCountLabel;
+    public Label coverProductCountLabel;
 
     @FXML
-    private Label moneyForCarpetLabel;
+    public Label moneyForCarpetLabel;
 
     @FXML
-    private Label moneyForCoverLabels;
+    public Label moneyForCoverLabels;
 
 
 
@@ -97,8 +82,7 @@ public class HomePage {
 
         }
     }
-
-    public String getFromDatabse(String s) throws SQLException {
+    public  String getFromDatabse(String s) throws SQLException {
         oracle.jdbc.datasource.impl.OracleDataSource orc = new OracleDataSource();
         orc.setURL("jdbc:oracle:thin:@localhost:1521:orcl");
         orc.setUser("software");
@@ -114,6 +98,9 @@ public class HomePage {
         return m;
     }
 
+
+
+
     @FXML
     void centerHomePage(ActionEvent event) throws Exception {
 
@@ -127,9 +114,6 @@ public class HomePage {
         String numOfCoverProduct = "select count(ID) from product where CATEGORY = 'cover'";
         String allMoneyForCarpet = "select sum(TOTALPRICE) from Product where CATEGORY = 'carpet'";
         String allMoneyForCover = "select sum(TOTALPRICE) from Product where CATEGORY = 'cover'";
-
-
-
 
         WorkerCountLabel.setText(getFromDatabse(numOfWorker));
         customerCountLabel.setText(getFromDatabse(numOfCustomer));
@@ -164,7 +148,6 @@ public class HomePage {
         productChart.setVisible(true);
 
 
-
     }
     @FXML
     void Add(ActionEvent event) throws Exception {
@@ -175,6 +158,12 @@ public class HomePage {
     void ViewAll(ActionEvent event) throws Exception {
         loadpage("/ViewAll");
     }
+    @FXML
+    void openSendEmailPane(ActionEvent event) throws Exception {
+        loadpage("/SendEmail");
+    }
+
+
     private void loadpage (String page) throws Exception
     {
         Parent root = null ;
