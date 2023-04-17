@@ -3,6 +3,7 @@ package controller;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXRadioButton;
+import com.sun.source.tree.WhileLoopTree;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -89,7 +90,7 @@ public class AddAll implements Initializable {
     private ToggleGroup Specilization;
     SignUp ref = new SignUp();
     AddCustomer addCustomer = new AddCustomer();
-
+    String result;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         CustomerEnable(true);
@@ -267,6 +268,34 @@ public class AddAll implements Initializable {
 
     @FXML
     public void SelectWorker(ActionEvent actionEvent) {
+    }
+    public int ShowStatus(String id) throws SQLException {
+        String Query = "Select Status from product where id = '" + id +"'";
+        int flag = 0;
+        if (id.isEmpty()){
+            flag = 0;
+        }
+        else {
+            try {
+                ResultSet resultSet = ref.sql(Query);
+                while (resultSet.next()){
+                    result = resultSet.getString(1);
+                    flag = 1;
+                }
+            }catch(Exception ex){
+                flag = 2;
+            }
+        }
+        return flag;
+    }
+    public String getStatus(int flag) {
+        if (flag == 0)
+            result = "Empty ID";
+        else if (flag == 2)
+            result = "Wrong ID";
+
+        return result;
+
     }
 
 }
