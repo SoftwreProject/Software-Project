@@ -59,7 +59,7 @@ public class SignUp {
             else {
                 String s = "insert into CUSTOMER values ( '" + SignUpID.getText() + "','" + SignUpName.getText()
                         + "','" + SignUpPhoneNumber.getText() + "','" + SignUpAddress.getText() + "','" + SignUpCity.getText() +
-                        "','" + SignUpStreet.getText() + "','" + SignUpEmail.getText() + "','" + SignUpPassword.getText() + "') ";
+                        "','" + SignUpStreet.getText() + "','" + SignUpEmail.getText() + "','" + SignUpPassword.getText() + "','" + "0" +"') ";
                 ref.sql(s);
                 JOptionPane.showMessageDialog(null,"Customer Added Successfully");
                 ClearTextField();
@@ -72,8 +72,8 @@ public class SignUp {
         String query = "SELECT ID FROM Customer";
         ResultSet rs =  sql(query);
         while (rs.next()){
-            if (id.equals(rs.getString(1)));
-            return true;
+            if (id.equals(rs.getString(1)))
+                return true;
         }
         return false;
     }

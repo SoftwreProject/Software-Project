@@ -46,6 +46,7 @@ public class LoginController implements Initializable {
 
 
     public void Login(ActionEvent event) throws Exception {
+        int flag1;
         int flag = 0;
         int Managerusername = 0;
         OracleDataSource orc = new OracleDataSource();
@@ -63,23 +64,28 @@ public class LoginController implements Initializable {
             new animatefx.animation.Shake(usernameTextField).play();
             new animatefx.animation.Shake(passwordTextField).play();
             wrongMessage.setText("Empty UserName and Password!!");
+            flag1 = 2;
         } else if (!username.equals("") && password.equals("")) {
             usernameTextField.setStyle("-fx-background-color:  #000000 ; -fx-border-width:0 0 2 0 ; -fx-border-color :#fac355 ; -fx-text-inner-color: white ");
             passwordTextField.setStyle("-fx-background-color:  #000000 ; -fx-border-width:0 0 2 0 ; -fx-border-color : red ; -fx-text-inner-color: white");
             new animatefx.animation.Shake(passwordTextField).play();
             wrongMessage.setText("Empty Password!!");
+            flag1 = 2;
         } else if (username.equals("") && !password.equals("")) {
             usernameTextField.setStyle("-fx-background-color: #000000 ; -fx-border-width:0 0 2 0 ; -fx-border-color : red ; -fx-text-inner-color: white");
             passwordTextField.setStyle("-fx-background-color: #000000 ; -fx-border-width:0 0 2 0 ; -fx-border-color :  #fac355 ; -fx-text-inner-color: white");
             new animatefx.animation.Shake(usernameTextField).play();
             wrongMessage.setText("Empty UserName!!");
+            flag1 = 2;
         } else {
+
             wrongMessage.setText("");
             usernameTextField.setStyle("-fx-background-color: #000000 ; -fx-border-width:0 0 2 0 ; -fx-border-color : #fac355 ;-fx-text-inner-color: white ");
             passwordTextField.setStyle("-fx-background-color: #000000 ; -fx-border-width:0 0 2 0 ; -fx-border-color : #fac355; -fx-text-inner-color: white");
             try {
                 Managerusername = Integer.parseInt(usernameTextField.getText());
             } catch (Exception ex) {
+                System.out.println(ex);
             }
             String Query1 = "SELECT ID , PASSWORD FROM MANAGER WHERE ID = " + Managerusername + "";
             String Query2 = "SELECT ID , PASSWORD FROM CUSTOMER WHERE ID = '" + usernameTextField.getText() + "'";
@@ -106,6 +112,7 @@ public class LoginController implements Initializable {
             }
 
             if (flag == 1) {
+                flag1 = 1;
                 //JOptionPane.showMessageDialog(null, "Truee1");
                 Stage stage = (Stage) SigninPane.getScene().getWindow();
                 stage.close();
@@ -121,6 +128,7 @@ public class LoginController implements Initializable {
                 stage1.show();
 
             } else if (flag == 2) {
+                flag1 = 1;
                 Stage stage = (Stage) SigninPane.getScene().getWindow();
                 stage.close();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/CustomerHomePage.fxml"));
@@ -134,11 +142,11 @@ public class LoginController implements Initializable {
                 stage1.setScene(scene1);
                 stage1.setResizable(false);
                 stage1.show();
-            }
-            else {
+            } else {
                 new animatefx.animation.Flash(usernameTextField).play();
                 new animatefx.animation.Flash(passwordTextField).play();
                 wrongMessage.setText("Wrong password or username");
+                flag1 = 3;
             }
 
         }
@@ -154,48 +162,52 @@ public class LoginController implements Initializable {
         stage.show();
     }
 
-//    public void SignIN () throws IOException {
-//        Stage stage = (Stage) pane.getScene().getWindow();
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/LoginPage.fxml"));
-//        Parent root = loader.load();
-//        new animatefx.animation.ZoomIn(root).play();
-//        pane.getChildren().setAll(root);
-//        stage.setTitle("SignUp");
-//        stage.show();
-//    }
+    public int SignInTest(String username, String password) throws SQLException {
+
+        int flag = 0;
+        if (username.isEmpty() || password.isEmpty()) {
+            flag = 1;
+        } else {
+            SignUp ref = new SignUp();
+            String Query1 = "SELECT ID , PASSWORD FROM MANAGER WHERE ID = '" + username + "'";
+            String Query2 = "SELECT ID , PASSWORD FROM CUSTOMER WHERE ID = '" + username + "'";
+
+            ResultSet rs = ref.sql(Query1);
+
+            while (rs.next()) {
+                if (username.equals(rs.getString(1)) && password.equals(rs.getString(2))) {
+                    flag = 2; // for manager
+                }
+            }
+
+            rs = ref.sql(Query2);
+            while (rs.next()) {
+                if (username.equals(rs.getString(1)) && password.equals(rs.getString(2))) {
+                    flag = 2; // for Customer
+
+                }
+            }
+        }
+        return flag;
+    }
+
+    public String getResult(int flag) {
+        String result = "";
+        if (flag == 1)
+            result = "Empty Password or username";
+        else if (flag == 2) {
+            result = "Access your account successfully";
+        } else if (flag == 0)
+            result = "wrong password or username";
+
+        return result;
+    }
+
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        try {
-//            Stage stage = (Stage) pane.getScene().getWindow();
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/LoginPage.fxml"));
-//            Parent root = loader.load();
-//            //new animatefx.animation.ZoomIn(root).play();
-//            pane.getChildren().setAll(root);
-//            stage.setTitle("SignUp");
-//            stage.show();
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//        try {
-//            Stage stage = null;
-//            Scene scene = pane.getScene();
-//            if (scene != null) {
-//                stage = (Stage) scene.getWindow();
-//            } else {
-//                scene = new Scene(pane);
-//                stage = new Stage();
-//                stage.setScene(scene);
-//            }
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/LoginPage.fxml"));
-//            Parent root = loader.load();
-//            pane.getChildren().setAll(root);
-//            stage.setTitle("SignUp");
-//            stage.show();
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//
-//    }
+
     }
 }
 

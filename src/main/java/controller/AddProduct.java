@@ -19,14 +19,25 @@ public class AddProduct {
     AddCustomer ref = new AddCustomer();
     CustomerHomePage customerHomePage = new CustomerHomePage();
     public void AddProduct(SimpleStringProperty id, SimpleStringProperty owner, SimpleStringProperty category, SimpleStringProperty high, SimpleStringProperty width) throws SQLException {
-
+    Date date = new Date();
+    SimpleDateFormat formatter1 = new SimpleDateFormat( "dd/MM/yyyy");
+    String s = "";
         if (id.get().equals("") || owner.get().equals("") || category.get().equals("") ||
                 high.get().equals("") || width.get().equals("")) {
             flag = 1;
 
         } else {
-            String s = "insert into product values ( '" + id.get() + "','" + owner.get() + "','" + category.get()
-                    + "','" + high.get() + "','" + width.get() + "')";
+            if (category.get().equals("Carpet")){
+                 s = "insert into product values ( '" + id.get() + "','" + owner.get() + "','" + category.get()
+                        + "','" + high.get() + "','" + width.get() + "','" + formatter1.format(date) + "','" + "Waiting" + "','" + (Integer.parseInt(high.get())*Integer.parseInt(high.get()) *4)
+                        + "','" +"Unknown" + "','" + "None" + "')";
+            }
+            else {
+                s = "insert into product values ( '" + id.get() + "','" + owner.get() + "','" + category.get()
+                        + "','" + high.get() + "','" + width.get() + "','" + formatter1.format(date) + "','" + "Waiting" + "','" + 25
+                        + "','" +"Unknown" + "','" + "None" + "')";
+            }
+
             try {
                 ref.sql(s);
                 flag = 0;

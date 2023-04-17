@@ -13,9 +13,9 @@ Feature: Add Customer
       Then I should see Enter new id
       Examples:
         | id | name  | phone   | address | city     | street | email         | password |
-        | 1  | Ayham | 0598285 | Sofen   | Qalqilya | Sofen  | aaa@gmail.com | 1323     |
+        | C1 | Ayham | 0598285 | Sofen   | Qalqilya | Sofen  | aaa@gmail.com | 1323     |
 
-      Scenario Outline: fill all values
+  Scenario Outline: fill all values
       Given you are in login page
         When you type in "<id>" ,"<name>", "<phone>", "<address>", "<city>", "<street>" and  "<email>" , "<password>"
       Then I should see the customer added successfully
