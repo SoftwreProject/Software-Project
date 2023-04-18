@@ -1,6 +1,7 @@
 package StepDefinition;
 
 import controller.AddAll;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -10,7 +11,13 @@ import java.sql.SQLException;
 import static org.testng.AssertJUnit.assertEquals;
 
 public class ShowStatus {
-    String result;
+    static String result;
+    static AddAll addAll = new AddAll();
+    @Before
+    public static void setUp() {
+        addAll = new AddAll();
+        result = "";
+    }
     @Given("You are in Product page")
     public void youAreInProductPage() {
         System.out.println("You Are in Status Page");
@@ -18,7 +25,6 @@ public class ShowStatus {
 
     @When("you enter an {string}")
     public void youEnterAn(String arg0) throws SQLException {
-        AddAll addAll = new AddAll();
         int flag = addAll.ShowStatus(arg0);
         result = addAll.getStatus(flag);
     }

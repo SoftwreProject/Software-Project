@@ -4,13 +4,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import oracle.jdbc.datasource.impl.OracleDataSource;
-
 import javax.swing.*;
 import java.io.IOException;
 import java.sql.Connection;
@@ -52,22 +50,27 @@ public class SignUp {
     void SignUpButton(ActionEvent event) throws SQLException {
         String Id = SignUpID.getText();
         if (ShowID(Id))
-            JOptionPane.showMessageDialog(null,"Please Enter Another ID");
+            JOptionPane.showMessageDialog(null, "Please Enter Another ID");
         else {
-            if (SignUpPassword.getLength() <= 5)
-                JOptionPane.showMessageDialog(null,"Please Enter more than 5 Characters or numbers");
-            else {
-                String s = "insert into CUSTOMER values ( '" + SignUpID.getText() + "','" + SignUpName.getText()
-                        + "','" + SignUpPhoneNumber.getText() + "','" + SignUpAddress.getText() + "','" + SignUpCity.getText() +
-                        "','" + SignUpStreet.getText() + "','" + SignUpEmail.getText() + "','" + SignUpPassword.getText() + "','" + "0" +"') ";
-                ref.sql(s);
-                JOptionPane.showMessageDialog(null,"Customer Added Successfully");
-                ClearTextField();
+            if (EmptyTextField()) {
+                JOptionPane.showMessageDialog(null, "Please Fill All Information");
+            } else {
 
+                if (SignUpPassword.getLength() <= 5)
+                    JOptionPane.showMessageDialog(null, "Please Enter more than 5 Characters or numbers");
+                else {
+                    String s = "insert into CUSTOMER values ( '" + SignUpID.getText() + "','" + SignUpName.getText()
+                            + "','" + SignUpPhoneNumber.getText() + "','" + SignUpAddress.getText() + "','" + SignUpCity.getText() +
+                            "','" + SignUpStreet.getText() + "','" + SignUpEmail.getText() + "','" + SignUpPassword.getText() + "','" + "0" + "') ";
+                    ref.sql(s);
+                    JOptionPane.showMessageDialog(null, "Customer Added Successfully");
+                    ClearTextField();
+
+                }
             }
         }
-
     }
+
     public boolean ShowID(String id) throws SQLException {
         String query = "SELECT ID FROM Customer";
         ResultSet rs =  sql(query);
@@ -97,4 +100,53 @@ public class SignUp {
         ResultSet rs = st.executeQuery(x);
         return rs;
     }
-}
+    public boolean EmptyTextField() {
+         return SignUpID.getText().isEmpty() ||
+                SignUpName.getText().isEmpty() ||
+                SignUpPhoneNumber.getText().isEmpty() ||
+                SignUpAddress.getText().isEmpty() ||
+                SignUpEmail.getText().isEmpty() ||
+                SignUpPassword.getText().isEmpty() ||
+                SignUpStreet.getText().isEmpty() ||
+                SignUpCity.getText().isEmpty();
+    }
+    public boolean booleanTest (String id, String name, String PhoneNumber , String address , String City , String Street,String email , String password) {
+         return id.isEmpty() ||
+                name.isEmpty() ||
+                PhoneNumber.isEmpty() ||
+                address .isEmpty() ||
+                City.isEmpty() ||
+                Street.isEmpty() ||
+                email.isEmpty() ||
+                password.isEmpty();
+    }
+    public String SignUpTest (String id, String name, String PhoneNumber , String address , String City , String Street,String email , String password) throws SQLException {
+        int flag = 0;
+        String result;
+        if (booleanTest(id ,name , PhoneNumber, address , City , Street , email , password))
+            flag = 1;
+        else {
+            if (ShowID(id))
+                flag = 2;
+            else {
+                if (password.length() <= 5)
+                    flag =3;
+                else {
+                    String s = "insert into CUSTOMER values ( '" + id + "','" + name
+                            + "','" + PhoneNumber + "','" + address + "','" + City +
+                            "','" + Street + "','" + email + "','" + password + "','" + "0" + "') ";
+                    ref.sql(s);
+                }
+            }
+        }
+        if (flag == 1)
+            result = "Empty one or more term";
+        else if (flag == 2)
+            result = "Use another id";
+        else if (flag == 3)
+            result = "Enter a password more than 5 character";
+        else
+            result = "The Customer Added Successfully";
+        return result;
+    }
+ }

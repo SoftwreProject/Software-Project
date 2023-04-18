@@ -1,6 +1,7 @@
 package StepDefinition;
 
 import controller.UpdateProduct;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import javafx.beans.property.SimpleStringProperty;
@@ -10,8 +11,13 @@ import java.sql.SQLException;
 import static org.testng.AssertJUnit.assertEquals;
 
 public class UpdateProductSteps {
-    UpdateProduct ref = new UpdateProduct ();
-    String result;
+    static UpdateProduct ref = new UpdateProduct ();
+    static String result;
+    @Before
+    public static void setUp() {
+        ref = new UpdateProduct ();
+        result = "";
+    }
     @When("you type in {string} ,{string}, {string}, {string}, {string}")
     public void youTypeIn(String arg0, String arg1, String arg2, String arg3, String arg4) throws SQLException {
     ref.owner = new SimpleStringProperty(arg1);

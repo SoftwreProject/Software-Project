@@ -1,6 +1,7 @@
 package StepDefinition;
 
 import controller.UpdateCustomer;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -9,8 +10,13 @@ import java.sql.SQLException;
 import static org.testng.AssertJUnit.assertEquals;
 
 public class UpdateCustomerStep {
-    UpdateCustomer ref = new UpdateCustomer();
-    String result ;
+    static UpdateCustomer ref = new UpdateCustomer();
+    static String result ;
+    @Before
+    public static void setUp() {
+        ref = new UpdateCustomer();
+        result = "";
+    }
     @When("you type in field {string} ,{string}, {string}, {string}, {string} And {string}")
     public void youTypeInFieldAnd(String arg0, String arg1, String arg2, String arg3, String arg4, String arg5) throws SQLException {
         ref.name = arg1;

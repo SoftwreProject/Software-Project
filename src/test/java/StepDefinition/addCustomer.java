@@ -1,6 +1,7 @@
 package StepDefinition;
 
 import controller.AddCustomer;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -11,8 +12,13 @@ import java.sql.SQLException;
 import static org.testng.AssertJUnit.assertEquals;
 
 public class addCustomer {
-    String result;
-    AddCustomer ref = new AddCustomer();
+    static String  result;
+    static AddCustomer ref ;
+    @Before
+    public static void setUp() {
+        ref = new AddCustomer();
+        result = "";
+    }
     @Given("you are in login page")
     public void youAreInLoginPage() {
         System.out.println("*-----------------------------------*");

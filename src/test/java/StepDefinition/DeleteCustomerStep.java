@@ -1,6 +1,7 @@
 package StepDefinition;
 
 import controller.DeleteCustomer;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -10,8 +11,13 @@ import static org.testng.Assert.assertNotEquals;
 import static org.testng.AssertJUnit.assertEquals;
 
 public class DeleteCustomerStep {
-    DeleteCustomer ref = new DeleteCustomer();
-    String result;
+    static DeleteCustomer ref;
+    static String result;
+    @Before
+    public static void setUp() {
+        ref = new DeleteCustomer();
+        result = "";
+    }
 
     @When("you type in {string} or {string}")
     public void youTypeInOr(String arg0, String arg1) throws SQLException {

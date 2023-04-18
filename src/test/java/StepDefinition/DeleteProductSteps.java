@@ -1,6 +1,7 @@
 package StepDefinition;
 
 import controller.DeleteProduct;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import javafx.beans.property.SimpleStringProperty;
@@ -10,8 +11,13 @@ import java.sql.SQLException;
 import static org.testng.AssertJUnit.assertEquals;
 
 public class DeleteProductSteps {
-    String result ;
-    DeleteProduct ref = new DeleteProduct();
+    static String result ;
+    static DeleteProduct ref = new DeleteProduct();
+    @Before
+    public static void setUp() {
+        ref = ref = new DeleteProduct();
+        result = "";
+    }
     @When("you type in  {string} or {string}")
     public void youTypeInOr(String arg0, String arg1) throws SQLException {
         ref.deleteProduct(new SimpleStringProperty(arg0) , new SimpleStringProperty(arg1));

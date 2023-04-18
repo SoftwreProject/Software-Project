@@ -5,12 +5,16 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.BeforeClass;
-
 import static org.testng.AssertJUnit.assertEquals;
 
 public class StatusStepDefinition {
-    String status;
+    static CustomerHomePage ref = new CustomerHomePage();
+    static String status;
+    @Before
+    public static void setUp() {
+        ref = new CustomerHomePage();
+        status = "";
+    }
     @Given("you are in customer page")
     public void youAreInCustomerPage() {
         System.out.println("- - - - - - - - - - - - - - - - -");
@@ -20,7 +24,6 @@ public class StatusStepDefinition {
 
     @When("you want to show the status of product with your {string}")
     public void youWantToShowTheStatusOfProductWithYour(String arg0) {
-        CustomerHomePage ref = new CustomerHomePage();
         ref.RefreshStat(arg0);
         status = ref.test();
     }
