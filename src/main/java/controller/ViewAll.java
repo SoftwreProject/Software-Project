@@ -374,4 +374,56 @@ public class ViewAll implements Initializable {
             workerTable.getItems().add(s1);
         }
     }
+    public String ShowCustomerInformation(String id) throws SQLException {
+        int flag =  0 ;
+        String result = "";
+        StringBuilder stringBuilder = new StringBuilder();
+        String Query = "Select * from customer where id = '" + id + "'";
+        if (id.isEmpty()) {
+            flag = 1;
+        }
+        else {
+                ResultSet rs = ref1.sql(Query);
+                while (rs.next()) {
+                    stringBuilder.append(rs.getString(1) + "," + rs.getString(2) + "," + rs.getString(3) + "," + rs.getString(4) + "," + rs.getString(5) + "," +
+                            rs.getString(6) + "," + rs.getString(7) + "," + rs.getString(8) + "," + rs.getString(9));
+                   flag = 2;
+                }
+
+        }
+        if (flag == 1)
+            result = "Empty ID";
+        else if (flag == 2)
+            result = stringBuilder.toString();
+        else
+            result = "Incorrect ID";
+        return result;
+
+    }
+    public String ShowProductInformation(String id) throws SQLException {
+        int flag =  0 ;
+        String result = "";
+        StringBuilder stringBuilder = new StringBuilder();
+        String Query = "Select * from product where id = '" + id + "'";
+        if (id.isEmpty()) {
+            flag = 1;
+        }
+        else {
+            ResultSet rs = ref1.sql(Query);
+            while (rs.next()) {
+                stringBuilder.append(rs.getString(1) + "," + rs.getString(2) + "," + rs.getString(3) + "," + rs.getString(4) + "," + rs.getString(5) + "," +
+                        rs.getString(6) + "," + rs.getString(7) + "," + rs.getString(8) + "," + rs.getString(9)  + "," + rs.getString(10));
+                flag = 2;
+            }
+
+        }
+        if (flag == 1)
+            result = "Empty ID";
+        else if (flag == 2)
+            result = stringBuilder.toString();
+        else
+            result = "Incorrect ID";
+        return result;
+
+    }
 }
