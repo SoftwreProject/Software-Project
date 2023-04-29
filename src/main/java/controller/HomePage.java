@@ -57,7 +57,7 @@ public class HomePage {
     private void backToLogin (ActionEvent event) throws IOException {
         Alert alert = new Alert (Alert.AlertType.CONFIRMATION);
         alert.setTitle("Logout");
-        alert.setHeaderText("You are about to logout?");
+        alert.setHeaderText("You are about to logout? ");
         if(alert.showAndWait().get() == ButtonType.OK )
         {
             Stage stage = (Stage) HomePagePane.getScene().getWindow();
