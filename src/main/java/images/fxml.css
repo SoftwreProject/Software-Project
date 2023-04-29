@@ -5,20 +5,7 @@
 /*.table-view:focus {*/
 /*    -fx-background-color:transparent;*/
 /*}*/
-.table-row-cell:even {
-     -fx-background-color:#FFFFFF; 
-}
-.table-row-cell:odd{
-     -fx-background-color:#E9EAEA ;
-}
-.table-row-cell:selected {
-   -fx-background-color: #659ECD ; 
-}
 
-.table-row-cell:selected .text {
-       -fx-fill: black ;
-
-}
 
 .table-view .column-header {
     -fx-background-color: transparent;
@@ -52,11 +39,7 @@
     -fx-border-color: WHITE;
     -fx-border-width: 3px 0px 0px 0px;
 }
-.sidebarItem:pressed{
-    -fx-background-color: #146886;
-    -fx-border-color: WHITE;
-    -fx-border-width: 3px 0px 0px 0px;
-}
+
 
 
 .windows7 {
@@ -71,17 +54,7 @@
     -fx-font-size: 14px;
 }
 
-windows7:hover {
-    -fx-background-color:
-            #3c7fb1,
-            linear-gradient(#fafdfe, #e8f5fc),
-            linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);
-    -fx-background-insets: 0,1,2;
-    -fx-background-radius: 3,2,1;
-    -fx-padding: 3 30 3 30;
-    -fx-text-fill: black;
-    -fx-font-size: 14px;
-}
+
 /*---------------------------------------------------------------------------*/
 
 .green
@@ -303,7 +276,6 @@ windows7:hover {
     -fx-text-fill: white;
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
     -fx-font-family: "Arial";
-    -fx-text-fill: linear-gradient(white, #d0d0d0);
     -fx-font-size: 12px;
     -fx-padding: 10 20 10 20;
 }
@@ -321,7 +293,6 @@ windows7:hover {
     -fx-text-fill: white;
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
     -fx-font-family: "Arial";
-    -fx-text-fill: linear-gradient(white, #d0d0d0);
     -fx-font-size: 12px;
     -fx-padding: 10 20 10 20;
 }
