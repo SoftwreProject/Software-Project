@@ -43,6 +43,7 @@ public class SendEmail {
     private TextField CustomerID;
     @FXML
     private Label errorMessageLabel;
+    String customerName="";
 
     @FXML
     void sendEmailToTheCustomer(ActionEvent event) throws SQLException, MessagingException {
@@ -62,6 +63,7 @@ public class SendEmail {
         while (rs.next()){
             if(rs.getString(1).equals(CustomerID.getText()+"")){
                 customerEmail=rs.getString(7);
+                customerName=rs.getString(2);
                 flag=1;
             }
             else {
@@ -73,7 +75,7 @@ public class SendEmail {
         if(flag==1){
             SendEmail s =new SendEmail();
             s.setup();
-            s.draft(customerEmail);
+            s.draft(customerEmail,customerName);
             s.sendemail();
             errorMessageLabel.setText("The email has been sent successfully");
 
@@ -106,11 +108,11 @@ public class SendEmail {
         transport.sendMessage(mimeMessage, mimeMessage.getAllRecipients());
         transport.close();
     }
-    private MimeMessage draft( String email ) throws AddressException, MessagingException {
+    private MimeMessage draft( String email ,String customerName) throws AddressException, MessagingException {
         // throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
         String[] emailReceipients = {email};  //Enter list of email recepients
         String emailSubject = "Your Order has been completed";
-        String emailBody = "Your order has been completed successfully. You can collect your product from the showroom";
+        String emailBody = "Hi "+customerName+" Your Order has been completed <3";
         mimeMessage = new MimeMessage(newSession);
 
         for (int i =0 ;i<emailReceipients.length;i++)

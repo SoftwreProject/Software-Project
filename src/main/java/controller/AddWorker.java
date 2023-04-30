@@ -27,7 +27,7 @@ public class AddWorker {
         if (id.getText().equals("") || name.getText().equals("") || phone.getText().equals("") || address.getText().equals("") || specialization.getText().equals("")) {
             label.setText("Please Fill All information About worker <3");
         } else {
-            String s = "insert into WORKER values ('" + id.getText() + "'" + "," + "'" + name.getText() + "'" + "," + "'" + phone.getText() + "'" + "," + "'" + address.getText() + "'" + "," + "'" + specialization.getText() + "')";
+            String s = "insert into WORKER values ('" + id.getText() + "','" + name.getText() + "','"+ phone.getText() + "','"+ address.getText() + "','"+ specialization.getText() + "')";
             try {
                 ref.sql(s);
                 label.setText("Worker Added Successfully");

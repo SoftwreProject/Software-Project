@@ -73,7 +73,7 @@ public class ViewAll implements Initializable {
         WorkerSpecialization.setCellValueFactory(new PropertyValueFactory<>("Specialization"));
 
         // for Customer
-        CustomerID.setCellValueFactory(new PropertyValueFactory<>("ID"));
+        CustomerID.setCellValueFactory(new PropertyValueFactory<>("Id"));
         CustomerName.setCellValueFactory(new PropertyValueFactory<>("Name"));
         CustomerPhoneNumber.setCellValueFactory(new PropertyValueFactory<>("Phone"));
         CustomerCity.setCellValueFactory(new PropertyValueFactory<>("City"));
