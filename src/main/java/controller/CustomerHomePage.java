@@ -235,6 +235,8 @@ public class CustomerHomePage implements Initializable {
         Alert alert = new Alert (Alert.AlertType.CONFIRMATION);
         alert.setTitle("Logout");
         alert.setHeaderText("You are about to logout?");
+        if (alert.showAndWait().isEmpty())
+            JOptionPane.showMessageDialog(null, "Please Enter Value");
         if(alert.showAndWait().get() == ButtonType.OK )
         {
             Stage stage = (Stage) customerpane.getScene().getWindow();
