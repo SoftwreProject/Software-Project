@@ -7,26 +7,27 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import oracle.jdbc.datasource.impl.OracleDataSource;
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 public class AddCustomer {
     String result;
     int flag = 0;
 
-    public void sql(String s)  {
-        try{
+    public void sql(String s) throws SQLException {
+
             OracleDataSource orc = new OracleDataSource();
             orc.setURL("jdbc:oracle:thin:@localhost:1521:orcl");
             orc.setUser("software");
             orc.setPassword("123123");
             Connection conn = orc.getConnection();
-            Statement stm = conn.createStatement();
-            stm.executeUpdate(s);
-        }
-        catch(Exception ex){
-            System.out.println(ex);
+            try ( Statement stm = conn.createStatement()) {
+                stm.executeUpdate(s);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
 
-        }
+
     }
 
     @FXML
