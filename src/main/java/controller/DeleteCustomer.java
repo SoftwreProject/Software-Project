@@ -2,6 +2,7 @@ package controller;
 
 import oracle.jdbc.datasource.impl.OracleDataSource;
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DeleteCustomer {
@@ -10,7 +11,7 @@ public class DeleteCustomer {
     String result;
     int flag = 0;
 
-    public void DeleteGUI(String x){
+    public void DeleteGUI(String x) throws SQLException {
         ref.sql(x);
     }
     public int SqlValue( String query){
