@@ -2,36 +2,35 @@ package controller;
 
 
 import javafx.beans.property.SimpleStringProperty;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import oracle.jdbc.datasource.impl.OracleDataSource;
-import software.Customers;
-
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 
 public class AddCustomer {
     String result;
     int flag = 0;
 
-    public void sql(String s) throws SQLException {
-        OracleDataSource orc = new OracleDataSource();
-        orc.setURL("jdbc:oracle:thin:@localhost:1521:orcl");
-        orc.setUser("software");
-        orc.setPassword("123123");
-        Connection conn = orc.getConnection();
-        Statement stm = conn.createStatement();
-        stm.executeUpdate(s);
+    public void sql(String s)  {
+        try{
+            OracleDataSource orc = new OracleDataSource();
+            orc.setURL("jdbc:oracle:thin:@localhost:1521:orcl");
+            orc.setUser("software");
+            orc.setPassword("123123");
+            Connection conn = orc.getConnection();
+            Statement stm = conn.createStatement();
+            stm.executeUpdate(s);
+        }
+        catch(Exception ex){
+            System.out.println(ex);
+
+        }
     }
 
     @FXML
-    public void AddCustomerTest(SimpleStringProperty id, SimpleStringProperty name, SimpleStringProperty phone, SimpleStringProperty address, SimpleStringProperty city, SimpleStringProperty street, SimpleStringProperty email, SimpleStringProperty password) throws SQLException {
+    public void AddCustomerTest(SimpleStringProperty id, SimpleStringProperty name, SimpleStringProperty phone, SimpleStringProperty address, SimpleStringProperty city, SimpleStringProperty street, SimpleStringProperty email, SimpleStringProperty password)  {
 
         if (id.get().equals("") || name.get().equals("") || phone.get().equals("") || address.get().equals("") || city.get().equals("") || street.get().equals("") || email.get().equals("") || password.get().equals("")) {
             flag = 1;
