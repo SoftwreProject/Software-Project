@@ -4,7 +4,6 @@ import controller.UpdateProduct;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import javafx.beans.property.SimpleStringProperty;
 
 import java.sql.SQLException;
 
@@ -19,13 +18,13 @@ public class UpdateProductSteps {
         result = "";
     }
     @When("you type in {string} ,{string}, {string}, {string}, {string}")
-    public void youTypeIn(String arg0, String arg1, String arg2, String arg3, String arg4) throws SQLException {
-        ref.setId(arg0);
-        ref.setOwner(arg1);
-        ref.setCategory(arg2);
-        ref.setHigh(arg3);
-        ref.setWidth(arg4);
-        ref.updateProduct(arg0);
+    public void youTypeIn(String id, String owner, String category, String high, String width) throws SQLException {
+        ref.setId(id);
+        ref.setOwner(owner);
+        ref.setCategory(category);
+        ref.setHigh(high);
+        ref.setWidth(width);
+        ref.updateProduct(id);
         result = ref.getResult();
     }
     @Then("i should show the id is empty or incorrect")
