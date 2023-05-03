@@ -10,11 +10,11 @@ public class UpdateProduct {
     String result;
      int flag = 0;
 
-    private SimpleStringProperty id;
-    private SimpleStringProperty owner;
-    private SimpleStringProperty category;
-    private SimpleStringProperty high;
-    private SimpleStringProperty width;
+    String id;
+    String owner;
+    String category;
+    String high;
+    String width;
 
     public UpdateProduct() {
     }
@@ -26,8 +26,8 @@ public class UpdateProduct {
         orc.setPassword("123123");
         Connection conn = orc.getConnection();
        try (Statement stm = conn.createStatement()) {
-           String query = "update product set name = '" + owner.get() +"' , category = '" + category.get() +"' ,high =  '" + high.get() +"', " +
-                   "width = '" + width.get() +"' where id = '" +getId()+"'";
+           String query = "update product set owner = '" + getOwner() +"' , category = '" + getCategory() +"' ,high =  '" + getHigh() +"', " +
+                   "width = '" + getWidth() +"' where id = '" +id+"'";
 
            int t = stm.executeUpdate(query);
            if (t == 0)
@@ -44,38 +44,42 @@ public class UpdateProduct {
     }
 
     public String getId() {
-        return id.get();
+        return id;
     }
 
     public void setId(String id) {
-        this.id.set(id);
+        this.id = id;
     }
 
     public String getOwner() {
-        return owner.get();
+        return owner;
     }
+
     public void setOwner(String owner) {
-        this.owner.set(owner);
+        this.owner = owner;
     }
 
     public String getCategory() {
-        return category.get();
+        return category;
     }
+
     public void setCategory(String category) {
-        this.category.set(category);
+        this.category = category;
     }
 
     public String getHigh() {
-        return high.get();
+        return high;
     }
+
     public void setHigh(String high) {
-        this.high.set(high);
+        this.high = high;
     }
 
     public String getWidth() {
-        return width.get();
+        return width;
     }
+
     public void setWidth(String width) {
-        this.width.set(width);
+        this.width = width;
     }
 }
