@@ -27,6 +27,6 @@ Feature: SignUp
     Then The Customer Added Successfully
     Examples:
       | id  | name  | PhoneNumber | address     | city     | street | email                | password |
-      | C78 | Ayham | 0598595587  | building 22 | Qalqilya | Sofen  | ayham.1399@gmail.com | 123456     |
+      | C78 | Ayham | 0598595587  | building 22 | Qalqilya | Sofen  | ayham.1399@gmail.com | 123456   |
 
 

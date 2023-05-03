@@ -20,8 +20,6 @@ public class LoginTest {
         ref  = new LoginController();
         result = "";
     }
-
-    @Test
     @When("I type in email {string} And I type in password {string}")
     public void iTypeInEmailAndITypeInPassword(String arg0, String arg1) throws SQLException {
         int flag = ref.SignInTest(arg0 ,  arg1);
