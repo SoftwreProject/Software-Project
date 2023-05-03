@@ -12,7 +12,7 @@ import java.sql.SQLException;
 
 import static org.testng.AssertJUnit.assertEquals;
 
-public class login {
+public class LoginTest {
     static String result;
     static LoginController ref ;
     @Before

@@ -20,12 +20,13 @@ public class UpdateProductSteps {
     }
     @When("you type in {string} ,{string}, {string}, {string}, {string}")
     public void youTypeIn(String arg0, String arg1, String arg2, String arg3, String arg4) throws SQLException {
-    ref.owner = new SimpleStringProperty(arg1);
-    ref.category = new SimpleStringProperty(arg2);
-    ref.high = new SimpleStringProperty(arg3);
-    ref.width = new SimpleStringProperty(arg4);
-    ref.updateproduct( new SimpleStringProperty(arg0));
-    result = ref.GetResult();
+        ref.setId(arg0);
+        ref.setOwner(arg1);
+        ref.setCategory(arg2);
+        ref.setHigh(arg3);
+        ref.setWidth(arg4);
+        ref.updateProduct(arg0);
+        result = ref.getResult();
     }
     @Then("i should show the id is empty or incorrect")
     public void iShouldShowTheIdIsEmptyOrIncorrect() {

@@ -176,7 +176,7 @@ public class AddAll implements Initializable {
                 worker.AddWorkers(WorkerID , WorkerName , WorkerPhone , WorkerAddress , WorkerSpecCarpets,label );
         }
         else if (CustomerRadioButton.isSelected()) {
-            customer.AddCustomerGUI(CustomerID , CustomerName , CustoemrPhone , CustomerAddress , CustomerCity , CustomerStreet  , EmailCustomer , CustomerPassword , label);
+            customer.addCustomerGUI(CustomerID , CustomerName , CustoemrPhone , CustomerAddress , CustomerCity , CustomerStreet  , EmailCustomer , CustomerPassword , label);
         }
         else{
             if (CoversRadiButton.isSelected()) {

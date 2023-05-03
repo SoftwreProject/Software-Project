@@ -21,7 +21,7 @@ public class DeleteCustomerStep {
 
     @When("you type in {string} or {string}")
     public void youTypeInOr(String arg0, String arg1) throws SQLException {
-    ref.DeleteCustomerFunc(arg0, arg1);
+    ref.deleteCustomerFunc(arg0, arg1);
     result = ref.getResult();
     }
     @Then("please fill correct information")
