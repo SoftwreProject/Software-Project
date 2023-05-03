@@ -42,8 +42,8 @@ public class addCustomer {
 
     @When("you type in {string} ,{string}, {string}, {string}, {string}, {string} and  {string} , {string}")
     public void youTypeInAnd(String arg0, String arg1, String arg2, String arg3, String arg4, String arg5, String arg6, String arg7) throws SQLException {
-        ref.AddCustomerTest(new SimpleStringProperty(arg0), new SimpleStringProperty(arg1), new SimpleStringProperty(arg2),
+        ref.addCustomerTest(new SimpleStringProperty(arg0), new SimpleStringProperty(arg1), new SimpleStringProperty(arg2),
                 new SimpleStringProperty(arg3), new SimpleStringProperty( arg4), new SimpleStringProperty(arg5) , new SimpleStringProperty(arg6) , new SimpleStringProperty(arg7));
-        result = ref.GetResult();
+        result = ref.getResult();
     }
 }

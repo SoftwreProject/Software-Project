@@ -1,18 +1,17 @@
 package software;
 
-import controller.LoginController;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.util.Scanner;
 
 public class Login extends Application {
 
 
-    LoginController ref = new LoginController();
+
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/login.fxml"));
@@ -26,15 +25,7 @@ public class Login extends Application {
         launch(args);
     }
 
-    public String setresult(String username, String password) {
-        String s = "";
-        if (username.equals("abcd@gmail.com") || password.equals("1234"))
-            s = "E-mail or password is incorrect";
-        else if (username.equals("ayham.1222@gmail.com") && password.equals("012345"))
-            s = "Access your account successfully";
-        return s;
 
-    }
 
 }
 

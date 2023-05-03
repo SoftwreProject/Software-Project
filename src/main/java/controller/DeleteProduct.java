@@ -4,6 +4,7 @@ import javafx.beans.property.SimpleStringProperty;
 import oracle.jdbc.datasource.impl.OracleDataSource;
 import java.sql.Connection;
 import java.sql.Statement;
+import java.util.logging.Logger;
 
 public class DeleteProduct {
     String result;
@@ -16,14 +17,16 @@ public class DeleteProduct {
             orc.setUser("software");
             orc.setPassword("123123");
             Connection conn = orc.getConnection();
-            Statement stm = conn.createStatement();
-            int x = stm.executeUpdate(query);
-            if (x <= 0)
-                flag = 0;
-            else
-                flag = 1;
+
+           try (Statement stm = conn.createStatement()) {
+               int x = stm.executeUpdate(query);
+               if (x <= 0)
+                   flag = 0;
+               else
+                   flag = 1;
+           }
         }catch(Exception ex){
-            System.out.println(ex);
+            Logger.getLogger(ex.toString());
         }
 
     }

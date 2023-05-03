@@ -8,33 +8,74 @@ import java.sql.Statement;
 
 public class UpdateProduct {
     String result;
-    int flag = 0;
-    public SimpleStringProperty id;
-    public SimpleStringProperty owner;
-    public SimpleStringProperty category;
-    public SimpleStringProperty high;
-    public SimpleStringProperty width;
+     int flag = 0;
 
-    public void updateproduct(SimpleStringProperty id) throws SQLException {
+    private SimpleStringProperty id;
+    private SimpleStringProperty owner;
+    private SimpleStringProperty category;
+    private SimpleStringProperty high;
+    private SimpleStringProperty width;
+
+    public UpdateProduct() {
+    }
+
+    public void updateProduct(String id) throws SQLException {
         OracleDataSource orc = new OracleDataSource();
         orc.setURL("jdbc:oracle:thin:@localhost:1521:orcl");
         orc.setUser("software");
         orc.setPassword("123123");
         Connection conn = orc.getConnection();
-        Statement stm = conn.createStatement();
-        String query = "update product set name = '" + owner.get() +"' , category = '" + category.get() +"' ,high =  '" + high.get() +"', " +
-                "width = '" + width.get() +"' where id = '" +id.get()+"'";
+       try (Statement stm = conn.createStatement()) {
+           String query = "update product set name = '" + owner.get() +"' , category = '" + category.get() +"' ,high =  '" + high.get() +"', " +
+                   "width = '" + width.get() +"' where id = '" +getId()+"'";
 
-        int t = stm.executeUpdate(query);
-        if (t == 0)
-            flag =1;
+           int t = stm.executeUpdate(query);
+           if (t == 0)
+               flag =1;
+       }
     }
-    public String GetResult() {
+    public String getResult() {
         if (flag == 1)
             result = "Please check the ID you entered";
         else result = "Product Information Updated Successfully";
 
         return result;
 
+    }
+
+    public String getId() {
+        return id.get();
+    }
+
+    public void setId(String id) {
+        this.id.set(id);
+    }
+
+    public String getOwner() {
+        return owner.get();
+    }
+    public void setOwner(String owner) {
+        this.owner.set(owner);
+    }
+
+    public String getCategory() {
+        return category.get();
+    }
+    public void setCategory(String category) {
+        this.category.set(category);
+    }
+
+    public String getHigh() {
+        return high.get();
+    }
+    public void setHigh(String high) {
+        this.high.set(high);
+    }
+
+    public String getWidth() {
+        return width.get();
+    }
+    public void setWidth(String width) {
+        this.width.set(width);
     }
 }

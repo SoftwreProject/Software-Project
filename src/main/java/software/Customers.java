@@ -1,11 +1,5 @@
 package software;
-
-
-
 import javafx.beans.property.SimpleStringProperty;
-
-import java.util.ArrayList;
-
 public class Customers {
     SimpleStringProperty id;
     SimpleStringProperty name ;

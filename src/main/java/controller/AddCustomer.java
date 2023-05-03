@@ -24,14 +24,14 @@ public class AddCustomer {
             try ( Statement stm = conn.createStatement()) {
                 stm.executeUpdate(s);
             } catch (SQLException e) {
-                throw new RuntimeException(e);
+                throw new IllegalArgumentException(e);
             }
 
 
     }
 
     @FXML
-    public void AddCustomerTest(SimpleStringProperty id, SimpleStringProperty name, SimpleStringProperty phone, SimpleStringProperty address, SimpleStringProperty city, SimpleStringProperty street, SimpleStringProperty email, SimpleStringProperty password)  {
+    public void addCustomerTest(SimpleStringProperty id, SimpleStringProperty name, SimpleStringProperty phone, SimpleStringProperty address, SimpleStringProperty city, SimpleStringProperty street, SimpleStringProperty email, SimpleStringProperty password)  {
 
         if (id.get().equals("") || name.get().equals("") || phone.get().equals("") || address.get().equals("") || city.get().equals("") || street.get().equals("") || email.get().equals("") || password.get().equals("")) {
             flag = 1;
@@ -49,7 +49,7 @@ public class AddCustomer {
     }
 
     @FXML
-    public String GetResult() {
+    public String getResult() {
         if (flag == 1)
             result = "Please fill in all information about yourself";
         else if (flag == 2)
@@ -59,7 +59,7 @@ public class AddCustomer {
 
     }
 
-    public void AddCustomerGUI(TextField id, TextField name, TextField phone, TextField address, TextField city, TextField street, TextField email, TextField password, Label label) {
+    public void addCustomerGUI(TextField id, TextField name, TextField phone, TextField address, TextField city, TextField street, TextField email, TextField password, Label label) {
         if (id.getText().equals("") || name.getText().equals("") || phone.getText().equals("") || address.getText().equals("") || city.getText().equals("") || street.getText().equals("") || email.getText().equals("") || password.getText().equals("")) {
             label.setText("Please Enter All information");
         } else {
