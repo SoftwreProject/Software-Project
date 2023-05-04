@@ -113,7 +113,7 @@ public class ViewAll implements Initializable {
                 ResultSet rs = ref1.sql(query);
                 while(rs.next())
                 {
-                    Customers s1 = new Customers(rs.getString(1) ,rs.getString(2) , rs.getString(3) , rs.getString(4) , rs.getString(5), rs.getString(6) , rs.getString(7));
+                    Customers s1 = new Customers(rs.getString(1) ,rs.getString(2) , rs.getString(3) , rs.getString(4) , rs.getString(5), rs.getString(6) , rs.getString(7) , rs.getString(8));
                     CustomerTable.getItems().add(s1);
                 }
 
@@ -121,7 +121,7 @@ public class ViewAll implements Initializable {
                 rs = ref1.sql(query);
                 while(rs.next())
                 {
-                    Product s1 = new Product(rs.getString(1) ,rs.getString(2) , rs.getString(3) , rs.getString(4) , rs.getString(5));
+                    Product s1 = new Product(rs.getString(1) ,rs.getString(2) , rs.getString(3) , rs.getString(4) , rs.getString(5) , rs.getString(6) ,rs.getString(7), rs.getString(8));
                     ProductTable.getItems().add(s1);
                 }
 
@@ -276,19 +276,6 @@ public class ViewAll implements Initializable {
 
     }
 
-    private void refactor(Customers customers) {
-        String x = customers.getAddress();
-        ObservableList<Customers> obs;
-        obs = CustomerTable.getSelectionModel().getSelectedItems();
-        String id = obs.get(0).getId();
-        try {
-            String query = "update Customer set address = '" + x + "' "
-                    + "where id = '" + id + "'";
-            ref.sql(query);
-        }catch (Exception exception){
-            System.out.println(exception);
-        }
-    }
 
     @FXML
     public void UpdateCustomerEmail(TableColumn.CellEditEvent<Customers, String> event) {
@@ -376,7 +363,7 @@ public class ViewAll implements Initializable {
     }
     public String ShowCustomerInformation(String id) throws SQLException {
         int flag =  0 ;
-        String result = "";
+        String result ;
         StringBuilder stringBuilder = new StringBuilder();
         String Query = "Select * from customer where id = '" + id + "'";
         if (id.isEmpty()) {
@@ -385,8 +372,7 @@ public class ViewAll implements Initializable {
         else {
                 ResultSet rs = ref1.sql(Query);
                 while (rs.next()) {
-                    stringBuilder.append(rs.getString(1) + "," + rs.getString(2) + "," + rs.getString(3) + "," + rs.getString(4) + "," + rs.getString(5) + "," +
-                            rs.getString(6) + "," + rs.getString(7) + "," + rs.getString(8) + "," + rs.getString(9));
+                    stringBuilder.append(rs.getString(1)).append(",").append(rs.getString(2)).append(",").append(rs.getString(3)).append(",").append(rs.getString(4)).append(",").append(rs.getString(5)).append(",").append(rs.getString(6)).append(",").append(rs.getString(7)).append(",").append(rs.getString(8)).append(",").append(rs.getString(9));
                    flag = 2;
                 }
 
@@ -402,7 +388,7 @@ public class ViewAll implements Initializable {
     }
     public String ShowProductInformation(String id) throws SQLException {
         int flag =  0 ;
-        String result = "";
+        String result ;
         StringBuilder stringBuilder = new StringBuilder();
         String Query = "Select * from product where id = '" + id + "'";
         if (id.isEmpty()) {
@@ -411,8 +397,7 @@ public class ViewAll implements Initializable {
         else {
             ResultSet rs = ref1.sql(Query);
             while (rs.next()) {
-                stringBuilder.append(rs.getString(1) + "," + rs.getString(2) + "," + rs.getString(3) + "," + rs.getString(4) + "," + rs.getString(5) + "," +
-                        rs.getString(6) + "," + rs.getString(7) + "," + rs.getString(8) + "," + rs.getString(9)  + "," + rs.getString(10));
+                stringBuilder.append(rs.getString(1)).append(",").append(rs.getString(2)).append(",").append(rs.getString(3)).append(",").append(rs.getString(4)).append(",").append(rs.getString(5)).append(",").append(rs.getString(6)).append(",").append(rs.getString(7)).append(",").append(rs.getString(8)).append(",").append(rs.getString(9)).append(",").append(rs.getString(10));
                 flag = 2;
             }
 

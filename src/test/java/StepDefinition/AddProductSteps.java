@@ -21,12 +21,12 @@ public class AddProductSteps {
     }
     @When("When you type in {string} ,{string}, {string}, {string}, {string}")
     public void whenYouTypeIn(String arg0, String arg1, String arg2, String arg3, String arg4) throws SQLException {
-    ref.AddProduct( new SimpleStringProperty(arg0),
+    ref.addProduct( new SimpleStringProperty(arg0),
             new SimpleStringProperty(arg1),
             new SimpleStringProperty(arg2),
             new SimpleStringProperty(arg3),
             new SimpleStringProperty(arg4));
-    result = ref.GetResult();
+    result = ref.getResult();
     }
 
     @Then("i should show please fill all information")

@@ -25,7 +25,7 @@ public class ShowStatus {
 
     @When("you enter an {string}")
     public void youEnterAn(String arg0) throws SQLException {
-        int flag = addAll.ShowStatus(arg0);
+        int flag = addAll.showStatus(arg0);
         result = addAll.getStatus(flag);
     }
 

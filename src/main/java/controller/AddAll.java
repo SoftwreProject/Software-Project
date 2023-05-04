@@ -9,6 +9,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import software.Customers;
+import software.Product;
+
 import javax.swing.*;
 import java.net.URL;
 import java.sql.ResultSet;
@@ -71,7 +74,7 @@ public class AddAll implements Initializable {
     @FXML
     private JFXRadioButton workerSpecCarpets;
     @FXML
-    private JFXComboBox workerCombobox;
+    private JFXComboBox <String> workerCombobox;
     AddWorker worker = new AddWorker();
     AddCustomer customer = new AddCustomer();
     AddProduct product = new AddProduct();
@@ -79,6 +82,10 @@ public class AddAll implements Initializable {
     SignUp ref = new SignUp();
     String result;
     String newID = "Please Enter The ID";
+    SimpleDateFormat formatter;
+    SimpleDateFormat formatter1;
+    Date date;
+    int x;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         customerEnable(true);
@@ -153,46 +160,62 @@ public class AddAll implements Initializable {
 
     @FXML
     public void addFunction(ActionEvent actionEvent) throws SQLException {
-        SimpleDateFormat formatter = new SimpleDateFormat("dd");
-        Date date = new Date();
-        int x = Integer.parseInt(formatter.format(date));
+        formatter = new SimpleDateFormat("dd");
+        date = new Date();
+        x = Integer.parseInt(formatter.format(date));
         x = x+4;
-        SimpleDateFormat formatter1 = new SimpleDateFormat(x +"/MM/yyyy");
+        formatter1 = new SimpleDateFormat(x +"/MM/yyyy");
         JOptionPane.showMessageDialog(null , formatter1.format(date));
         if (workerRadioButton.isSelected()) {
-            if (workerSpecCovers.isSelected())
-                worker.AddWorkers(workerID , workerName , workerPhone , workerAddress , workerSpecCovers,label );
-            else
-                worker.AddWorkers(workerID , workerName , workerPhone , workerAddress , workerSpecCarpets,label );
+            addWorkerFunc();
         }
         else if (customerRadioButton.isSelected()) {
-            customer.addCustomerGUI(customerID , customerName , customerPhone , customerAddress , customerCity , customerStreet  , customerEmail , customerPassword , label);
+            addCustomerFunc();
         }
         else{
-            if (coversRadioButton.isSelected()) {
-                if (!workerCombobox.getValue().toString().equals("None")) {
-                    product.AddProductGUI(productID, productOwner, "Cover", "0", "0", workerCombobox.getValue().toString(), "Treatment", formatter1.format(date), label);
-                    String query = "update Worker " +
-                            "set status = ' Busy' " +
-                            "where ID = '" + workerCombobox.getValue().toString() +"'";
-                    addCustomer.sql(query);
-                }
-                else {
-                    product.AddProductGUI(productID, productOwner, "Cover", "0", "0", workerCombobox.getValue().toString(), "Waiting", "Unknown", label);
-                }
-            }
-            else if (carpetsRadioButton.isSelected()) {
-                if (!workerCombobox.getValue().toString().equals("None")) {
-                    product.AddProductGUI(productID, productOwner, "Carpet", productHigh.getText(), productWidth.getText(), workerCombobox.getValue().toString(), "Treatment", formatter1.format(date), label);
-                    String query = "update Worker " +
-                            "set status = ' Busy' " +
-                            "where ID = '" + workerCombobox.getValue().toString() + "'";
-                    addCustomer.sql(query);
-                } else {
-                    product.AddProductGUI(productID, productOwner, "Carpet", productHigh.getText(), productWidth.getText(), workerCombobox.getValue().toString(), "Waiting", "Unknown", label);
-                }
-            }
+            addProductFunc();
+        }
+    }
 
+    public void addWorkerFunc() throws SQLException {
+        if (workerSpecCovers.isSelected())
+            worker.AddWorkers(workerID , workerName , workerPhone , workerAddress , workerSpecCovers,label );
+        else
+            worker.AddWorkers(workerID , workerName , workerPhone , workerAddress , workerSpecCarpets,label );
+    }
+    public void addCustomerFunc() {
+        Customers customers = new Customers(customerID.getText() , customerName.getText(),customerPhone.getText(),
+                customerAddress.getText(),customerCity.getText(), customerStreet.getText() , customerEmail.getText() ,  customerPassword.getText());
+        customer.addCustomerGUI(customers,label);
+    }
+    public void addProductFunc() throws SQLException {
+        Product product1 ;
+        if (coversRadioButton.isSelected()) {
+            if (!workerCombobox.getValue().equals("None")) {
+                product1 = new Product(productID.getText() , productOwner.getText() ,"Cover" , "0", "0",workerCombobox.getValue() ,"Treatment" , formatter1.format(date)  );
+                product.addProductGUI(product1, label);
+                String query = "update Worker " +
+                        "set status = ' Busy' " +
+                        "where ID = '" + workerCombobox.getValue() +"'";
+                addCustomer.sql(query);
+            }
+            else {
+                product1 = new Product(productID.getText() , productOwner.getText() ,"Cover" , "0", "0",workerCombobox.getValue() ,"Waiting" , "Unknown" );
+                product.addProductGUI(product1, label);
+            }
+        }
+        else if (carpetsRadioButton.isSelected()) {
+            if (!workerCombobox.getValue().equals("None")) {
+                product1 = new Product(productID.getText() , productOwner.getText() ,"Carpet" , productHigh.getText(), productWidth.getText(),workerCombobox.getValue() ,"Treatment" , formatter1.format(date));
+                product.addProductGUI(product1, label);
+                String query = "update Worker " +
+                        "set status = ' Busy' " +
+                        "where ID = '" + workerCombobox.getValue()+ "'";
+                addCustomer.sql(query);
+            } else {
+                product1 = new Product(productID.getText() , productOwner.getText() ,"Carpet" , productHigh.getText(), productWidth.getText(),workerCombobox.getValue() ,"Waiting" , "Unknown");
+                product.addProductGUI(product1, label);
+            }
         }
     }
 
@@ -224,7 +247,7 @@ public class AddAll implements Initializable {
 
 
     @FXML
-    public void delete(ActionEvent actionEvent) throws SQLException {
+    public void delete(ActionEvent actionEvent) {
         if (workerRadioButton.isSelected()) {
             try{
                 String query = "delete from WORKER where id = '" + workerID.getText()+ "'";
@@ -254,12 +277,10 @@ public class AddAll implements Initializable {
         }
     }
 
-    @FXML
-    public void selectWorker(ActionEvent actionEvent) {
-    }
-    public int ShowStatus(String id) throws SQLException {
+
+    public int showStatus(String id){
         String query = "Select Status from product where id = '" + id +"'";
-        int flag = 0;
+        int flag =0;
         if (id.isEmpty()){
             flag = 0;
         }

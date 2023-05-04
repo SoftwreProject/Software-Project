@@ -8,11 +8,12 @@ public class Customers {
     SimpleStringProperty city;
     SimpleStringProperty street;
     SimpleStringProperty email;
+    SimpleStringProperty password;
 
 
     public Customers () {}
 
-    public Customers(String id, String name, String phone, String address, String city, String street , String email) {
+    public Customers(String id, String name, String phone, String address, String city, String street , String email ,String password) {
         this.id = new SimpleStringProperty(id);
         this.name =new SimpleStringProperty(name);
         this.phone =new SimpleStringProperty(phone);
@@ -20,6 +21,7 @@ public class Customers {
         this.city =new SimpleStringProperty(city);
         this.street =new SimpleStringProperty(street);
         this.email = new SimpleStringProperty(email);
+        this.password = new SimpleStringProperty(password);
     }
     public void setId(String id) {
         this.id = new SimpleStringProperty(id);
@@ -43,6 +45,7 @@ public class Customers {
     public void setStreet(String street) {
         this.street = new SimpleStringProperty(street);
     }
+    public void setPassword(String password) {this.password = new SimpleStringProperty(password);}
     public String getName() {
         return name.get();
     }
@@ -63,5 +66,6 @@ public class Customers {
         return street.get();
     }
     public String getEmail () {return email.get();}
+    public String getPassword() {return password.get();}
 
 }
