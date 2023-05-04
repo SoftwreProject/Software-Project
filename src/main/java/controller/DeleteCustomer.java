@@ -2,13 +2,11 @@ package controller;
 
 import oracle.jdbc.datasource.impl.OracleDataSource;
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Logger;
 
 public class DeleteCustomer {
-
-    AddCustomer ref = new AddCustomer();
+    
     String result;
     int flag = 0;
     public int SqlValue( String query){

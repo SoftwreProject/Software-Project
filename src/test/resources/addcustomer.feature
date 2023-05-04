@@ -23,7 +23,7 @@ Feature: Add Customer
         | id | name    | phone    | address | city     | street | email         | password |
         | 88 | Ayham   | 0598285  | Sofen   | Qalqilya | 22     | aaa@gmail.com | 123      |
         | 2  | Omar    | 05878787 | Noqqar  | Qalqilya | 22     | aaa@gmail.com | 133      |
-        | 3  | Omar    | 05878787 | Noqqar  | Qalqilya | 22     | aaa@gmail.com | 331      |
+        | 3  | Samer   | 05878787 | Noqqar  | Qalqilya | 22     | aaa@gmail.com | 331      |
         | 4  | Ayham   | 0598285  | Sofen   | Qalqilya | 22     | aaa@gmail.com | 342      |
         | 5  | Khaled  | 58585858 | dasd    | ddas     | dd     | aaa@gmail.com | 441      |
         | 6  | Shareef | das      | fds     | ddasd    | das    | aaa@gmail.com | 424      |

@@ -11,7 +11,7 @@ public class DeleteProduct {
     int flag;
     public void deleteProduct(SimpleStringProperty id , SimpleStringProperty name){
         try{
-            String query = "Delete from product where id = '" + id.get()+ "' or name = '" + name.get() +"'";
+            String query = "Delete from product where id = '" + id.get()+ "' or owner = '" + name.get() +"'";
             OracleDataSource orc = new OracleDataSource();
             orc.setURL("jdbc:oracle:thin:@localhost:1521:orcl");
             orc.setUser("software");

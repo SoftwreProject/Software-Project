@@ -20,5 +20,5 @@ Feature: Update Product Information
     When you type in "<id>" ,"<owner>", "<category>", "<high>", "<width>"
     Then i should show the product updated successfully
     Examples:
-      | id  | owner | category | high | width |  |
-      | P14 | C1   | rug      | 12   | 25    |  |
+      | id | owner | category | high | width |  |
+      | P1 | C1    | Carpet   | 12   | 25    |  |

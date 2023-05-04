@@ -24,7 +24,7 @@ public class StatusStepDefinition {
 
     @When("you want to show the status of product with your {string}")
     public void youWantToShowTheStatusOfProductWithYour(String arg0) {
-        ref.RefreshStat(arg0);
+        ref.refreshStat(arg0);
         status = ref.test();
     }
 

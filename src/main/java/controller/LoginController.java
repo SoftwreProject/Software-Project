@@ -125,9 +125,9 @@ public class LoginController implements Initializable {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/CustomerHomePage.fxml"));
                     Parent root = loader.load();
                     CustomerHomePage ref = loader.getController();
-                    ref.id = username; // to pass the username to next page;
-                    ref.SetName();
-                    ref.SetDate();
+                    ref.idSinging = username; // to pass the username to next page;
+                    ref.setName();
+                    ref.setDate();
                     Stage stage1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     Scene scene1 = new Scene(root);
                     stage1.setScene(scene1);
