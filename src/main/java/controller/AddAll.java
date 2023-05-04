@@ -9,7 +9,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
 import javax.swing.*;
 import java.net.URL;
 import java.sql.ResultSet;
@@ -22,184 +21,175 @@ public class AddAll implements Initializable {
 
 
     @FXML
-    private TextField WorkerID;
+    private TextField workerID;
     @FXML
-    private TextField WorkerName;
+    private TextField workerName;
     @FXML
-    private TextField WorkerPhone;
+    private TextField workerPhone;
     @FXML
-    private TextField WorkerAddress;
+    private TextField workerAddress;
     @FXML
-    private TextField CustomerID;
+    private TextField customerID;
     @FXML
-    private TextField CustomerName;
+    private TextField customerName;
     @FXML
-    private TextField CustoemrPhone;
+    private TextField customerPhone;
     @FXML
-    private TextField CustomerAddress;
+    private TextField customerAddress;
     @FXML
-    private TextField CustomerCity;
+    private TextField customerCity;
     @FXML
-    private TextField CustomerStreet;
+    private TextField customerStreet;
     @FXML
-    private TextField EmailCustomer;
+    private TextField customerEmail;
     @FXML
-    private TextField CustomerPassword;
+    private TextField customerPassword;
     @FXML
-    private TextField ProductID;
+    private TextField productID;
     @FXML
-    private TextField ProductHigh;
+    private TextField productHigh;
     @FXML
-    private TextField ProductWidth;
+    private TextField productWidth;
     @FXML
-    private TextField ProductOwner;
+    private TextField productOwner;
     @FXML
-    private JFXRadioButton CoversRadiButton;
+    private JFXRadioButton coversRadioButton;
     @FXML
-    private ToggleGroup toggle;
+    private JFXRadioButton carpetsRadioButton;
     @FXML
-    private JFXRadioButton CarpetsRadioButton;
+    private JFXRadioButton workerRadioButton;
     @FXML
-    private JFXRadioButton WorkerRadioButton;
+    private JFXRadioButton customerRadioButton;
     @FXML
-    private ToggleGroup toggle1;
-    @FXML
-    private JFXRadioButton CustomerRadioButton;
-    @FXML
-    private JFXRadioButton ProductRadioButton;
-    @FXML
-    private JFXButton Add;
+    private JFXButton add;
     @FXML
     private Label label;
+    @FXML
+    private JFXButton delete;
+    @FXML
+    private JFXRadioButton workerSpecCovers;
+    @FXML
+    private JFXRadioButton workerSpecCarpets;
+    @FXML
+    private JFXComboBox workerCombobox;
     AddWorker worker = new AddWorker();
     AddCustomer customer = new AddCustomer();
     AddProduct product = new AddProduct();
-    DeleteCustomer customer1 = new DeleteCustomer();
-    @FXML
-    private JFXButton Add1;
-    @FXML
-    private JFXRadioButton WorkerSpecCovers;
-
-    @FXML
-    private JFXRadioButton WorkerSpecCarpets;
-    @FXML
-    private JFXComboBox workerCombobox;
-    @FXML
-    private ToggleGroup Specilization;
-    SignUp ref = new SignUp();
     AddCustomer addCustomer = new AddCustomer();
+    SignUp ref = new SignUp();
     String result;
+    String newID = "Please Enter The ID";
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        CustomerEnable(true);
-        WorkerEnable(true);
-        ProductEnable(true);
-        Add.setDisable(true);
-        Add1.setDisable(true);
+        customerEnable(true);
+        workerEnable(true);
+        productEnable(true);
+        add.setDisable(true);
+        delete.setDisable(true);
         workerCombobox.setItems(FXCollections.observableArrayList("None"));
     }
 
 
     @FXML
-    public void AddWorker(ActionEvent actionEvent) {
-        CustomerEnable(true);
-        WorkerEnable(false);
-        ProductEnable(true);
-        Add.setDisable(false);
-        Add1.setDisable(false);
+    public void addWorker(ActionEvent actionEvent) {
+        customerEnable(true);
+        workerEnable(false);
+        productEnable(true);
+        add.setDisable(false);
+        delete.setDisable(false);
     }
 
     @FXML
-    public void AddCustomer(ActionEvent actionEvent) {
-        CustomerEnable(false);
-        WorkerEnable(true);
-        ProductEnable(true);
-        Add.setDisable(false);
-        Add1.setDisable(false);
+    public void addCustomer(ActionEvent actionEvent) {
+        customerEnable(false);
+        workerEnable(true);
+        productEnable(true);
+        add.setDisable(false);
+        delete.setDisable(false);
     }
 
 
 
     @FXML
-    public void AddProduct(ActionEvent actionEvent) {
-        CustomerEnable(true);
-        WorkerEnable(true);
-        ProductEnable(false);
-        Add.setDisable(false);
-        Add1.setDisable(false);
+    public void addProduct(ActionEvent actionEvent) {
+        customerEnable(true);
+        workerEnable(true);
+        productEnable(false);
+        add.setDisable(false);
+        delete.setDisable(false);
     }
 
-    public void WorkerEnable (boolean x ) {
-        WorkerID.setDisable(x);
-        WorkerName.setDisable(x);
-        WorkerPhone.setDisable(x);
-        WorkerAddress.setDisable(x);
-        WorkerSpecCovers.setDisable(x);
-        WorkerSpecCarpets.setDisable(x);
+    public void workerEnable (boolean x ) {
+        workerID.setDisable(x);
+        workerName.setDisable(x);
+        workerPhone.setDisable(x);
+        workerAddress.setDisable(x);
+        workerSpecCovers.setDisable(x);
+        workerSpecCarpets.setDisable(x);
 
     }
 
-    private void CustomerEnable(boolean x) {
-        CustomerID.setDisable(x);
-        CustomerName.setDisable(x);
-        CustoemrPhone.setDisable(x);
-        CustomerAddress.setDisable(x);
-        CustomerCity.setDisable(x);
-        CustomerStreet.setDisable(x);
-        EmailCustomer.setDisable(x);
-        CustomerPassword.setDisable(x);
+    private void customerEnable(boolean x) {
+        customerID.setDisable(x);
+        customerName.setDisable(x);
+        customerPhone.setDisable(x);
+        customerAddress.setDisable(x);
+        customerCity.setDisable(x);
+        customerStreet.setDisable(x);
+        customerEmail.setDisable(x);
+        customerPassword.setDisable(x);
     }
 
-    private void ProductEnable (boolean x) {
-        ProductID.setDisable(x);
-        ProductHigh.setDisable(x);
-        ProductWidth.setDisable(x);
-        ProductOwner.setDisable(x);
-        CoversRadiButton.setDisable(x);
-        CarpetsRadioButton.setDisable(x);
+    private void productEnable (boolean x) {
+        productID.setDisable(x);
+        productHigh.setDisable(x);
+        productWidth.setDisable(x);
+        productOwner.setDisable(x);
+        coversRadioButton.setDisable(x);
+        carpetsRadioButton.setDisable(x);
         workerCombobox.setDisable(x);
     }
 
 
     @FXML
-    public void Add(ActionEvent actionEvent) throws SQLException {
+    public void addFunction(ActionEvent actionEvent) throws SQLException {
         SimpleDateFormat formatter = new SimpleDateFormat("dd");
         Date date = new Date();
         int x = Integer.parseInt(formatter.format(date));
         x = x+4;
         SimpleDateFormat formatter1 = new SimpleDateFormat(x +"/MM/yyyy");
         JOptionPane.showMessageDialog(null , formatter1.format(date));
-        if (WorkerRadioButton.isSelected()) {
-            if (WorkerSpecCovers.isSelected())
-            worker.AddWorkers(WorkerID , WorkerName , WorkerPhone , WorkerAddress , WorkerSpecCovers,label );
+        if (workerRadioButton.isSelected()) {
+            if (workerSpecCovers.isSelected())
+                worker.AddWorkers(workerID , workerName , workerPhone , workerAddress , workerSpecCovers,label );
             else
-                worker.AddWorkers(WorkerID , WorkerName , WorkerPhone , WorkerAddress , WorkerSpecCarpets,label );
+                worker.AddWorkers(workerID , workerName , workerPhone , workerAddress , workerSpecCarpets,label );
         }
-        else if (CustomerRadioButton.isSelected()) {
-            customer.addCustomerGUI(CustomerID , CustomerName , CustoemrPhone , CustomerAddress , CustomerCity , CustomerStreet  , EmailCustomer , CustomerPassword , label);
+        else if (customerRadioButton.isSelected()) {
+            customer.addCustomerGUI(customerID , customerName , customerPhone , customerAddress , customerCity , customerStreet  , customerEmail , customerPassword , label);
         }
         else{
-            if (CoversRadiButton.isSelected()) {
+            if (coversRadioButton.isSelected()) {
                 if (!workerCombobox.getValue().toString().equals("None")) {
-                    product.AddProductGUI(ProductID, ProductOwner, "Cover", "0", "0", workerCombobox.getValue().toString(), "Treatment", formatter1.format(date), label);
-                    String Query = "update Worker " +
+                    product.AddProductGUI(productID, productOwner, "Cover", "0", "0", workerCombobox.getValue().toString(), "Treatment", formatter1.format(date), label);
+                    String query = "update Worker " +
                             "set status = ' Busy' " +
                             "where ID = '" + workerCombobox.getValue().toString() +"'";
-                    addCustomer.sql(Query);
+                    addCustomer.sql(query);
                 }
                 else {
-                    product.AddProductGUI(ProductID, ProductOwner, "Cover", "0", "0", workerCombobox.getValue().toString(), "Waiting", "Unknown", label);
+                    product.AddProductGUI(productID, productOwner, "Cover", "0", "0", workerCombobox.getValue().toString(), "Waiting", "Unknown", label);
                 }
             }
-            else if (CarpetsRadioButton.isSelected()) {
+            else if (carpetsRadioButton.isSelected()) {
                 if (!workerCombobox.getValue().toString().equals("None")) {
-                    product.AddProductGUI(ProductID, ProductOwner, "Carpet", ProductHigh.getText(), ProductWidth.getText(), workerCombobox.getValue().toString(), "Treatment", formatter1.format(date), label);
-                    String Query = "update Worker " +
+                    product.AddProductGUI(productID, productOwner, "Carpet", productHigh.getText(), productWidth.getText(), workerCombobox.getValue().toString(), "Treatment", formatter1.format(date), label);
+                    String query = "update Worker " +
                             "set status = ' Busy' " +
                             "where ID = '" + workerCombobox.getValue().toString() + "'";
-                    addCustomer.sql(Query);
+                    addCustomer.sql(query);
                 } else {
-                    product.AddProductGUI(ProductID, ProductOwner, "Carpet", ProductHigh.getText(), ProductWidth.getText(), workerCombobox.getValue().toString(), "Waiting", "Unknown", label);
+                    product.AddProductGUI(productID, productOwner, "Carpet", productHigh.getText(), productWidth.getText(), workerCombobox.getValue().toString(), "Waiting", "Unknown", label);
                 }
             }
 
@@ -207,22 +197,22 @@ public class AddAll implements Initializable {
     }
 
     @FXML
-    public void CoversFunc(ActionEvent actionEvent) throws SQLException {
-        ProductHigh.setDisable(true);
-        ProductWidth.setDisable(true);
-        String Query = "Select ID From Worker Where SPECIALIZATION = 'Cover' and status = 'available'";
-        Refactor(Query);
+    public void coversFunc(ActionEvent actionEvent) throws SQLException {
+        productHigh.setDisable(true);
+        productWidth.setDisable(true);
+        String query = "Select ID From Worker Where SPECIALIZATION = 'Cover' and status = 'available'";
+        refactor(query);
     }
 
     @FXML
-    public void CarpetFunc(ActionEvent actionEvent) throws SQLException {
-        ProductHigh.setDisable(false);
-        ProductWidth.setDisable(false);
-        String Query = "Select ID From Worker Where SPECIALIZATION = 'Carpet' and status = 'available'";
-        Refactor(Query);
+    public void carpetFunc(ActionEvent actionEvent) throws SQLException {
+        productHigh.setDisable(false);
+        productWidth.setDisable(false);
+        String query = "Select ID From Worker Where SPECIALIZATION = 'Carpet' and status = 'available'";
+        refactor(query);
     }
 
-    private void Refactor(String query) throws SQLException {
+    private void refactor(String query) throws SQLException {
         ResultSet resultSet = ref.sql(query);
         workerCombobox.getSelectionModel().clearSelection();
         workerCombobox.getItems().clear();
@@ -234,48 +224,48 @@ public class AddAll implements Initializable {
 
 
     @FXML
-    public void Delete(ActionEvent actionEvent) throws SQLException {
-        if (WorkerRadioButton.isSelected()) {
+    public void delete(ActionEvent actionEvent) throws SQLException {
+        if (workerRadioButton.isSelected()) {
             try{
-                String query = "Delete from WORKER where id = '" + WorkerID.getText()+ "'";
+                String query = "delete from WORKER where id = '" + workerID.getText()+ "'";
                 customer.sql(query);
                 label.setText("Worker Deleted Successfully");
             }catch (Exception ex){
-                label.setText("Please Enter The ID");
+                label.setText(newID);
             }
-        } else if (CustomerRadioButton.isSelected()) {
+        } else if (customerRadioButton.isSelected()) {
             try{
-                String query = "Delete from Customer where id = '" + CustomerID.getText() +"'";
+                String query = "delete from Customer where id = '" + customerID.getText() +"'";
                 customer.sql(query);
                 label.setText("Customer Deleted Successfully");
             }catch (Exception ex){
-                label.setText("Please Enter The ID");
+                label.setText(newID);
             }
 
         } else {
             try{
-                String query = "Delete from PRODUCT where id = '" + ProductID.getText() +"'";
+                String query = "delete from PRODUCT where id = '" + productID.getText() +"'";
                 customer.sql(query);
                 label.setText("Product Deleted Successfully");
             }catch (Exception ex){
-                label.setText("Please Enter The ID");
+                label.setText(newID);
             }
 
         }
     }
 
     @FXML
-    public void SelectWorker(ActionEvent actionEvent) {
+    public void selectWorker(ActionEvent actionEvent) {
     }
     public int ShowStatus(String id) throws SQLException {
-        String Query = "Select Status from product where id = '" + id +"'";
+        String query = "Select Status from product where id = '" + id +"'";
         int flag = 0;
         if (id.isEmpty()){
             flag = 0;
         }
         else {
             try {
-                ResultSet resultSet = ref.sql(Query);
+                ResultSet resultSet = ref.sql(query);
                 while (resultSet.next()){
                     result = resultSet.getString(1);
                     flag = 1;
