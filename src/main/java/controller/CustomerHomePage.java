@@ -162,9 +162,9 @@ public class CustomerHomePage implements Initializable {
 
 
     public void refreshStat(String idSinging) {
-        String Query = "SELECT idSinging , EndDate , Status + FROM Product " + "WHERE owner = '"+ idSinging + "'";
+        String query = "SELECT idSinging , EndDate , Status + FROM Product " + "WHERE owner = '"+ idSinging + "'";
         try {
-            ResultSet resultSet = ref.sql(Query);
+            ResultSet resultSet = ref.sql(query);
             SimpleDateFormat formatter = new SimpleDateFormat("dd");
             Date dateOfToday = new Date();
             while (resultSet.next()) {
@@ -173,14 +173,14 @@ public class CustomerHomePage implements Initializable {
                 int today = Integer.parseInt(formatter.format(dateOfToday)); // dateOfToday of today
                 if (today >= end)
                 {
-                    String query = "UPDATE PRODUCT " +
+                    String query1 = "UPDATE PRODUCT " +
                             "SET STATUS = 'Complete' " +
                             "WHERE idSinging = '"+ resultSet.getString(1) +"'";
-                    ref1.sql(query);
+                    ref1.sql(query1);
                     query = "update Worker " +
                             "set getStatus = ' Busy' " +
                             "where idSinging = '" + resultSet.getString(1) + "'";
-                    ref1.sql(query);
+                    ref1.sql(query1);
                     flag = 1;
                 }
 
@@ -190,7 +190,7 @@ public class CustomerHomePage implements Initializable {
         }
         catch (Exception ex) {
             flag = 0;
-            Logger.getLogger(ex.toString());
+            Logger.getLogger("You are in get status of customer");
         }
     }
 

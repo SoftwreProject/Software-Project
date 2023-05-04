@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
+import java.util.logging.Logger;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -142,7 +143,7 @@ public class LoginController implements Initializable {
 
             }
         }catch (Exception ex) {
-            System.out.println(ex);
+            Logger.getLogger("You are in Signing page");
         }
 
     }

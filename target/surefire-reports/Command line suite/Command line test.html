@@ -1,0 +1,339 @@
+<html>
+<head>
+<title>TestNG:  Command line test</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Command line test</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>52/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Thu May 04 20:47:00 EET 2023</td>
+</tr>
+<tr><td>Total time:</td><td>1 seconds (1761 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "fill all values", "Optional[Add Customer]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "i want to delete customer with valid id or valid name", "Optional[Delete Customer]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Enter an Empty id", "Optional[Show Product Information]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Enter a correct ID", "Optional[Show the Information of Customer]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "one or more empty value", "Optional[Add Product]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Added Successfully", "Optional[SignUp]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "i want to delete customer with valid id or valid name", "Optional[Delete Product]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "i want to delete customer with valid id or valid name", "Optional[Delete Customer]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "i want to delete customer with valid id or valid name", "Optional[Delete Product]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "incorrect id", "Optional[Update Product Information]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "", "Optional[Update Product Information]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "accepted id", "Optional[Update Customer Information]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "fill all values", "Optional[Add Product]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "fill all values", "Optional[Add Product]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "fill all values", "Optional[Add Product]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "fill all values", "Optional[Add Product]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "one or more null value", "Optional[Add Customer]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Enter a correct ID", "Optional[Show Product Information]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "i want to delete customer with invalid name and id", "Optional[Delete Customer]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "i want to delete customer with valid id or valid name", "Optional[Delete Product]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "empty id", "Optional[Update Customer Information]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "i want to delete customer with valid id or valid name", "Optional[Delete Product]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "i want to delete customer with invalid name or id and empty name or id", "Optional[Delete Product]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "i want to delete customer with invalid name or id and empty name or id", "Optional[Delete Product]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "fill all values", "Optional[Add Customer]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "i want to delete customer with valid id or valid name", "Optional[Delete Customer]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "i want to delete customer with valid id or valid name", "Optional[Delete Customer]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "incorrect id", "Optional[Update Customer Information]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "i want to delete customer with invalid name or id and empty name or id", "Optional[Delete Customer]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Wrong password or password", "Optional[Login in my program]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "One or More Empty Term", "Optional[SignUp]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Enter used id", "Optional[Add Product]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "fill all values", "Optional[Add Customer]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "i want to delete customer with invalid name and id", "Optional[Delete Product]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "weak password", "Optional[SignUp]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "fill all values", "Optional[Add Customer]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "i want to delete customer with invalid name or id and empty name or id", "Optional[Delete Customer]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Enter an wrong id", "Optional[Show the Information of Customer]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "i want to delete customer with valid id or valid name", "Optional[Delete Customer]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "i want to delete customer with valid id or valid name", "Optional[Delete Product]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "fill all values", "Optional[Add Product]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "", "Optional[Update Product Information]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "duplicate id", "Optional[SignUp]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "fill all values", "Optional[Add Customer]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Login successfully", "Optional[Login in my program]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "i want to delete customer with empty id and name", "Optional[Delete Customer]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "i want to delete customer with empty id and name", "Optional[Delete Product]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Enter used id to add new customer", "Optional[Add Customer]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Enter an Empty id", "Optional[Show the Information of Customer]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "fill all values", "Optional[Add Customer]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Login successfully", "Optional[Login in my program]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+<tr>
+<td title='Runners.MyClassTestCase.runScenario()'><b>runScenario</b><br>Test class: Runners.MyClassTestCase<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Enter an wrong id", "Optional[Show Product Information]"</td>
+<td></td>
+<td>0</td>
+<td>Runners.MyClassTestCase@5606c0b</td></tr>
+</table><p>
+</body>
+</html>

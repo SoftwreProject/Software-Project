@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <meta charset='utf-8'>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports1.css" rel="stylesheet" id="ultra" />
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" id="retro" disabled="false"/>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>
+    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
+      <br/>
+      <span class="top-banner-font-1">1 suite</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" title="Collapse/expand all the suites" class="collapse-all-link">
+          <img src="collapseall.gif" class="collapse-all-icon">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" panel-name="suite-Command_line_suite" class="navigator-link">
+              <span class="suite-name border-passed">Command line suite</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" panel-name="test-xml-Command_line_suite" class="navigator-link ">
+                    <span>[unset file name]</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="testlist-Command_line_suite" class="navigator-link ">
+                    <span class="test-stats">1 test</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="group-Command_line_suite" class="navigator-link ">
+                    <span>1 group</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="times-Command_line_suite" class="navigator-link ">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="reporter-Command_line_suite" class="navigator-link ">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="ignored-methods-Command_line_suite" class="navigator-link ">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="chronological-Command_line_suite" class="navigator-link ">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">52 methods,   52 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-Command_line_suite" class="hide-methods passed suite-Command_line_suite"> (hide)</a> <!-- hide-methods passed suite-Command_line_suite -->
+                      <a href="#" panel-name="suite-Command_line_suite" class="show-methods passed suite-Command_line_suite"> (show)</a> <!-- show-methods passed suite-Command_line_suite -->
+                    </span>
+                    <div class="method-list-content passed suite-Command_line_suite">
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;fill all values&quot;, &quot;Optional[Add Customer]&quot;)">runScenario("fill all values", "Optional[Add Customer]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;i want to delete customer with valid id or valid name&quot;, &quot;Optional[Delete Customer]&quot;)">runScenario("i want to delete customer with valid id or valid name", "Optional[Delete Customer]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;Enter an Empty id&quot;, &quot;Optional[Show Product Information]&quot;)">runScenario("Enter an Empty id", "Optional[Show Product Information]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;Enter a correct ID&quot;, &quot;Optional[Show the Information of Customer]&quot;)">runScenario("Enter a correct ID", "Optional[Show the Information of Customer]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;one or more empty value&quot;, &quot;Optional[Add Product]&quot;)">runScenario("one or more empty value", "Optional[Add Product]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;Added Successfully&quot;, &quot;Optional[SignUp]&quot;)">runScenario("Added Successfully", "Optional[SignUp]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;i want to delete customer with valid id or valid name&quot;, &quot;Optional[Delete Product]&quot;)">runScenario("i want to delete customer with valid id or valid name", "Optional[Delete Product]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;i want to delete customer with valid id or valid name&quot;, &quot;Optional[Delete Customer]&quot;)">runScenario("i want to delete customer with valid id or valid name", "Optional[Delete Customer]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;i want to delete customer with valid id or valid name&quot;, &quot;Optional[Delete Product]&quot;)">runScenario("i want to delete customer with valid id or valid name", "Optional[Delete Product]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;incorrect id&quot;, &quot;Optional[Update Product Information]&quot;)">runScenario("incorrect id", "Optional[Update Product Information]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;&quot;, &quot;Optional[Update Product Information]&quot;)">runScenario("", "Optional[Update Product Information]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;accepted id&quot;, &quot;Optional[Update Customer Information]&quot;)">runScenario("accepted id", "Optional[Update Customer Information]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;fill all values&quot;, &quot;Optional[Add Product]&quot;)">runScenario("fill all values", "Optional[Add Product]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;fill all values&quot;, &quot;Optional[Add Product]&quot;)">runScenario("fill all values", "Optional[Add Product]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;fill all values&quot;, &quot;Optional[Add Product]&quot;)">runScenario("fill all values", "Optional[Add Product]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;fill all values&quot;, &quot;Optional[Add Product]&quot;)">runScenario("fill all values", "Optional[Add Product]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;one or more null value&quot;, &quot;Optional[Add Customer]&quot;)">runScenario("one or more null value", "Optional[Add Customer]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;Enter a correct ID&quot;, &quot;Optional[Show Product Information]&quot;)">runScenario("Enter a correct ID", "Optional[Show Product Information]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;i want to delete customer with invalid name and id&quot;, &quot;Optional[Delete Customer]&quot;)">runScenario("i want to delete customer with invalid name and id", "Optional[Delete Customer]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;i want to delete customer with valid id or valid name&quot;, &quot;Optional[Delete Product]&quot;)">runScenario("i want to delete customer with valid id or valid name", "Optional[Delete Product]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;empty id&quot;, &quot;Optional[Update Customer Information]&quot;)">runScenario("empty id", "Optional[Update Customer Information]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;i want to delete customer with valid id or valid name&quot;, &quot;Optional[Delete Product]&quot;)">runScenario("i want to delete customer with valid id or valid name", "Optional[Delete Product]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;i want to delete customer with invalid name or id and empty name or id&quot;, &quot;Optional[Delete Product]&quot;)">runScenario("i want to delete customer with invalid name or id and empty name or id", "Optional[Delete Product]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;i want to delete customer with invalid name or id and empty name or id&quot;, &quot;Optional[Delete Product]&quot;)">runScenario("i want to delete customer with invalid name or id and empty name or id", "Optional[Delete Product]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;fill all values&quot;, &quot;Optional[Add Customer]&quot;)">runScenario("fill all values", "Optional[Add Customer]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;i want to delete customer with valid id or valid name&quot;, &quot;Optional[Delete Customer]&quot;)">runScenario("i want to delete customer with valid id or valid name", "Optional[Delete Customer]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;i want to delete customer with valid id or valid name&quot;, &quot;Optional[Delete Customer]&quot;)">runScenario("i want to delete customer with valid id or valid name", "Optional[Delete Customer]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;incorrect id&quot;, &quot;Optional[Update Customer Information]&quot;)">runScenario("incorrect id", "Optional[Update Customer Information]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;i want to delete customer with invalid name or id and empty name or id&quot;, &quot;Optional[Delete Customer]...)">runScenario("i want to delete customer with invalid name or id and empty name or id", "Optional[Delete Customer]...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;Wrong password or password&quot;, &quot;Optional[Login in my program]&quot;)">runScenario("Wrong password or password", "Optional[Login in my program]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;One or More Empty Term&quot;, &quot;Optional[SignUp]&quot;)">runScenario("One or More Empty Term", "Optional[SignUp]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;Enter used id&quot;, &quot;Optional[Add Product]&quot;)">runScenario("Enter used id", "Optional[Add Product]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;fill all values&quot;, &quot;Optional[Add Customer]&quot;)">runScenario("fill all values", "Optional[Add Customer]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;i want to delete customer with invalid name and id&quot;, &quot;Optional[Delete Product]&quot;)">runScenario("i want to delete customer with invalid name and id", "Optional[Delete Product]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;weak password&quot;, &quot;Optional[SignUp]&quot;)">runScenario("weak password", "Optional[SignUp]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;fill all values&quot;, &quot;Optional[Add Customer]&quot;)">runScenario("fill all values", "Optional[Add Customer]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;i want to delete customer with invalid name or id and empty name or id&quot;, &quot;Optional[Delete Customer]...)">runScenario("i want to delete customer with invalid name or id and empty name or id", "Optional[Delete Customer]...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;Enter an wrong id&quot;, &quot;Optional[Show the Information of Customer]&quot;)">runScenario("Enter an wrong id", "Optional[Show the Information of Customer]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;i want to delete customer with valid id or valid name&quot;, &quot;Optional[Delete Customer]&quot;)">runScenario("i want to delete customer with valid id or valid name", "Optional[Delete Customer]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;i want to delete customer with valid id or valid name&quot;, &quot;Optional[Delete Product]&quot;)">runScenario("i want to delete customer with valid id or valid name", "Optional[Delete Product]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;fill all values&quot;, &quot;Optional[Add Product]&quot;)">runScenario("fill all values", "Optional[Add Product]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;&quot;, &quot;Optional[Update Product Information]&quot;)">runScenario("", "Optional[Update Product Information]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;duplicate id&quot;, &quot;Optional[SignUp]&quot;)">runScenario("duplicate id", "Optional[SignUp]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;fill all values&quot;, &quot;Optional[Add Customer]&quot;)">runScenario("fill all values", "Optional[Add Customer]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;Login successfully&quot;, &quot;Optional[Login in my program]&quot;)">runScenario("Login successfully", "Optional[Login in my program]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;i want to delete customer with empty id and name&quot;, &quot;Optional[Delete Customer]&quot;)">runScenario("i want to delete customer with empty id and name", "Optional[Delete Customer]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;i want to delete customer with empty id and name&quot;, &quot;Optional[Delete Product]&quot;)">runScenario("i want to delete customer with empty id and name", "Optional[Delete Product]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;Enter used id to add new customer&quot;, &quot;Optional[Add Customer]&quot;)">runScenario("Enter used id to add new customer", "Optional[Add Customer]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;Enter an Empty id&quot;, &quot;Optional[Show the Information of Customer]&quot;)">runScenario("Enter an Empty id", "Optional[Show the Information of Customer]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;fill all values&quot;, &quot;Optional[Add Customer]&quot;)">runScenario("fill all values", "Optional[Add Customer]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;Login successfully&quot;, &quot;Optional[Login in my program]&quot;)">runScenario("Login successfully", "Optional[Login in my program]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Command_line_suite" title="Runners.MyClassTestCase" class="method navigator-link" hash-for-method="runScenario(&quot;Enter an wrong id&quot;, &quot;Optional[Show Product Information]&quot;)">runScenario("Enter an wrong id", "Optional[Show Product Information]")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-Command_line_suite -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-Command_line_suite" class="panel Command_line_suite">
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">Runners.MyClassTestCase</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;fill all values&quot;, &quot;Optional[Add Customer]&quot;)">
+                  </a> <!-- runScenario("fill all values", "Optional[Add Customer]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("fill all values", "Optional[Add Customer]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;i want to delete customer with valid id or valid name&quot;, &quot;Optional[Delete Customer]&quot;)">
+                  </a> <!-- runScenario("i want to delete customer with valid id or valid name", "Optional[Delete Customer]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("i want to delete customer with valid id or valid name", "Optional[Delete Customer]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Enter an Empty id&quot;, &quot;Optional[Show Product Information]&quot;)">
+                  </a> <!-- runScenario("Enter an Empty id", "Optional[Show Product Information]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Enter an Empty id", "Optional[Show Product Information]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Enter a correct ID&quot;, &quot;Optional[Show the Information of Customer]&quot;)">
+                  </a> <!-- runScenario("Enter a correct ID", "Optional[Show the Information of Customer]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Enter a correct ID", "Optional[Show the Information of Customer]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;one or more empty value&quot;, &quot;Optional[Add Product]&quot;)">
+                  </a> <!-- runScenario("one or more empty value", "Optional[Add Product]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("one or more empty value", "Optional[Add Product]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Added Successfully&quot;, &quot;Optional[SignUp]&quot;)">
+                  </a> <!-- runScenario("Added Successfully", "Optional[SignUp]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Added Successfully", "Optional[SignUp]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;i want to delete customer with valid id or valid name&quot;, &quot;Optional[Delete Product]&quot;)">
+                  </a> <!-- runScenario("i want to delete customer with valid id or valid name", "Optional[Delete Product]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("i want to delete customer with valid id or valid name", "Optional[Delete Product]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;i want to delete customer with valid id or valid name&quot;, &quot;Optional[Delete Customer]&quot;)">
+                  </a> <!-- runScenario("i want to delete customer with valid id or valid name", "Optional[Delete Customer]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("i want to delete customer with valid id or valid name", "Optional[Delete Customer]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;i want to delete customer with valid id or valid name&quot;, &quot;Optional[Delete Product]&quot;)">
+                  </a> <!-- runScenario("i want to delete customer with valid id or valid name", "Optional[Delete Product]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("i want to delete customer with valid id or valid name", "Optional[Delete Product]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;incorrect id&quot;, &quot;Optional[Update Product Information]&quot;)">
+                  </a> <!-- runScenario("incorrect id", "Optional[Update Product Information]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("incorrect id", "Optional[Update Product Information]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;&quot;, &quot;Optional[Update Product Information]&quot;)">
+                  </a> <!-- runScenario("", "Optional[Update Product Information]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("", "Optional[Update Product Information]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;accepted id&quot;, &quot;Optional[Update Customer Information]&quot;)">
+                  </a> <!-- runScenario("accepted id", "Optional[Update Customer Information]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("accepted id", "Optional[Update Customer Information]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;fill all values&quot;, &quot;Optional[Add Product]&quot;)">
+                  </a> <!-- runScenario("fill all values", "Optional[Add Product]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("fill all values", "Optional[Add Product]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;fill all values&quot;, &quot;Optional[Add Product]&quot;)">
+                  </a> <!-- runScenario("fill all values", "Optional[Add Product]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("fill all values", "Optional[Add Product]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;fill all values&quot;, &quot;Optional[Add Product]&quot;)">
+                  </a> <!-- runScenario("fill all values", "Optional[Add Product]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("fill all values", "Optional[Add Product]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;fill all values&quot;, &quot;Optional[Add Product]&quot;)">
+                  </a> <!-- runScenario("fill all values", "Optional[Add Product]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("fill all values", "Optional[Add Product]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;one or more null value&quot;, &quot;Optional[Add Customer]&quot;)">
+                  </a> <!-- runScenario("one or more null value", "Optional[Add Customer]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("one or more null value", "Optional[Add Customer]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Enter a correct ID&quot;, &quot;Optional[Show Product Information]&quot;)">
+                  </a> <!-- runScenario("Enter a correct ID", "Optional[Show Product Information]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Enter a correct ID", "Optional[Show Product Information]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;i want to delete customer with invalid name and id&quot;, &quot;Optional[Delete Customer]&quot;)">
+                  </a> <!-- runScenario("i want to delete customer with invalid name and id", "Optional[Delete Customer]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("i want to delete customer with invalid name and id", "Optional[Delete Customer]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;i want to delete customer with valid id or valid name&quot;, &quot;Optional[Delete Product]&quot;)">
+                  </a> <!-- runScenario("i want to delete customer with valid id or valid name", "Optional[Delete Product]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("i want to delete customer with valid id or valid name", "Optional[Delete Product]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;empty id&quot;, &quot;Optional[Update Customer Information]&quot;)">
+                  </a> <!-- runScenario("empty id", "Optional[Update Customer Information]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("empty id", "Optional[Update Customer Information]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;i want to delete customer with valid id or valid name&quot;, &quot;Optional[Delete Product]&quot;)">
+                  </a> <!-- runScenario("i want to delete customer with valid id or valid name", "Optional[Delete Product]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("i want to delete customer with valid id or valid name", "Optional[Delete Product]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;i want to delete customer with invalid name or id and empty name or id&quot;, &quot;Optional[Delete Product]&quot;)">
+                  </a> <!-- runScenario("i want to delete customer with invalid name or id and empty name or id", "Optional[Delete Product]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("i want to delete customer with invalid name or id and empty name or id", "Optional[Delete Product]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;i want to delete customer with invalid name or id and empty name or id&quot;, &quot;Optional[Delete Product]&quot;)">
+                  </a> <!-- runScenario("i want to delete customer with invalid name or id and empty name or id", "Optional[Delete Product]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("i want to delete customer with invalid name or id and empty name or id", "Optional[Delete Product]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;fill all values&quot;, &quot;Optional[Add Customer]&quot;)">
+                  </a> <!-- runScenario("fill all values", "Optional[Add Customer]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("fill all values", "Optional[Add Customer]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;i want to delete customer with valid id or valid name&quot;, &quot;Optional[Delete Customer]&quot;)">
+                  </a> <!-- runScenario("i want to delete customer with valid id or valid name", "Optional[Delete Customer]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("i want to delete customer with valid id or valid name", "Optional[Delete Customer]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;i want to delete customer with valid id or valid name&quot;, &quot;Optional[Delete Customer]&quot;)">
+                  </a> <!-- runScenario("i want to delete customer with valid id or valid name", "Optional[Delete Customer]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("i want to delete customer with valid id or valid name", "Optional[Delete Customer]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;incorrect id&quot;, &quot;Optional[Update Customer Information]&quot;)">
+                  </a> <!-- runScenario("incorrect id", "Optional[Update Customer Information]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("incorrect id", "Optional[Update Customer Information]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;i want to delete customer with invalid name or id and empty name or id&quot;, &quot;Optional[Delete Customer]...)">
+                  </a> <!-- runScenario("i want to delete customer with invalid name or id and empty name or id", "Optional[Delete Customer]...) -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("i want to delete customer with invalid name or id and empty name or id", "Optional[Delete Customer]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Wrong password or password&quot;, &quot;Optional[Login in my program]&quot;)">
+                  </a> <!-- runScenario("Wrong password or password", "Optional[Login in my program]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Wrong password or password", "Optional[Login in my program]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;One or More Empty Term&quot;, &quot;Optional[SignUp]&quot;)">
+                  </a> <!-- runScenario("One or More Empty Term", "Optional[SignUp]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("One or More Empty Term", "Optional[SignUp]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Enter used id&quot;, &quot;Optional[Add Product]&quot;)">
+                  </a> <!-- runScenario("Enter used id", "Optional[Add Product]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Enter used id", "Optional[Add Product]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;fill all values&quot;, &quot;Optional[Add Customer]&quot;)">
+                  </a> <!-- runScenario("fill all values", "Optional[Add Customer]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("fill all values", "Optional[Add Customer]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;i want to delete customer with invalid name and id&quot;, &quot;Optional[Delete Product]&quot;)">
+                  </a> <!-- runScenario("i want to delete customer with invalid name and id", "Optional[Delete Product]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("i want to delete customer with invalid name and id", "Optional[Delete Product]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;weak password&quot;, &quot;Optional[SignUp]&quot;)">
+                  </a> <!-- runScenario("weak password", "Optional[SignUp]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("weak password", "Optional[SignUp]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;fill all values&quot;, &quot;Optional[Add Customer]&quot;)">
+                  </a> <!-- runScenario("fill all values", "Optional[Add Customer]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("fill all values", "Optional[Add Customer]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;i want to delete customer with invalid name or id and empty name or id&quot;, &quot;Optional[Delete Customer]...)">
+                  </a> <!-- runScenario("i want to delete customer with invalid name or id and empty name or id", "Optional[Delete Customer]...) -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("i want to delete customer with invalid name or id and empty name or id", "Optional[Delete Customer]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Enter an wrong id&quot;, &quot;Optional[Show the Information of Customer]&quot;)">
+                  </a> <!-- runScenario("Enter an wrong id", "Optional[Show the Information of Customer]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Enter an wrong id", "Optional[Show the Information of Customer]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;i want to delete customer with valid id or valid name&quot;, &quot;Optional[Delete Customer]&quot;)">
+                  </a> <!-- runScenario("i want to delete customer with valid id or valid name", "Optional[Delete Customer]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("i want to delete customer with valid id or valid name", "Optional[Delete Customer]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;i want to delete customer with valid id or valid name&quot;, &quot;Optional[Delete Product]&quot;)">
+                  </a> <!-- runScenario("i want to delete customer with valid id or valid name", "Optional[Delete Product]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("i want to delete customer with valid id or valid name", "Optional[Delete Product]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;fill all values&quot;, &quot;Optional[Add Product]&quot;)">
+                  </a> <!-- runScenario("fill all values", "Optional[Add Product]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("fill all values", "Optional[Add Product]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;&quot;, &quot;Optional[Update Product Information]&quot;)">
+                  </a> <!-- runScenario("", "Optional[Update Product Information]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("", "Optional[Update Product Information]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;duplicate id&quot;, &quot;Optional[SignUp]&quot;)">
+                  </a> <!-- runScenario("duplicate id", "Optional[SignUp]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("duplicate id", "Optional[SignUp]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;fill all values&quot;, &quot;Optional[Add Customer]&quot;)">
+                  </a> <!-- runScenario("fill all values", "Optional[Add Customer]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("fill all values", "Optional[Add Customer]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Login successfully&quot;, &quot;Optional[Login in my program]&quot;)">
+                  </a> <!-- runScenario("Login successfully", "Optional[Login in my program]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Login successfully", "Optional[Login in my program]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;i want to delete customer with empty id and name&quot;, &quot;Optional[Delete Customer]&quot;)">
+                  </a> <!-- runScenario("i want to delete customer with empty id and name", "Optional[Delete Customer]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("i want to delete customer with empty id and name", "Optional[Delete Customer]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;i want to delete customer with empty id and name&quot;, &quot;Optional[Delete Product]&quot;)">
+                  </a> <!-- runScenario("i want to delete customer with empty id and name", "Optional[Delete Product]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("i want to delete customer with empty id and name", "Optional[Delete Product]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Enter used id to add new customer&quot;, &quot;Optional[Add Customer]&quot;)">
+                  </a> <!-- runScenario("Enter used id to add new customer", "Optional[Add Customer]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Enter used id to add new customer", "Optional[Add Customer]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Enter an Empty id&quot;, &quot;Optional[Show the Information of Customer]&quot;)">
+                  </a> <!-- runScenario("Enter an Empty id", "Optional[Show the Information of Customer]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Enter an Empty id", "Optional[Show the Information of Customer]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;fill all values&quot;, &quot;Optional[Add Customer]&quot;)">
+                  </a> <!-- runScenario("fill all values", "Optional[Add Customer]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("fill all values", "Optional[Add Customer]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Login successfully&quot;, &quot;Optional[Login in my program]&quot;)">
+                  </a> <!-- runScenario("Login successfully", "Optional[Login in my program]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Login successfully", "Optional[Login in my program]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Enter an wrong id&quot;, &quot;Optional[Show Product Information]&quot;)">
+                  </a> <!-- runScenario("Enter an wrong id", "Optional[Show Product Information]") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Enter an wrong id", "Optional[Show Product Information]")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+        </div> <!-- panel Command_line_suite -->
+        <div panel-name="test-xml-Command_line_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite name=&quot;Command line suite&quot; verbose=&quot;0&quot;&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;Command line test&quot; verbose=&quot;0&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;Runners.MyClassTestCase&quot;/&gt;
+      &lt;class name=&quot;StepDefinition.LoginTest&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Command line test --&gt;
+&lt;/suite&gt; &lt;!-- Command line suite --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-Command_line_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for Command line suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">Command line test (2 classes)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-Command_line_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for Command line suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="test-group">
+              <span class="test-group-name">cucumber</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">runScenario</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-Command_line_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for Command line suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_Command_line_suite');
+function tableData_Command_line_suite() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(52);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'runScenario')
+data.setCell(0, 2, 'Runners.MyClassTestCase')
+data.setCell(0, 3, 447);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'runScenario')
+data.setCell(1, 2, 'Runners.MyClassTestCase')
+data.setCell(1, 3, 148);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'runScenario')
+data.setCell(2, 2, 'Runners.MyClassTestCase')
+data.setCell(2, 3, 39);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'runScenario')
+data.setCell(3, 2, 'Runners.MyClassTestCase')
+data.setCell(3, 3, 32);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'runScenario')
+data.setCell(4, 2, 'Runners.MyClassTestCase')
+data.setCell(4, 3, 31);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'runScenario')
+data.setCell(5, 2, 'Runners.MyClassTestCase')
+data.setCell(5, 3, 28);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'runScenario')
+data.setCell(6, 2, 'Runners.MyClassTestCase')
+data.setCell(6, 3, 26);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'runScenario')
+data.setCell(7, 2, 'Runners.MyClassTestCase')
+data.setCell(7, 3, 24);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'runScenario')
+data.setCell(8, 2, 'Runners.MyClassTestCase')
+data.setCell(8, 3, 23);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'runScenario')
+data.setCell(9, 2, 'Runners.MyClassTestCase')
+data.setCell(9, 3, 22);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'runScenario')
+data.setCell(10, 2, 'Runners.MyClassTestCase')
+data.setCell(10, 3, 22);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'runScenario')
+data.setCell(11, 2, 'Runners.MyClassTestCase')
+data.setCell(11, 3, 22);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'runScenario')
+data.setCell(12, 2, 'Runners.MyClassTestCase')
+data.setCell(12, 3, 21);
+data.setCell(13, 0, 13)
+data.setCell(13, 1, 'runScenario')
+data.setCell(13, 2, 'Runners.MyClassTestCase')
+data.setCell(13, 3, 21);
+data.setCell(14, 0, 14)
+data.setCell(14, 1, 'runScenario')
+data.setCell(14, 2, 'Runners.MyClassTestCase')
+data.setCell(14, 3, 21);
+data.setCell(15, 0, 15)
+data.setCell(15, 1, 'runScenario')
+data.setCell(15, 2, 'Runners.MyClassTestCase')
+data.setCell(15, 3, 21);
+data.setCell(16, 0, 16)
+data.setCell(16, 1, 'runScenario')
+data.setCell(16, 2, 'Runners.MyClassTestCase')
+data.setCell(16, 3, 20);
+data.setCell(17, 0, 17)
+data.setCell(17, 1, 'runScenario')
+data.setCell(17, 2, 'Runners.MyClassTestCase')
+data.setCell(17, 3, 20);
+data.setCell(18, 0, 18)
+data.setCell(18, 1, 'runScenario')
+data.setCell(18, 2, 'Runners.MyClassTestCase')
+data.setCell(18, 3, 20);
+data.setCell(19, 0, 19)
+data.setCell(19, 1, 'runScenario')
+data.setCell(19, 2, 'Runners.MyClassTestCase')
+data.setCell(19, 3, 19);
+data.setCell(20, 0, 20)
+data.setCell(20, 1, 'runScenario')
+data.setCell(20, 2, 'Runners.MyClassTestCase')
+data.setCell(20, 3, 19);
+data.setCell(21, 0, 21)
+data.setCell(21, 1, 'runScenario')
+data.setCell(21, 2, 'Runners.MyClassTestCase')
+data.setCell(21, 3, 19);
+data.setCell(22, 0, 22)
+data.setCell(22, 1, 'runScenario')
+data.setCell(22, 2, 'Runners.MyClassTestCase')
+data.setCell(22, 3, 18);
+data.setCell(23, 0, 23)
+data.setCell(23, 1, 'runScenario')
+data.setCell(23, 2, 'Runners.MyClassTestCase')
+data.setCell(23, 3, 18);
+data.setCell(24, 0, 24)
+data.setCell(24, 1, 'runScenario')
+data.setCell(24, 2, 'Runners.MyClassTestCase')
+data.setCell(24, 3, 18);
+data.setCell(25, 0, 25)
+data.setCell(25, 1, 'runScenario')
+data.setCell(25, 2, 'Runners.MyClassTestCase')
+data.setCell(25, 3, 18);
+data.setCell(26, 0, 26)
+data.setCell(26, 1, 'runScenario')
+data.setCell(26, 2, 'Runners.MyClassTestCase')
+data.setCell(26, 3, 18);
+data.setCell(27, 0, 27)
+data.setCell(27, 1, 'runScenario')
+data.setCell(27, 2, 'Runners.MyClassTestCase')
+data.setCell(27, 3, 18);
+data.setCell(28, 0, 28)
+data.setCell(28, 1, 'runScenario')
+data.setCell(28, 2, 'Runners.MyClassTestCase')
+data.setCell(28, 3, 18);
+data.setCell(29, 0, 29)
+data.setCell(29, 1, 'runScenario')
+data.setCell(29, 2, 'Runners.MyClassTestCase')
+data.setCell(29, 3, 17);
+data.setCell(30, 0, 30)
+data.setCell(30, 1, 'runScenario')
+data.setCell(30, 2, 'Runners.MyClassTestCase')
+data.setCell(30, 3, 17);
+data.setCell(31, 0, 31)
+data.setCell(31, 1, 'runScenario')
+data.setCell(31, 2, 'Runners.MyClassTestCase')
+data.setCell(31, 3, 17);
+data.setCell(32, 0, 32)
+data.setCell(32, 1, 'runScenario')
+data.setCell(32, 2, 'Runners.MyClassTestCase')
+data.setCell(32, 3, 16);
+data.setCell(33, 0, 33)
+data.setCell(33, 1, 'runScenario')
+data.setCell(33, 2, 'Runners.MyClassTestCase')
+data.setCell(33, 3, 16);
+data.setCell(34, 0, 34)
+data.setCell(34, 1, 'runScenario')
+data.setCell(34, 2, 'Runners.MyClassTestCase')
+data.setCell(34, 3, 16);
+data.setCell(35, 0, 35)
+data.setCell(35, 1, 'runScenario')
+data.setCell(35, 2, 'Runners.MyClassTestCase')
+data.setCell(35, 3, 16);
+data.setCell(36, 0, 36)
+data.setCell(36, 1, 'runScenario')
+data.setCell(36, 2, 'Runners.MyClassTestCase')
+data.setCell(36, 3, 15);
+data.setCell(37, 0, 37)
+data.setCell(37, 1, 'runScenario')
+data.setCell(37, 2, 'Runners.MyClassTestCase')
+data.setCell(37, 3, 15);
+data.setCell(38, 0, 38)
+data.setCell(38, 1, 'runScenario')
+data.setCell(38, 2, 'Runners.MyClassTestCase')
+data.setCell(38, 3, 15);
+data.setCell(39, 0, 39)
+data.setCell(39, 1, 'runScenario')
+data.setCell(39, 2, 'Runners.MyClassTestCase')
+data.setCell(39, 3, 15);
+data.setCell(40, 0, 40)
+data.setCell(40, 1, 'runScenario')
+data.setCell(40, 2, 'Runners.MyClassTestCase')
+data.setCell(40, 3, 14);
+data.setCell(41, 0, 41)
+data.setCell(41, 1, 'runScenario')
+data.setCell(41, 2, 'Runners.MyClassTestCase')
+data.setCell(41, 3, 14);
+data.setCell(42, 0, 42)
+data.setCell(42, 1, 'runScenario')
+data.setCell(42, 2, 'Runners.MyClassTestCase')
+data.setCell(42, 3, 14);
+data.setCell(43, 0, 43)
+data.setCell(43, 1, 'runScenario')
+data.setCell(43, 2, 'Runners.MyClassTestCase')
+data.setCell(43, 3, 14);
+data.setCell(44, 0, 44)
+data.setCell(44, 1, 'runScenario')
+data.setCell(44, 2, 'Runners.MyClassTestCase')
+data.setCell(44, 3, 14);
+data.setCell(45, 0, 45)
+data.setCell(45, 1, 'runScenario')
+data.setCell(45, 2, 'Runners.MyClassTestCase')
+data.setCell(45, 3, 14);
+data.setCell(46, 0, 46)
+data.setCell(46, 1, 'runScenario')
+data.setCell(46, 2, 'Runners.MyClassTestCase')
+data.setCell(46, 3, 13);
+data.setCell(47, 0, 47)
+data.setCell(47, 1, 'runScenario')
+data.setCell(47, 2, 'Runners.MyClassTestCase')
+data.setCell(47, 3, 12);
+data.setCell(48, 0, 48)
+data.setCell(48, 1, 'runScenario')
+data.setCell(48, 2, 'Runners.MyClassTestCase')
+data.setCell(48, 3, 6);
+data.setCell(49, 0, 49)
+data.setCell(49, 1, 'runScenario')
+data.setCell(49, 2, 'Runners.MyClassTestCase')
+data.setCell(49, 3, 6);
+data.setCell(50, 0, 50)
+data.setCell(50, 1, 'runScenario')
+data.setCell(50, 2, 'Runners.MyClassTestCase')
+data.setCell(50, 3, 5);
+data.setCell(51, 0, 51)
+data.setCell(51, 1, 'runScenario')
+data.setCell(51, 2, 'Runners.MyClassTestCase')
+data.setCell(51, 3, 2);
+window.suiteTableData['Command_line_suite']= { tableData: data, tableDiv: 'times-div-Command_line_suite'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 1 seconds</span>
+              <div id="times-div-Command_line_suite">
+              </div> <!-- times-div-Command_line_suite -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-Command_line_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for Command line suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-Command_line_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">0 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-Command_line_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">Runners.MyClassTestCase</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUpClass</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Enter an Empty id", "Optional[Show the Information of Customer]")</span>
+                <span class="method-start">225 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Enter an wrong id", "Optional[Show the Information of Customer]")</span>
+                <span class="method-start">375 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Enter a correct ID", "Optional[Show the Information of Customer]")</span>
+                <span class="method-start">823 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Enter an Empty id", "Optional[Show Product Information]")</span>
+                <span class="method-start">850 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Enter an wrong id", "Optional[Show Product Information]")</span>
+                <span class="method-start">857 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Enter a correct ID", "Optional[Show Product Information]")</span>
+                <span class="method-start">877 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("One or More Empty Term", "Optional[SignUp]")</span>
+                <span class="method-start">898 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("duplicate id", "Optional[SignUp]")</span>
+                <span class="method-start">904 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("weak password", "Optional[SignUp]")</span>
+                <span class="method-start">925 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Added Successfully", "Optional[SignUp]")</span>
+                <span class="method-start">944 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("one or more null value", "Optional[Add Customer]")</span>
+                <span class="method-start">984 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Enter used id to add new customer", "Optional[Add Customer]")</span>
+                <span class="method-start">990 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("fill all values", "Optional[Add Customer]")</span>
+                <span class="method-start">1010 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("fill all values", "Optional[Add Customer]")</span>
+                <span class="method-start">1028 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("fill all values", "Optional[Add Customer]")</span>
+                <span class="method-start">1046 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("fill all values", "Optional[Add Customer]")</span>
+                <span class="method-start">1066 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("fill all values", "Optional[Add Customer]")</span>
+                <span class="method-start">1088 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("fill all values", "Optional[Add Customer]")</span>
+                <span class="method-start">1109 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("one or more empty value", "Optional[Add Product]")</span>
+                <span class="method-start">1131 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Enter used id", "Optional[Add Product]")</span>
+                <span class="method-start">1153 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("fill all values", "Optional[Add Product]")</span>
+                <span class="method-start">1181 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("fill all values", "Optional[Add Product]")</span>
+                <span class="method-start">1205 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("fill all values", "Optional[Add Product]")</span>
+                <span class="method-start">1226 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("fill all values", "Optional[Add Product]")</span>
+                <span class="method-start">1249 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("fill all values", "Optional[Add Product]")</span>
+                <span class="method-start">1269 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("i want to delete customer with empty id and name", "Optional[Delete Customer]")</span>
+                <span class="method-start">1284 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("i want to delete customer with invalid name and id", "Optional[Delete Customer]")</span>
+                <span class="method-start">1302 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("i want to delete customer with invalid name or id and empty name or id", "Optional[Delete Customer]...)</span>
+                <span class="method-start">1319 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("i want to delete customer with invalid name or id and empty name or id", "Optional[Delete Customer]...)</span>
+                <span class="method-start">1337 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("i want to delete customer with valid id or valid name", "Optional[Delete Customer]")</span>
+                <span class="method-start">1352 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("i want to delete customer with valid id or valid name", "Optional[Delete Customer]")</span>
+                <span class="method-start">1368 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("i want to delete customer with valid id or valid name", "Optional[Delete Customer]")</span>
+                <span class="method-start">1383 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("i want to delete customer with valid id or valid name", "Optional[Delete Customer]")</span>
+                <span class="method-start">1401 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("i want to delete customer with valid id or valid name", "Optional[Delete Customer]")</span>
+                <span class="method-start">1420 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("i want to delete customer with empty id and name", "Optional[Delete Product]")</span>
+                <span class="method-start">1437 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("i want to delete customer with invalid name and id", "Optional[Delete Product]")</span>
+                <span class="method-start">1451 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("i want to delete customer with invalid name or id and empty name or id", "Optional[Delete Product]")</span>
+                <span class="method-start">1467 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("i want to delete customer with invalid name or id and empty name or id", "Optional[Delete Product]")</span>
+                <span class="method-start">1481 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("i want to delete customer with valid id or valid name", "Optional[Delete Product]")</span>
+                <span class="method-start">1494 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("i want to delete customer with valid id or valid name", "Optional[Delete Product]")</span>
+                <span class="method-start">1510 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("i want to delete customer with valid id or valid name", "Optional[Delete Product]")</span>
+                <span class="method-start">1524 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("i want to delete customer with valid id or valid name", "Optional[Delete Product]")</span>
+                <span class="method-start">1537 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("i want to delete customer with valid id or valid name", "Optional[Delete Product]")</span>
+                <span class="method-start">1554 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Wrong password or password", "Optional[Login in my program]")</span>
+                <span class="method-start">1568 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Login successfully", "Optional[Login in my program]")</span>
+                <span class="method-start">1599 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Login successfully", "Optional[Login in my program]")</span>
+                <span class="method-start">1632 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("incorrect id", "Optional[Update Customer Information]")</span>
+                <span class="method-start">1635 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("empty id", "Optional[Update Customer Information]")</span>
+                <span class="method-start">1659 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("accepted id", "Optional[Update Customer Information]")</span>
+                <span class="method-start">1676 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("incorrect id", "Optional[Update Product Information]")</span>
+                <span class="method-start">1692 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("", "Optional[Update Product Information]")</span>
+                <span class="method-start">1711 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("", "Optional[Update Product Information]")</span>
+                <span class="method-start">1726 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDownClass</span>
+                <span class="method-start">1741 ms</span>
+              </div> <!-- configuration-class after -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+<script type="text/javascript" src="testng-reports2.js"></script>
+</html>

@@ -5,6 +5,7 @@ import oracle.jdbc.datasource.impl.OracleDataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Logger;
 
 
 public class UpdateCustomer {
@@ -30,10 +31,9 @@ public class UpdateCustomer {
             int t = stm.executeUpdate(query);
             if (t == 0) {
                  flag =1;
-                 throw new SQLException();
             }
         }catch (Exception e) {
-            System.out.println(e);
+            Logger.getLogger("You are in update customer page");
         }
 
 

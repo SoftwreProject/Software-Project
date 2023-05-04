@@ -1,0 +1,13 @@
+StepDefinition\DeleteCustomerStep.class
+StepDefinition\ShowCustomerInformation.class
+StepDefinition\addCustomer.class
+StepDefinition\ProductInformation.class
+StepDefinition\LoginTest.class
+StepDefinition\DeleteProductSteps.class
+StepDefinition\SignUpStepDefinition.class
+StepDefinition\ShowProductStatus.class
+Runners\MyClassTestCase.class
+StepDefinition\StatusStepDefinition.class
+StepDefinition\UpdateCustomerStep.class
+StepDefinition\AddProductSteps.class
+StepDefinition\UpdateProductSteps.class

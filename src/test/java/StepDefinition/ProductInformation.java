@@ -26,7 +26,7 @@ public class ProductInformation {
 
     @When("you enter the product {string}")
     public void youEnterTheProduct(String arg0) throws SQLException {
-        result = viewAll.ShowProductInformation(arg0);
+        result = viewAll.showProductInformation(arg0);
     }
 
     @Then("you must show Empty Product ID")

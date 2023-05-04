@@ -36,7 +36,7 @@ public class DeleteCustomer {
                 flag = 0;
 
         }catch (Exception ex){
-            Logger.getLogger(ex.toString());
+            Logger.getLogger("You are in delete customer");
         }
 
 

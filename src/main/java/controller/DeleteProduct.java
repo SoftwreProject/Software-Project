@@ -26,7 +26,7 @@ public class DeleteProduct {
                    flag = 1;
            }
         }catch(Exception ex){
-            Logger.getLogger(ex.toString());
+            Logger.getLogger("You are in delete product");
         }
 
     }
