@@ -6,6 +6,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import javafx.beans.property.SimpleStringProperty;
+import software.Customers;
 
 import java.sql.SQLException;
 
@@ -42,8 +43,8 @@ public class addCustomer {
 
     @When("you type in {string} ,{string}, {string}, {string}, {string}, {string} and  {string} , {string}")
     public void youTypeInAnd(String arg0, String arg1, String arg2, String arg3, String arg4, String arg5, String arg6, String arg7) throws SQLException {
-        ref.addCustomerTest(new SimpleStringProperty(arg0), new SimpleStringProperty(arg1), new SimpleStringProperty(arg2),
-                new SimpleStringProperty(arg3), new SimpleStringProperty( arg4), new SimpleStringProperty(arg5) , new SimpleStringProperty(arg6) , new SimpleStringProperty(arg7));
+        Customers customers = new Customers(arg0 , arg1 , arg2 , arg3 , arg4 , arg5 , arg6 , arg7);
+        ref.addCustomerTest(customers);
         result = ref.getResult();
     }
 }

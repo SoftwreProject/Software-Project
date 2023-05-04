@@ -1,11 +1,12 @@
 package controller;
 
 
-import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+
 import oracle.jdbc.datasource.impl.OracleDataSource;
+import software.Customers;
+
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -29,14 +30,16 @@ public class AddCustomer {
 
 
     }
+        @FXML
+    public void addCustomerTest(Customers customers)  {
 
-    @FXML
-    public void addCustomerTest(SimpleStringProperty id, SimpleStringProperty name, SimpleStringProperty phone, SimpleStringProperty address, SimpleStringProperty city, SimpleStringProperty street, SimpleStringProperty email, SimpleStringProperty password)  {
-
-        if (id.get().equals("") || name.get().equals("") || phone.get().equals("") || address.get().equals("") || city.get().equals("") || street.get().equals("") || email.get().equals("") || password.get().equals("")) {
+        if (customers.getId().equals("") || customers.getName().equals("") || customers.getPhone().equals("") || customers.getAddress().equals("") || customers.getCity().equals("") || customers.getStreet().equals("") || customers.getEmail().equals("") || customers.getPassword().equals("")) {
             flag = 1;
         } else {
-            String s = "insert into CUSTOMER values ( '" + id.get() + "','" + name.get() + "','" + phone.get() + "','" + address.get() + "','" + city.get() + "','" + street.get() + "','" + email.get() + "','" + password.get() + "','" + "0" + "') ";
+            String s = "insert into CUSTOMER values ( '" + customers.getId() + "','" +  customers.getName()
+                    + "','" + customers.getPhone() + "','" + customers.getAddress()
+                    + "','" + customers.getCity() + "','" + customers.getStreet() + "','" + customers.getEmail()
+                    + "','" + customers.getPassword() + "','" + "0" + "') ";
             try {
                 sql(s);
                 flag = 0;
@@ -47,6 +50,7 @@ public class AddCustomer {
 
         }
     }
+
 
     @FXML
     public String getResult() {
@@ -59,11 +63,17 @@ public class AddCustomer {
 
     }
 
-    public void addCustomerGUI(TextField id, TextField name, TextField phone, TextField address, TextField city, TextField street, TextField email, TextField password, Label label) {
-        if (id.getText().equals("") || name.getText().equals("") || phone.getText().equals("") || address.getText().equals("") || city.getText().equals("") || street.getText().equals("") || email.getText().equals("") || password.getText().equals("")) {
+    public void addCustomerGUI(Customers customers, Label label) {
+        if (customers.getId().equals("") || customers.getName().equals("")
+                || customers.getPhone().equals("") || customers.getAddress().equals("")
+                || customers.getCity().equals("") || customers.getStreet().equals("") ||
+                customers.getEmail().equals("") || customers.getPassword().equals("")) {
             label.setText("Please Enter All information");
         } else {
-            String s = "insert into CUSTOMER values ( '" + id.getText() + "','" + name.getText() + "','" + phone.getText() + "','" + address.getText() + "','" + city.getText() + "','" + street.getText() + "','" + email.getText() + "','" + password.getText() + "')";
+            String s = "insert into CUSTOMER values ( '" + customers.getId() + "','" + customers.getName()
+                    + "','" + customers.getPhone() + "','" + customers.getAddress()
+                    + "','" + customers.getCity() + "','" + customers.getStreet()
+                    + "','" + customers.getEmail() + "','" + customers.getPassword() + "')";
             label.setText("Customer Added Successfully");
             try {
                 sql(s);
