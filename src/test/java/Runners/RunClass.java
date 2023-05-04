@@ -11,5 +11,5 @@ import io.cucumber.testng.CucumberOptions;
 
 
 )
-public class MyClassTestCase extends AbstractTestNGCucumberTests {
+public class RunClass extends AbstractTestNGCucumberTests {
 }
