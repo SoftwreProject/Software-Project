@@ -29,9 +29,9 @@ Feature: Delete Product
     When you type in  "<id>" or "<name>"
     Then i should show product Deleted Successfully
     Examples:
-      | id | name    |
-      | 1  | Ayham   |
-      |    | Omar    |
-      | 3  |         |
-      | 10 | Shareef |
-      | 3  | Khaled  |
+      | id  | name    |
+      | P12 | Ayham   |
+      | P13 | Omar    |
+      | P14 |         |
+      | P15 | Shareef |
+      | P16   | Khaled  |

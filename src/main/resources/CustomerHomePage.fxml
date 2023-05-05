@@ -31,23 +31,23 @@
          </font>
       </Label>
       <Line endX="581.0" layoutX="105.0" layoutY="245.0" startX="-105.0" stroke="#c7dd1c" />
-      <TableView fx:id="AllInformation" layoutY="108.0" prefHeight="137.0" prefWidth="686.0">
+      <TableView fx:id="allInformation" layoutY="108.0" prefHeight="137.0" prefWidth="686.0">
         <columns>
-          <TableColumn fx:id="ID" prefWidth="98.0" text="ID" />
-          <TableColumn fx:id="Category" prefWidth="98.0" text="Category" />
-            <TableColumn fx:id="High" prefWidth="98.0" text="High" />
-            <TableColumn fx:id="Width" prefWidth="98.0" text="Width" />
-            <TableColumn fx:id="Date" prefWidth="98.0" text="Date" />
-            <TableColumn fx:id="Status" prefWidth="98.0" text="Status" />
-            <TableColumn fx:id="TotalPrice" prefWidth="98.0" text="Total Price" />
+          <TableColumn fx:id="id" prefWidth="98.0" text="ID" />
+          <TableColumn fx:id="category" prefWidth="98.0" text="Category" />
+            <TableColumn fx:id="high" prefWidth="98.0" text="High" />
+            <TableColumn fx:id="width" prefWidth="98.0" text="Width" />
+            <TableColumn fx:id="date" prefWidth="98.0" text="Date" />
+            <TableColumn fx:id="status" prefWidth="98.0" text="Status" />
+            <TableColumn fx:id="totalPrice" prefWidth="98.0" text="Total Price" />
         </columns>
       </TableView>
-      <JFXButton fx:id="ShowAll" layoutX="210.0" layoutY="66.0" onAction="#ShowAllInformation" prefHeight="35.0" prefWidth="308.0" style="-fx-background-color: #fac355;" text="Show All Informations">
+      <JFXButton layoutX="210.0" layoutY="66.0" onAction="#showAllInformation" prefHeight="35.0" prefWidth="308.0" style="-fx-background-color: #fac355;" text="Show All Informations">
          <font>
             <Font name="Cambria Bold" size="19.0" />
          </font>
       </JFXButton>
-      <Button layoutX="14.0" layoutY="62.0" mnemonicParsing="false" onAction="#Refresh" prefHeight="44.0" prefWidth="58.0" style="-fx-background-color: transparent;" textFill="#0d0332">
+      <Button layoutX="14.0" layoutY="62.0" mnemonicParsing="false" onAction="#refreshFunction" prefHeight="44.0" prefWidth="58.0" style="-fx-background-color: transparent;" textFill="#0d0332">
          <graphic>
             <ImageView fitHeight="43.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #095DAB;">
                <image>
@@ -61,7 +61,7 @@
             <Font name="Cambria Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="TotalPriceTextField" layoutX="133.0" layoutY="309.0" prefHeight="25.0" prefWidth="173.0">
+      <TextField fx:id="totalPriceTextField" layoutX="133.0" layoutY="309.0" prefHeight="25.0" prefWidth="173.0">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></TextField>
@@ -70,7 +70,7 @@
             <Font name="Cambria Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="NumberOfProduct" layoutX="133.0" layoutY="264.0" prefHeight="25.0" prefWidth="173.0">
+      <TextField fx:id="numberOfProduct" layoutX="133.0" layoutY="264.0" prefHeight="25.0" prefWidth="173.0">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></TextField>
@@ -79,7 +79,7 @@
             <Font name="Cambria Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="YouPaid" layoutX="133.0" layoutY="357.0" prefHeight="25.0" prefWidth="173.0">
+      <TextField fx:id="youPaid" layoutX="133.0" layoutY="357.0" prefHeight="25.0" prefWidth="173.0">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></TextField>
@@ -88,12 +88,12 @@
             <Font name="Cambria Bold" size="18.0" />
          </font>
       </Label>
-      <JFXButton fx:id="paidbutton" layoutX="133.0" layoutY="403.0" onAction="#Paid" prefHeight="35.0" prefWidth="173.0" style="-fx-background-color: #fac355;" text="Paid">
+      <JFXButton fx:id="paidButton" layoutX="133.0" layoutY="403.0" onAction="#paidFunction" prefHeight="35.0" prefWidth="173.0" style="-fx-background-color: #fac355;" text="Paid">
          <font>
             <Font name="Cambria Bold" size="19.0" />
          </font>
       </JFXButton>
-      <TextField fx:id="TheRest" layoutX="133.0" layoutY="452.0" prefHeight="29.0" prefWidth="173.0">
+      <TextField fx:id="theRest" layoutX="133.0" layoutY="452.0" prefHeight="29.0" prefWidth="173.0">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></TextField>
@@ -107,7 +107,7 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <JFXButton layoutX="507.0" layoutY="448.0" onAction="#Logout" prefHeight="35.0" prefWidth="173.0" style="-fx-background-color: #fac355;" text="Logout">
+      <JFXButton layoutX="507.0" layoutY="448.0" onAction="#logoutFunction" prefHeight="35.0" prefWidth="173.0" style="-fx-background-color: #fac355;" text="Logout">
          <font>
             <Font name="Cambria Bold" size="19.0" />
          </font>

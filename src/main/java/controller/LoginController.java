@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
+import java.util.logging.Logger;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -125,9 +126,9 @@ public class LoginController implements Initializable {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/CustomerHomePage.fxml"));
                     Parent root = loader.load();
                     CustomerHomePage ref = loader.getController();
-                    ref.id = username; // to pass the username to next page;
-                    ref.SetName();
-                    ref.SetDate();
+                    ref.idSinging = username; // to pass the username to next page;
+                    ref.setName();
+                    ref.setDate();
                     Stage stage1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     Scene scene1 = new Scene(root);
                     stage1.setScene(scene1);
@@ -142,7 +143,7 @@ public class LoginController implements Initializable {
 
             }
         }catch (Exception ex) {
-            System.out.println(ex);
+            Logger.getLogger("You are in Signing page");
         }
 
     }

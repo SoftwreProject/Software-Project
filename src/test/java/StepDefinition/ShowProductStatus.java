@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 import static org.testng.AssertJUnit.assertEquals;
 
-public class ShowStatus {
+public class ShowProductStatus {
     static String result;
     static AddAll addAll = new AddAll();
     @Before

@@ -32,7 +32,7 @@ Feature:Delete Customer
         Examples:
           | id | name    |
           | 1  | Ayham   |
-          |    | Omar    |
-          | 3  |         |
+          | 13 | Omar    |
+          | 3  | Samer   |
           | 10 | Shareef |
           | 3  | Khaled  |

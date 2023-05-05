@@ -15,6 +15,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Logger;
 
 public class SignUp {
 
@@ -120,25 +121,30 @@ public class SignUp {
                 email.isEmpty() ||
                 password.isEmpty();
     }
-    public String SignUpTest (String id, String name, String PhoneNumber , String address , String City , String Street,String email , String password) throws SQLException {
+    public String SignUpTest (String id, String name, String PhoneNumber , String address , String City , String Street,String email , String password) {
         int flag = 0;
         String result;
-        if (booleanTest(id ,name , PhoneNumber, address , City , Street , email , password))
-            flag = 1;
-        else {
-            if (ShowID(id))
-                flag = 2;
+        try {
+            if (booleanTest(id ,name , PhoneNumber, address , City , Street , email , password))
+                flag = 1;
             else {
-                if (password.length() <= 5)
-                    flag =3;
+                if (ShowID(id))
+                    flag = 2;
                 else {
-                    String s = "insert into CUSTOMER values ( '" + id + "','" + name
-                            + "','" + PhoneNumber + "','" + address + "','" + City +
-                            "','" + Street + "','" + email + "','" + password + "','" + "0" + "') ";
-                    ref.sql(s);
+                    if (password.length() <= 5)
+                        flag =3;
+                    else {
+                        String s = "insert into CUSTOMER values ( '" + id + "','" + name
+                                + "','" + PhoneNumber + "','" + address + "','" + City +
+                                "','" + Street + "','" + email + "','" + password + "','" + "0" + "') ";
+                        ref.sql(s);
+                    }
                 }
             }
+        }catch (Exception ex) {
+            Logger.getLogger("You are in signup page");
         }
+
         if (flag == 1)
             result = "Empty one or more term";
         else if (flag == 2)

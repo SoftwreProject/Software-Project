@@ -1,10 +1,11 @@
 package controller;
 
-import javafx.beans.property.SimpleStringProperty;
+
 import oracle.jdbc.datasource.impl.OracleDataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Logger;
 
 public class UpdateProduct {
     String result;
@@ -32,6 +33,9 @@ public class UpdateProduct {
            int t = stm.executeUpdate(query);
            if (t == 0)
                flag =1;
+       }
+       catch (Exception ex) {
+           Logger.getLogger("You are in update product page");
        }
     }
     public String getResult() {

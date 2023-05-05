@@ -19,6 +19,7 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
+import java.util.logging.Logger;
 
 public class AddAll implements Initializable {
 
@@ -179,9 +180,9 @@ public class AddAll implements Initializable {
 
     public void addWorkerFunc() throws SQLException {
         if (workerSpecCovers.isSelected())
-            worker.AddWorkers(workerID , workerName , workerPhone , workerAddress , workerSpecCovers,label );
+            worker.addWorkers(workerID , workerName , workerPhone , workerAddress , workerSpecCovers,label );
         else
-            worker.AddWorkers(workerID , workerName , workerPhone , workerAddress , workerSpecCarpets,label );
+            worker.addWorkers(workerID , workerName , workerPhone , workerAddress , workerSpecCarpets,label );
     }
     public void addCustomerFunc() {
         Customers customers = new Customers(customerID.getText() , customerName.getText(),customerPhone.getText(),
@@ -293,6 +294,7 @@ public class AddAll implements Initializable {
                 }
             }catch(Exception ex){
                 flag = 2;
+                Logger.getLogger("You are in show product status");
             }
         }
         return flag;

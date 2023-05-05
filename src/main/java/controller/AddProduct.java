@@ -38,6 +38,7 @@ public class AddProduct {
                 ref.sql(s);
                 flag = 0;
             } catch (Exception ex) {
+                Logger.getLogger("You are in add product");
                 flag = 2;
             }
 

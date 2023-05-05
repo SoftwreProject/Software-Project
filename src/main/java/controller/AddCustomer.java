@@ -10,6 +10,7 @@ import software.Customers;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Logger;
 
 public class AddCustomer {
     String result;
@@ -45,6 +46,7 @@ public class AddCustomer {
                 flag = 0;
             } catch (Exception ex) {
                 flag = 2;
+                Logger.getLogger("You are in add customer");
             }
 
 

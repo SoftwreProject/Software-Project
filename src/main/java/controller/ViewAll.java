@@ -14,6 +14,7 @@ import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Logger;
 
 public class ViewAll implements Initializable {
     AddCustomer ref = new AddCustomer();
@@ -386,21 +387,25 @@ public class ViewAll implements Initializable {
         return result;
 
     }
-    public String ShowProductInformation(String id) throws SQLException {
-        int flag =  0 ;
-        String result ;
+    public String showProductInformation(String id) throws SQLException {
+        int flag = 0;
+        String result;
         StringBuilder stringBuilder = new StringBuilder();
-        String Query = "Select * from product where id = '" + id + "'";
-        if (id.isEmpty()) {
-            flag = 1;
-        }
-        else {
-            ResultSet rs = ref1.sql(Query);
-            while (rs.next()) {
-                stringBuilder.append(rs.getString(1)).append(",").append(rs.getString(2)).append(",").append(rs.getString(3)).append(",").append(rs.getString(4)).append(",").append(rs.getString(5)).append(",").append(rs.getString(6)).append(",").append(rs.getString(7)).append(",").append(rs.getString(8)).append(",").append(rs.getString(9)).append(",").append(rs.getString(10));
-                flag = 2;
-            }
+        try {
+            String Query = "Select * from product where id = '" + id + "'";
+            if (id.isEmpty()) {
+                flag = 1;
+            } else {
+                ResultSet rs = ref1.sql(Query);
+                while (rs.next()) {
+                    stringBuilder.append(rs.getString(1)).append(",").append(rs.getString(2)).append(",").append(rs.getString(3)).append(",").append(rs.getString(4)).append(",").append(rs.getString(5)).append(",").append(rs.getString(6)).append(",").append(rs.getString(7)).append(",").append(rs.getString(8)).append(",").append(rs.getString(9)).append(",").append(rs.getString(10));
+                    flag = 2;
+                }
 
+            }
+        }
+        catch (Exception ex) {
+            Logger.getLogger("You are in show product information");
         }
         if (flag == 1)
             result = "Empty ID";
