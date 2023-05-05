@@ -64,21 +64,19 @@ public class UpdateCustomer {
         orc.setUser("software");
         orc.setPassword("123123");
         Connection conn = orc.getConnection();
-        Statement stm = conn.createStatement();
-        String query = "update customer set name = '" + name +"' , address = '" + address +"' ,phonenumber =  '" + phone +"', " +
-                "city = '" + city +"' , street = '" + street +"' " +
-                " where id ='" +id+"'" ;
-        try {
-            int t = stm.executeUpdate(query);
-            if (t == 0) {
-                 flag =1;
+        try(Statement stm = conn.createStatement()) {
+            String query = "update customer set name = '" + name + "' , address = '" + address + "' ,phonenumber =  '" + phone + "', " +
+                    "city = '" + city + "' , street = '" + street + "' " +
+                    " where id ='" + id + "'";
+            try {
+                int t = stm.executeUpdate(query);
+                if (t == 0) {
+                    flag = 1;
+                }
+            } catch (Exception e) {
+                Logger.getLogger("You are in update customer page");
             }
-        }catch (Exception e) {
-            Logger.getLogger("You are in update customer page");
         }
-
-
-
     }
     public String getResult() {
         if (flag == 1)

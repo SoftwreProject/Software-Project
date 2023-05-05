@@ -20,7 +20,7 @@ import javafx.stage.Stage;
 import oracle.jdbc.pool.OracleDataSource;
 
 public class LoginController{
-    public Pane loginPane;
+    private Pane loginPane;
     @FXML
     private PasswordField passwordTextField;
 
@@ -105,7 +105,6 @@ public class LoginController{
                         stage1.show();
 
                     } else if (flag == 2) {
-                        System.out.println("In customer page");
                         Stage stage = (Stage) signingPane.getScene().getWindow();
                         stage.close();
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("/CustomerHomePage.fxml"));
@@ -131,7 +130,7 @@ public class LoginController{
                 Logger.getLogger("You are in Signing page");
             }
             } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new IllegalArgumentException(e);
         }
 
 

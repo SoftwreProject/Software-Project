@@ -59,6 +59,7 @@ public class ViewAll implements Initializable {
     @FXML
     private TableColumn<Product , String> productOwner;
     SignUp ref1 = new SignUp();
+    String where = "where id = '";
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // for Worker
@@ -143,7 +144,7 @@ public class ViewAll implements Initializable {
         String id = obs.get(0).getId();
         try {
             String query = "update Worker set name = '" + x + "' "
-                    + "where id = '" + id + "'";
+                    + where + id + "'";
             ref.sql(query);
         }catch (Exception exception){
             Logger.getLogger(exception.toString());
@@ -159,7 +160,7 @@ public class ViewAll implements Initializable {
         String id = obs.get(0).getId();
         try {
             String query = "update Worker set phone = '" + x + "' "
-                    + "where id = '" + id + "'";
+                    + where + id + "'";
             ref.sql(query);
         }catch (Exception exception){
             Logger.getLogger(exception.toString());
@@ -176,7 +177,7 @@ public class ViewAll implements Initializable {
         String id = obs.get(0).getId();
         try {
             String query = "update Worker set address = '" + x + "' "
-                    + "where id = '" + id + "'";
+                    + where + id + "'";
             ref.sql(query);
         }catch (Exception exception){
             Logger.getLogger(exception.toString());
@@ -193,7 +194,7 @@ public class ViewAll implements Initializable {
         String id = obs.get(0).getId();
         try {
             String query = "update Customer set name = '" + x + "' "
-                    + "where id = '" + id + "'";
+                    + where + id + "'";
             ref.sql(query);
         }catch (Exception exception){
             Logger.getLogger(exception.toString());
@@ -210,7 +211,7 @@ public class ViewAll implements Initializable {
         String id = obs.get(0).getId();
         try {
             String query = "update Customer set phonenumber = '" + x + "' "
-                    + "where id = '" + id + "'";
+                    + where + id + "'";
             ref.sql(query);
         }catch (Exception exception){
             Logger.getLogger(exception.toString());
@@ -227,7 +228,7 @@ public class ViewAll implements Initializable {
         String id = obs.get(0).getId();
         try {
             String query = "update Customer set city = '" + x + "' "
-                    + "where id = '" + id + "'";
+                    + where + id + "'";
             ref.sql(query);
         }catch (Exception exception){
             Logger.getLogger(exception.toString());
@@ -244,7 +245,7 @@ public class ViewAll implements Initializable {
         String id = obs.get(0).getId();
         try {
             String query = "update Customer set street = '" + x + "' "
-                    + "where id = '" + id + "'";
+                    + where + id + "'";
             ref.sql(query);
         }catch (Exception exception){
             Logger.getLogger(exception.toString());
@@ -261,7 +262,7 @@ public class ViewAll implements Initializable {
         String id = obs.get(0).getId();
         try {
             String query = "update Customer set address = '" + x + "' "
-                    + "where id = '" + id + "'";
+                    + where + id + "'";
             ref.sql(query);
         }catch (Exception exception){
             Logger.getLogger(exception.toString());
@@ -280,7 +281,7 @@ public class ViewAll implements Initializable {
         String id = obs.get(0).getId();
         try {
             String query = "update Customer set email = '" + x + "' "
-                    + "where id = '" + id + "'";
+                    + where + id + "'";
             ref.sql(query);
         }catch (Exception exception){
             Logger.getLogger(exception.toString());
@@ -297,7 +298,7 @@ public class ViewAll implements Initializable {
         String id = obs.get(0).getId();
         try {
             String query = "update Product set category = '" + x + "' "
-                    + "where id = '" + id + "'";
+                    + where + id + "'";
             ref.sql(query);
         }catch (Exception exception){
             Logger.getLogger(exception.toString());
@@ -314,7 +315,7 @@ public class ViewAll implements Initializable {
         String id = obs.get(0).getId();
         try {
             String query = "update Product set width = '" + x + "' "
-                    + "where id = '" + id + "'";
+                    + where + id + "'";
             ref.sql(query);
         }catch (Exception exception){
             Logger.getLogger(exception.toString());
@@ -331,7 +332,7 @@ public class ViewAll implements Initializable {
         String id = obs.get(0).getId();
         try {
             String query = "update Product set high = '" + x + "' "
-                    + "where id = '" + id + "'";
+                    + where + id + "'";
             ref.sql(query);
         }catch (Exception exception){
             Logger.getLogger(exception.toString());
