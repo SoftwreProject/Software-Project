@@ -12,55 +12,57 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="SigninPane" prefHeight="542.0" prefWidth="364.0" style="-fx-background-color: #000000; -fx-background-radius: 20px;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
-   <children>
-      <TextField fx:id="usernameTextField" layoutX="78.0" layoutY="152.0" prefHeight="35.0" prefWidth="218.0" promptText="Username" style="-fx-border-width: 0 0 3 0; -fx-background-color: #000000; -fx-border-color: #fac355; -fx-text-inner-color: white;" />
-      <PasswordField fx:id="passwordTextField" layoutX="78.0" layoutY="213.0" prefHeight="25.0" prefWidth="218.0" promptText="Password" style="-fx-background-color: #000000; -fx-border-width: 0 0 3 0; -fx-border-color: #fac355; -fx-text-inner-color: white;" />
-      <Button layoutX="79.0" layoutY="306.0" mnemonicParsing="false" onAction="#Login" prefHeight="26.0" prefWidth="218.0" style="-fx-background-color: #fac355; -fx-background-radius: 8;" text="Login">
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-         <font>
-            <Font name="Bauhaus 93" size="25.0" />
-         </font>
-      </Button>
-      <Text fill="WHITE" layoutX="92.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello Again!" wrappingWidth="190.936767578125">
-         <font>
-            <Font name="System Bold" size="32.0" />
-         </font>
-      </Text>
-      <Button layoutX="238.0" layoutY="407.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="40.0" style="-fx-background-color: RRGGBB;" />
-      <Button layoutX="187.0" layoutY="407.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="40.0" style="-fx-background-color: RRGGBB;" />
-      <Button layoutX="134.0" layoutY="407.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="40.0" style="-fx-background-color: RRGGBB;" />
-      <ImageView fitHeight="35.0" fitWidth="38.0" layoutX="246.0" layoutY="438.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images1/facebook_1.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="35.0" fitWidth="38.0" layoutX="192.0" layoutY="437.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images1/youtube.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="35.0" fitWidth="38.0" layoutX="140.0" layoutY="435.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images1/insta_1.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="35.0" fitWidth="38.0" layoutX="92.0" layoutY="436.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images1/twitar.png" />
-         </image>
-      </ImageView>
-      <Hyperlink layoutX="146.0" layoutY="363.0" onAction="#SignUP" text="SignUp" textFill="#fac355">
-         <font>
-            <Font name="Bell MT" size="22.0" />
-         </font>
-      </Hyperlink>
-      <Label fx:id="wrongMessage" alignment="CENTER" contentDisplay="CENTER" layoutX="57.0" layoutY="267.0" prefHeight="22.0" prefWidth="261.0" textFill="#f20303">
-         <font>
-            <Font name="Berlin Sans FB" size="18.0" />
-         </font>
-      </Label>
-   </children>
+<Pane fx:id="signingPane" prefHeight="542.0" prefWidth="364.0"
+      style="-fx-background-color: #000000; -fx-background-radius: 20px;" xmlns="http://javafx.com/javafx/19"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+   <TextField fx:id="usernameTextField" layoutX="78.0" layoutY="152.0" prefHeight="35.0" prefWidth="218.0"
+              promptText="Username"
+              style="-fx-border-width: 0 0 3 0; -fx-background-color: #000000; -fx-border-color: #fac355; -fx-text-inner-color: white;"/>
+   <PasswordField fx:id="passwordTextField" layoutX="78.0" layoutY="213.0" prefHeight="25.0" prefWidth="218.0"
+                  promptText="Password"
+                  style="-fx-background-color: #000000; -fx-border-width: 0 0 3 0; -fx-border-color: #fac355; -fx-text-inner-color: white;"/>
+   <Button layoutX="79.0" layoutY="306.0" mnemonicParsing="false" onAction="#loginFunction" prefHeight="26.0"
+           prefWidth="218.0" style="-fx-background-color: #fac355; -fx-background-radius: 8;" text="Login">
+      <opaqueInsets>
+         <Insets/>
+      </opaqueInsets>
+      <font>
+         <Font name="Bauhaus 93" size="25.0"/>
+      </font>
+   </Button>
+   <Text fill="WHITE" layoutX="92.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello Again!"
+         wrappingWidth="190.936767578125">
+      <font>
+         <Font name="System Bold" size="32.0"/>
+      </font>
+   </Text>
+   <Button layoutX="238.0" layoutY="407.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="40.0"
+           style="-fx-background-color: RRGGBB;"/>
+   <Button layoutX="187.0" layoutY="407.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="40.0"
+           style="-fx-background-color: RRGGBB;"/>
+   <Button layoutX="134.0" layoutY="407.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="40.0"
+           style="-fx-background-color: RRGGBB;"/>
+   <ImageView fitHeight="35.0" fitWidth="38.0" layoutX="246.0" layoutY="438.0" pickOnBounds="true" preserveRatio="true">
+      <Image url="@images1/facebook_1.png"/>
+   </ImageView>
+   <ImageView fitHeight="35.0" fitWidth="38.0" layoutX="192.0" layoutY="437.0" pickOnBounds="true" preserveRatio="true">
+      <Image url="@images1/youtube.png"/>
+   </ImageView>
+   <ImageView fitHeight="35.0" fitWidth="38.0" layoutX="140.0" layoutY="435.0" pickOnBounds="true" preserveRatio="true">
+      <Image url="@images1/insta_1.png"/>
+   </ImageView>
+   <ImageView fitHeight="35.0" fitWidth="38.0" layoutX="92.0" layoutY="436.0" pickOnBounds="true" preserveRatio="true">
+      <Image url="@images1/twitar.png"/>
+   </ImageView>
+   <Hyperlink layoutX="146.0" layoutY="363.0" onAction="#signUP" text="SignUp" textFill="#fac355">
+      <font>
+         <Font name="Bell MT" size="22.0"/>
+      </font>
+   </Hyperlink>
+   <Label fx:id="wrongMessage" alignment="CENTER" contentDisplay="CENTER" layoutX="57.0" layoutY="267.0"
+          prefHeight="22.0" prefWidth="261.0" textFill="#f20303">
+      <font>
+         <Font name="Berlin Sans FB" size="18.0"/>
+      </font>
+   </Label>
 </Pane>

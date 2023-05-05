@@ -4,7 +4,6 @@ import controller.ViewAll;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.testng.annotations.BeforeClass;
 
 import java.sql.SQLException;
 
@@ -21,7 +20,7 @@ public class ShowCustomerInformation {
 
     @When("you enter the {string}")
     public void youEnterThe(String arg0) throws SQLException {
-        result  = ref.ShowCustomerInformation(arg0);
+        result  = ref.showCustomerInformation(arg0);
     }
 
     @Then("you must show Empty ID")

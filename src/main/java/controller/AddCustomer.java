@@ -1,12 +1,8 @@
 package controller;
-
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-
 import oracle.jdbc.datasource.impl.OracleDataSource;
 import software.Customers;
-
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;

@@ -9,7 +9,7 @@ public class DeleteCustomer {
     
     String result;
     int flag = 0;
-    public int SqlValue( String query){
+    public int sqlValue( String query){
         int x = 0;
         try{
             OracleDataSource orc = new OracleDataSource();
@@ -29,7 +29,7 @@ public class DeleteCustomer {
     public void deleteCustomerFunc(String id , String name){
         try{
             String query = "Delete from Customer where id = '" + id+ "' or name = '" + name +"'";
-            int x = SqlValue(query);
+            int x = sqlValue(query);
             if (x > 0)
                 flag = 1;
             else

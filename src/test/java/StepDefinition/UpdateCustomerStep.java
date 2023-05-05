@@ -19,13 +19,13 @@ public class UpdateCustomerStep {
     }
     @When("you type in field {string} ,{string}, {string}, {string}, {string} And {string}")
     public void youTypeInFieldAnd(String arg0, String arg1, String arg2, String arg3, String arg4, String arg5) throws SQLException {
-        ref.name = arg1;
-        ref.phone = arg2;
-        ref.address = arg3;
-        ref.city = arg4;
-        ref.street = arg5;
-        ref.UpdateCustomers(arg0);
-        result = ref.GetResult();
+        ref.setName(arg1);
+        ref.setPhone(arg2);
+        ref.setAddress(arg3);
+        ref.setCity(arg4);
+        ref.setStreet(arg5);
+        ref.updateCustomers(arg0);
+        result = ref.getResult();
     }
 
     @Then("i should show the id is empty or in correct")

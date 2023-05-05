@@ -13,16 +13,16 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="HomePagePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomePage">
+<BorderPane fx:id="homePagePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomePage">
    <left>
       <Pane prefHeight="487.0" prefWidth="166.0" style="-fx-background-color: #000000;" BorderPane.alignment="CENTER">
          <children>
-            <JFXButton layoutX="-1.0" layoutY="187.0" onAction="#ViewAll" prefHeight="48.0" prefWidth="168.0" style="-fx-border-color: #2C3333; -fx-border-width: 1 0 1 0;" text="View All" textFill="#fac355">
+            <JFXButton layoutX="-1.0" layoutY="187.0" onAction="#viewAll" prefHeight="48.0" prefWidth="168.0" style="-fx-border-color: #2C3333; -fx-border-width: 1 0 1 0;" text="View All" textFill="#fac355">
                <font>
                   <Font name="Bookman Old Style Bold" size="16.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="-1.0" layoutY="235.0" onAction="#Add" prefHeight="48.0" prefWidth="168.0" style="-fx-border-color: #2C3333; -fx-border-width: 0 0 1 0;" text="Add " textFill="#fac355">
+            <JFXButton layoutX="-1.0" layoutY="235.0" onAction="#add" prefHeight="48.0" prefWidth="168.0" style="-fx-border-color: #2C3333; -fx-border-width: 0 0 1 0;" text="Add " textFill="#fac355">
                <font>
                   <Font name="Bookman Old Style Bold" size="16.0" />
                </font>
@@ -46,7 +46,7 @@
       </Pane>
    </left>
    <center>
-      <Pane fx:id="HomePane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <Pane fx:id="homePane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <StackedBarChart layoutX="10.0" layoutY="279.0" prefHeight="344.0" prefWidth="405.0">
                <xAxis>
