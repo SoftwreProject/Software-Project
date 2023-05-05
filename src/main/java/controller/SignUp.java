@@ -1,6 +1,4 @@
 package controller;
-
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,6 +7,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import oracle.jdbc.datasource.impl.OracleDataSource;
+import software.Customers;
+
 import javax.swing.*;
 import java.io.IOException;
 import java.sql.Connection;
@@ -20,59 +20,59 @@ import java.util.logging.Logger;
 public class SignUp {
 
     @FXML
-    private Pane SignUpPane;
+    private Pane signUpPane;
     @FXML
-    private TextField SignUpID;
+    private TextField signUpID;
     @FXML
-    private TextField SignUpName;
+    private TextField signUpName;
     @FXML
-    private TextField SignUpPhoneNumber;
+    private TextField signUpPhoneNumber;
     @FXML
-    private TextField SignUpAddress;
+    private TextField signUpAddress;
     @FXML
-    private TextField SignUpCity;
+    private TextField signUpCity;
     @FXML
-    private TextField SignUpStreet;
+    private TextField signUpStreet;
     @FXML
-    private TextField SignUpEmail;
+    private TextField signUpEmail;
     @FXML
-    private PasswordField SignUpPassword;
+    private PasswordField signUpPassword;
     AddCustomer ref = new AddCustomer();
     @FXML
-    void BackToSignIn(ActionEvent event) throws IOException {
-        Stage stage = (Stage) SignUpPane.getScene().getWindow();
+    void backToSignIn() throws IOException {
+        Stage stage = (Stage) signUpPane.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/LoginPage.fxml"));
         Parent root = loader.load();
         new animatefx.animation.ZoomIn(root).play();
-        SignUpPane.getChildren().setAll(root);
+        signUpPane.getChildren().setAll(root);
         stage.show();
     }
     @FXML
-    void SignUpButton(ActionEvent event) throws SQLException {
-        String Id = SignUpID.getText();
-        if (ShowID(Id))
+    void signUpButton() throws SQLException {
+        String id = signUpID.getText();
+        if (showID(id))
             JOptionPane.showMessageDialog(null, "Please Enter Another ID");
         else {
-            if (EmptyTextField()) {
+            if (emptyTextField()) {
                 JOptionPane.showMessageDialog(null, "Please Fill All Information");
             } else {
 
-                if (SignUpPassword.getLength() <= 5)
+                if (signUpPassword.getLength() <= 5)
                     JOptionPane.showMessageDialog(null, "Please Enter more than 5 Characters or numbers");
                 else {
-                    String s = "insert into CUSTOMER values ( '" + SignUpID.getText() + "','" + SignUpName.getText()
-                            + "','" + SignUpPhoneNumber.getText() + "','" + SignUpAddress.getText() + "','" + SignUpCity.getText() +
-                            "','" + SignUpStreet.getText() + "','" + SignUpEmail.getText() + "','" + SignUpPassword.getText() + "','" + "0" + "') ";
+                    String s = "insert into CUSTOMER values ( '" + signUpID.getText() + "','" + signUpName.getText()
+                            + "','" + signUpPhoneNumber.getText() + "','" + signUpAddress.getText() + "','" + signUpCity.getText() +
+                            "','" + signUpStreet.getText() + "','" + signUpEmail.getText() + "','" + signUpPassword.getText() + "','" + "0" + "') ";
                     ref.sql(s);
                     JOptionPane.showMessageDialog(null, "Customer Added Successfully");
-                    ClearTextField();
+                    clearTextField();
 
                 }
             }
         }
     }
 
-    public boolean ShowID(String id) throws SQLException {
+    public boolean showID(String id) throws SQLException {
         String query = "SELECT ID FROM Customer";
         ResultSet rs =  sql(query);
         while (rs.next()){
@@ -81,15 +81,15 @@ public class SignUp {
         }
         return false;
     }
-    public void ClearTextField() {
-        SignUpID.setText("");
-        SignUpName.setText("");
-        SignUpPhoneNumber.setText("");
-        SignUpAddress.setText("");
-        SignUpCity.setText("");
-        SignUpStreet.setText("");
-        SignUpEmail.setText("");
-        SignUpPassword.setText("");
+    public void clearTextField() {
+        signUpID.setText("");
+        signUpName.setText("");
+        signUpPhoneNumber.setText("");
+        signUpAddress.setText("");
+        signUpCity.setText("");
+        signUpStreet.setText("");
+        signUpEmail.setText("");
+        signUpPassword.setText("");
     }
     public ResultSet sql(String x) throws SQLException {
         OracleDataSource orc = new OracleDataSource();
@@ -97,46 +97,49 @@ public class SignUp {
         orc.setUser("software");
         orc.setPassword("123123");
         Connection conn = orc.getConnection();
-        Statement st = conn.createStatement();
-        ResultSet rs = st.executeQuery(x);
-        return rs;
+        try (Statement st = conn.createStatement()) {
+            return st.executeQuery(x);
+        }
     }
-    public boolean EmptyTextField() {
-         return SignUpID.getText().isEmpty() ||
-                SignUpName.getText().isEmpty() ||
-                SignUpPhoneNumber.getText().isEmpty() ||
-                SignUpAddress.getText().isEmpty() ||
-                SignUpEmail.getText().isEmpty() ||
-                SignUpPassword.getText().isEmpty() ||
-                SignUpStreet.getText().isEmpty() ||
-                SignUpCity.getText().isEmpty();
+    public boolean emptyTextField() {
+         return signUpID.getText().isEmpty() ||
+                signUpName.getText().isEmpty() ||
+                signUpPhoneNumber.getText().isEmpty() ||
+                signUpAddress.getText().isEmpty() ||
+                signUpEmail.getText().isEmpty() ||
+                signUpPassword.getText().isEmpty() ||
+                signUpStreet.getText().isEmpty() ||
+                signUpCity.getText().isEmpty();
     }
-    public boolean booleanTest (String id, String name, String PhoneNumber , String address , String City , String Street,String email , String password) {
+    public boolean booleanTest (String id, String name, String phoneNumber , String address ) {
          return id.isEmpty() ||
                 name.isEmpty() ||
-                PhoneNumber.isEmpty() ||
-                address .isEmpty() ||
-                City.isEmpty() ||
-                Street.isEmpty() ||
-                email.isEmpty() ||
+                phoneNumber.isEmpty() ||
+                address .isEmpty();
+
+    }
+    public boolean booleanTest2 (String city , String street, String email , String password) {
+        return city.isEmpty() ||
+                street.isEmpty()||
+                email.isEmpty()||
                 password.isEmpty();
     }
-    public String SignUpTest (String id, String name, String PhoneNumber , String address , String City , String Street,String email , String password) {
+    public String signUpTest (Customers customers) {
         int flag = 0;
         String result;
         try {
-            if (booleanTest(id ,name , PhoneNumber, address , City , Street , email , password))
+            if (booleanTest(customers.getId() ,customers.getName() , customers.getPhone(), customers.getAddress() ) && booleanTest2(customers.getCity(), customers.getStreet() , customers.getEmail(), customers.getPassword()))
                 flag = 1;
             else {
-                if (ShowID(id))
+                if (showID(customers.getId()))
                     flag = 2;
                 else {
-                    if (password.length() <= 5)
+                    if (customers.getPassword().length() <= 5)
                         flag =3;
                     else {
-                        String s = "insert into CUSTOMER values ( '" + id + "','" + name
-                                + "','" + PhoneNumber + "','" + address + "','" + City +
-                                "','" + Street + "','" + email + "','" + password + "','" + "0" + "') ";
+                        String s = "insert into CUSTOMER values ( '" + customers.getId() + "','" + customers.getName()
+                                + "','" + customers.getPhone() + "','" + customers.getAddress() + "','" + customers.getCity() +
+                                "','" + customers.getStreet() + "','" + customers.getEmail() + "','" + customers.getPassword() + "','" + "0" + "') ";
                         ref.sql(s);
                     }
                 }

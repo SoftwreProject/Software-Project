@@ -4,7 +4,6 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXRadioButton;
 import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -99,7 +98,7 @@ public class AddAll implements Initializable {
 
 
     @FXML
-    public void addWorker(ActionEvent actionEvent) {
+    public void addWorker() {
         customerEnable(true);
         workerEnable(false);
         productEnable(true);
@@ -108,7 +107,7 @@ public class AddAll implements Initializable {
     }
 
     @FXML
-    public void addCustomer(ActionEvent actionEvent) {
+    public void addCustomer() {
         customerEnable(false);
         workerEnable(true);
         productEnable(true);
@@ -119,7 +118,7 @@ public class AddAll implements Initializable {
 
 
     @FXML
-    public void addProduct(ActionEvent actionEvent) {
+    public void addProduct() {
         customerEnable(true);
         workerEnable(true);
         productEnable(false);
@@ -160,7 +159,7 @@ public class AddAll implements Initializable {
 
 
     @FXML
-    public void addFunction(ActionEvent actionEvent) throws SQLException {
+    public void addFunction() throws SQLException {
         formatter = new SimpleDateFormat("dd");
         date = new Date();
         x = Integer.parseInt(formatter.format(date));
@@ -178,7 +177,7 @@ public class AddAll implements Initializable {
         }
     }
 
-    public void addWorkerFunc() throws SQLException {
+    public void addWorkerFunc(){
         if (workerSpecCovers.isSelected())
             worker.addWorkers(workerID , workerName , workerPhone , workerAddress , workerSpecCovers,label );
         else
@@ -221,7 +220,7 @@ public class AddAll implements Initializable {
     }
 
     @FXML
-    public void coversFunc(ActionEvent actionEvent) throws SQLException {
+    public void coversFunc() throws SQLException {
         productHigh.setDisable(true);
         productWidth.setDisable(true);
         String query = "Select ID From Worker Where SPECIALIZATION = 'Cover' and status = 'available'";
@@ -229,7 +228,7 @@ public class AddAll implements Initializable {
     }
 
     @FXML
-    public void carpetFunc(ActionEvent actionEvent) throws SQLException {
+    public void carpetFunc() throws SQLException {
         productHigh.setDisable(false);
         productWidth.setDisable(false);
         String query = "Select ID From Worker Where SPECIALIZATION = 'Carpet' and status = 'available'";
@@ -248,7 +247,7 @@ public class AddAll implements Initializable {
 
 
     @FXML
-    public void delete(ActionEvent actionEvent) {
+    public void delete() {
         if (workerRadioButton.isSelected()) {
             try{
                 String query = "delete from WORKER where id = '" + workerID.getText()+ "'";
@@ -281,7 +280,7 @@ public class AddAll implements Initializable {
 
     public int showStatus(String id){
         String query = "Select Status from product where id = '" + id +"'";
-        int flag =0;
+        int flag =17;
         if (id.isEmpty()){
             flag = 0;
         }

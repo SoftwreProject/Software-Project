@@ -1,5 +1,4 @@
 package controller;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,58 +8,58 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import javax.swing.*;
 import java.io.IOException;
+import java.util.Objects;
+import java.util.Optional;
 
 public class HomePage {
 
-    int managerid;
+    int managerId;
+    @FXML
+    private BorderPane homePagePane;
 
     @FXML
-    private BorderPane HomePagePane;
-
-
+    private Pane homePane ;
     @FXML
-    private Pane HomePane;
-
-    @FXML
-    private void backToLogin (ActionEvent event) throws IOException {
+    private void backToLogin () throws IOException {
         Alert alert = new Alert (Alert.AlertType.CONFIRMATION);
         alert.setTitle("Logout");
-        alert.setHeaderText("You are about to logout? ");
-        if (alert.showAndWait().isEmpty())
-            JOptionPane.showMessageDialog(null , "Please Enter a value");
-        if(alert.showAndWait().get() == ButtonType.OK )
-        {
-            Stage stage = (Stage) HomePagePane.getScene().getWindow();
-            stage.close();
-            Parent root = FXMLLoader.load(getClass().getResource("/login.fxml"));
-            stage.setTitle("Cleaning Services");
-            stage.setScene(new Scene(root, 770, 561));
-            stage.show();
-
-
+        alert.setHeaderText("You are about to logout?");
+        Optional<ButtonType> result = alert.showAndWait();
+        if(result.isPresent() && result.get() == ButtonType.OK) {
+            closePage();
         }
     }
+    private void closePage() throws IOException {
+        Stage stage = (Stage) homePagePane.getScene().getWindow();
+        close(stage);
+
+    }
+    public void close ( Stage stage ) throws IOException {
+        stage.close();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/login.fxml")));
+        stage.setTitle("Cleaning Services");
+        stage.setScene(new Scene(root, 770, 561));
+        stage.show();
+    }
 
     @FXML
-    void centerHomePage(ActionEvent event) throws Exception {
-        HomePagePane.setCenter(HomePane);
+    void centerHomePage(){
+        homePagePane.setCenter(homePane);
 
     }
     @FXML
-    void Add(ActionEvent event) throws Exception {
-        loadpage("/AddAll");
+    void add() throws Exception {
+        loadPage("/AddAll");
     }
 
     @FXML
-    void ViewAll(ActionEvent event) throws Exception {
-        loadpage("/ViewAll");
+    void viewAll() throws IOException {
+        loadPage("/ViewAll");
     }
-    private void loadpage (String page) throws Exception
-    {
-        Parent root = null ;
-        root = FXMLLoader.load(getClass().getResource(page+".fxml"));
-        HomePagePane.setCenter(root);
+    private void loadPage (String page) throws IOException {
+        Parent root ;
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(page + ".fxml")));
+        homePagePane.setCenter(root);
     }
 }

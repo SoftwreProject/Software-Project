@@ -16,10 +16,6 @@ public class UpdateProduct {
     String category;
     String high;
     String width;
-
-    public UpdateProduct() {
-    }
-
     public void updateProduct(String id) throws SQLException {
         OracleDataSource orc = new OracleDataSource();
         orc.setURL("jdbc:oracle:thin:@localhost:1521:orcl");

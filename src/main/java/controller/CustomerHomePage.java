@@ -1,6 +1,5 @@
 package controller;
 import com.jfoenix.controls.JFXButton;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -18,14 +17,12 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.util.Locale;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.logging.Logger;
 
 public class CustomerHomePage implements Initializable {
     SignUp ref = new SignUp();
-    String idSinging ; // the idSinging from sign in page;
+    String idSinging ;
     String name;
     @FXML
     private Label welcome;
@@ -34,23 +31,23 @@ public class CustomerHomePage implements Initializable {
     @FXML
     private Label enterTime;
     @FXML
-    private TableColumn id;
+    private TableColumn <AllProductTable , String> id;
     @FXML
-    private TableColumn category;
+    private TableColumn <AllProductTable , String> category;
     @FXML
-    private TableColumn high;
+    private TableColumn <AllProductTable , String> high;
     @FXML
-    private TableColumn width;
+    private TableColumn<AllProductTable , String> width;
     @FXML
-    private TableColumn date;
+    private TableColumn <AllProductTable , String> date;
     @FXML
-    private TableColumn status;
+    private TableColumn <AllProductTable , String> status;
     @FXML
-    private TableColumn totalPrice;
+    private TableColumn <AllProductTable , String> totalPrice;
     @FXML
-    private TableView allInformation;
+    private TableView <AllProductTable> allInformation;
     @FXML
-    private TextField numberOfProduct;
+    private TextField  numberOfProduct;
     @FXML
     private TextField youPaid;
     @FXML
@@ -72,7 +69,7 @@ public class CustomerHomePage implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        id.setCellValueFactory(new PropertyValueFactory<>("idSinging"));
+        id.setCellValueFactory(new PropertyValueFactory<>("ID"));
         category.setCellValueFactory(new PropertyValueFactory<>("category"));
         high.setCellValueFactory(new PropertyValueFactory<>("high"));
         width.setCellValueFactory(new PropertyValueFactory<>("width"));
@@ -88,20 +85,19 @@ public class CustomerHomePage implements Initializable {
 
 
     private void showAll() throws SQLException {
-
-        String Query = "Select * From Product where owner = '"+ idSinging + "'";
-        ResultSet resultSet = ref.sql(Query);
+        String query = "Select * From Product where owner = '"+ idSinging + "'";
+        ResultSet resultSet = ref.sql(query);
         allInformation.getItems().clear();
         while (resultSet.next()) {
             AllProductTable reference = new AllProductTable(resultSet.getString(1) , resultSet.getString(3) , resultSet.getString(4) ,resultSet.getString(5),
                     resultSet.getString(6) , resultSet.getString(7), resultSet.getString(8));
             allInformation.getItems().add(reference);
         }
-        Query = "Select count(*) from Product where owner = '" + idSinging +"'";
-        count = getCount(Query);
+        query = "Select count(*) from Product where owner = '" + idSinging +"'";
+        count = getCount(query);
         numberOfProduct.setText(String.valueOf((int)count));
-        Query = "Select Sum(totalPrice) from Customer where idSinging = '" + idSinging +"'";
-        count = getCount(Query);
+        query = "Select Sum(totalPrice) from Customer where id = '" + idSinging +"'";
+        count = getCount(query);
         if (count > 500) {
             label.setText("Before = " + count + ", Discount By 5% for sales grater than 500");
             count = count - count * ((float) 15 / 100);
@@ -115,7 +111,7 @@ public class CustomerHomePage implements Initializable {
     }
 
     public void setName(){
-        String query = "Select name from customer where idSinging = '" + idSinging +"'";
+        String query = "Select name from customer where id = '" + idSinging +"'";
         try {
             ResultSet rs = ref.sql(query);
             while (rs.next()){
@@ -123,7 +119,7 @@ public class CustomerHomePage implements Initializable {
             }
             welcome.setText("Welcome, " + name);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new IllegalArgumentException(e);
         }
     }
     public void setDate() {
@@ -137,13 +133,13 @@ public class CustomerHomePage implements Initializable {
 
     }
     @FXML
-    public void showAllInformation(ActionEvent actionEvent) throws SQLException {
+    public void showAllInformation() throws SQLException {
         showAll();
         paidButton.setDisable(false);
 
     }
     @FXML
-    void refreshFunction(ActionEvent event) throws SQLException {
+    void refreshFunction(){
         refreshStat(idSinging);
     }
 
@@ -178,9 +174,9 @@ public class CustomerHomePage implements Initializable {
                             "WHERE idSinging = '"+ resultSet.getString(1) +"'";
                     ref1.sql(query1);
                     query = "update Worker " +
-                            "set getStatus = ' Busy' " +
+                    "set getStatus = 'Free' " +
                             "where idSinging = '" + resultSet.getString(1) + "'";
-                    ref1.sql(query1);
+                    ref1.sql(query);
                     flag = 1;
                 }
 
@@ -195,14 +191,13 @@ public class CustomerHomePage implements Initializable {
     }
 
     @FXML
-    void paidFunction(ActionEvent event) {
+    void paidFunction() {
 
         float paid;
-        int sum;
     try{
         paid = Float.parseFloat(youPaid.getText());
         paid = paid - count;
-        theRest.setText("" + paid);
+        theRest.setText(String.valueOf(paid));
         paid*= -1;
         String s = "Update Customer " +
                 "Set totalPrice = '" + paid +"' " +
@@ -223,22 +218,18 @@ public class CustomerHomePage implements Initializable {
     }
 
     @FXML
-    void logoutFunction(ActionEvent event) throws IOException {
+    void logoutFunction() throws IOException {
         Alert alert = new Alert (Alert.AlertType.CONFIRMATION);
         alert.setTitle("Logout");
         alert.setHeaderText("You are about to logout?");
-        if (alert.showAndWait().isEmpty())
-            JOptionPane.showMessageDialog(null, "Please Enter Value");
-        if(alert.showAndWait().get() == ButtonType.OK )
-        {
+        Optional<ButtonType> result = alert.showAndWait();
+        if(result.isPresent() && result.get() == ButtonType.OK) {
             Stage stage = (Stage) customerpane.getScene().getWindow();
             stage.close();
-            Parent root = FXMLLoader.load(getClass().getResource("/login.fxml"));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/login.fxml")));
             stage.setTitle("Cleaning Services");
             stage.setScene(new Scene(root, 770, 561));
             stage.show();
-
-
         }
     }
 

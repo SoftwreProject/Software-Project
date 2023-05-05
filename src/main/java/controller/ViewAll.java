@@ -1,6 +1,5 @@
 package controller;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
@@ -22,117 +21,110 @@ public class ViewAll implements Initializable {
     @FXML
     private TableView <Worker> workerTable;
     @FXML
-    private TableColumn<Worker , String> IDWorker;
+    private TableColumn<Worker , String> idWorker;
     @FXML
-    private TableColumn<Worker , String> WorkerName;
+    private TableColumn<Worker , String> workerName;
     @FXML
-    private TableColumn<Worker , String> WorkerPhoneNumber;
+    private TableColumn<Worker , String> workerPhoneNumber;
     @FXML
-    private TableColumn<Worker , String> WorkerAddress;
+    private TableColumn<Worker , String> workerAddress;
     @FXML
-    private TableColumn<Worker , String> WorkerSpecialization;
+    private TableColumn<Worker , String> workerSpecialization;
     @FXML
-    private TableView <Customers> CustomerTable;
+    private TableView <Customers> customerTable;
     @FXML
-    private TableColumn<Customers , String> CustomerID;
+    private TableColumn<Customers , String> customerID;
     @FXML
-    private TableColumn<Customers , String> CustomerName;
+    private TableColumn<Customers , String> customerName;
     @FXML
-    private TableColumn<Customers , String> CustomerPhoneNumber;
+    private TableColumn<Customers , String> customerPhoneNumber;
     @FXML
-    private TableColumn<Customers , String> CustomerCity;
+    private TableColumn<Customers , String> customerCity;
     @FXML
-    private TableColumn<Customers , String> CustomerStreet;
+    private TableColumn<Customers , String> customerStreet;
     @FXML
-    private TableColumn<Customers , String> CustomerAddress;
+    private TableColumn<Customers , String> customerAddress;
     @FXML
-    private TableColumn <Customers , String> CustomerEmail;
+    private TableColumn <Customers , String> customerEmail;
     @FXML
-    private TableView<Product> ProductTable;
+    private TableView<Product> productTable;
     @FXML
-    private TableColumn<Product , String> ProductID;
+    private TableColumn<Product , String> productID;
     @FXML
-    private TableColumn<Product , String> ProductCategory;
+    private TableColumn<Product , String> productCategory;
     @FXML
-    private TableColumn <Product , String>ProductHigh;
+    private TableColumn <Product , String> productHigh;
     @FXML
-    private TableColumn<Product , String> ProductWidth;
+    private TableColumn<Product , String> productWidth;
     @FXML
-    private TableColumn<Product , String> ProductOwner;
+    private TableColumn<Product , String> productOwner;
     SignUp ref1 = new SignUp();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // for Worker
-        IDWorker.setCellValueFactory(new PropertyValueFactory<>("Id"));
-        WorkerName.setCellValueFactory(new PropertyValueFactory<>("Name"));
-        WorkerPhoneNumber.setCellValueFactory(new PropertyValueFactory<>("Phone"));
-        WorkerAddress.setCellValueFactory(new PropertyValueFactory<>("Address"));
-        WorkerSpecialization.setCellValueFactory(new PropertyValueFactory<>("Specialization"));
+        idWorker.setCellValueFactory(new PropertyValueFactory<>("Id"));
+        workerName.setCellValueFactory(new PropertyValueFactory<>("Name"));
+        workerPhoneNumber.setCellValueFactory(new PropertyValueFactory<>("Phone"));
+        workerAddress.setCellValueFactory(new PropertyValueFactory<>("Address"));
+        workerSpecialization.setCellValueFactory(new PropertyValueFactory<>("Specialization"));
 
         // for Customer
-        CustomerID.setCellValueFactory(new PropertyValueFactory<>("Id"));
-        CustomerName.setCellValueFactory(new PropertyValueFactory<>("Name"));
-        CustomerPhoneNumber.setCellValueFactory(new PropertyValueFactory<>("Phone"));
-        CustomerCity.setCellValueFactory(new PropertyValueFactory<>("City"));
-        CustomerStreet.setCellValueFactory(new PropertyValueFactory<>("Street"));
-        CustomerAddress.setCellValueFactory(new PropertyValueFactory<>("Address"));
-        CustomerEmail.setCellValueFactory(new PropertyValueFactory<>("Email"));
+        customerID.setCellValueFactory(new PropertyValueFactory<>("Id"));
+        customerName.setCellValueFactory(new PropertyValueFactory<>("Name"));
+        customerPhoneNumber.setCellValueFactory(new PropertyValueFactory<>("Phone"));
+        customerCity.setCellValueFactory(new PropertyValueFactory<>("City"));
+        customerStreet.setCellValueFactory(new PropertyValueFactory<>("Street"));
+        customerAddress.setCellValueFactory(new PropertyValueFactory<>("Address"));
+        customerEmail.setCellValueFactory(new PropertyValueFactory<>("Email"));
 
         // for Product
-        ProductID.setCellValueFactory(new PropertyValueFactory<>("Id"));
-        ProductCategory.setCellValueFactory(new PropertyValueFactory<>("Category"));
-        ProductHigh.setCellValueFactory(new PropertyValueFactory<>("High"));
-        ProductWidth.setCellValueFactory(new PropertyValueFactory<>("Width"));
-        ProductOwner.setCellValueFactory(new PropertyValueFactory<>("Owner"));
+        productID.setCellValueFactory(new PropertyValueFactory<>("Id"));
+        productCategory.setCellValueFactory(new PropertyValueFactory<>("Category"));
+        productHigh.setCellValueFactory(new PropertyValueFactory<>("High"));
+        productWidth.setCellValueFactory(new PropertyValueFactory<>("Width"));
+        productOwner.setCellValueFactory(new PropertyValueFactory<>("Owner"));
 
         // for update Worker
-        WorkerName.setCellFactory(TextFieldTableCell.forTableColumn());
-        WorkerPhoneNumber.setCellFactory(TextFieldTableCell.forTableColumn());
-        WorkerAddress.setCellFactory(TextFieldTableCell.forTableColumn());
+        workerName.setCellFactory(TextFieldTableCell.forTableColumn());
+        workerPhoneNumber.setCellFactory(TextFieldTableCell.forTableColumn());
+        workerAddress.setCellFactory(TextFieldTableCell.forTableColumn());
 
         //for update customer
-        CustomerName.setCellFactory(TextFieldTableCell.forTableColumn());
-        CustomerPhoneNumber.setCellFactory(TextFieldTableCell.forTableColumn());
-        CustomerCity.setCellFactory(TextFieldTableCell.forTableColumn());
-        CustomerStreet.setCellFactory(TextFieldTableCell.forTableColumn());
-        CustomerAddress.setCellFactory(TextFieldTableCell.forTableColumn());
-        CustomerEmail.setCellFactory(TextFieldTableCell.forTableColumn());
+        customerName.setCellFactory(TextFieldTableCell.forTableColumn());
+        customerPhoneNumber.setCellFactory(TextFieldTableCell.forTableColumn());
+        customerCity.setCellFactory(TextFieldTableCell.forTableColumn());
+        customerStreet.setCellFactory(TextFieldTableCell.forTableColumn());
+        customerAddress.setCellFactory(TextFieldTableCell.forTableColumn());
+        customerEmail.setCellFactory(TextFieldTableCell.forTableColumn());
 
         //for update Product
-        ProductHigh.setCellFactory(TextFieldTableCell.forTableColumn());
-        ProductWidth.setCellFactory(TextFieldTableCell.forTableColumn());
-        ProductCategory.setCellFactory(TextFieldTableCell.forTableColumn());
-        CustomerName.setCellFactory(TextFieldTableCell.forTableColumn());
+        productHigh.setCellFactory(TextFieldTableCell.forTableColumn());
+        productWidth.setCellFactory(TextFieldTableCell.forTableColumn());
+        productCategory.setCellFactory(TextFieldTableCell.forTableColumn());
+        customerName.setCellFactory(TextFieldTableCell.forTableColumn());
 
 
         try {
             String query = "SELECT * FROM Worker";
-            ShowWorkerResultSet(query);
+            showWorkerResultSet(query);
             // Customers
             query = "SELECT * FROM CUSTOMER";
-            try{
-                ResultSet rs = ref1.sql(query);
-                while(rs.next())
-                {
+            ResultSet rs = ref1.sql(query);
+            while(rs.next())
+            {
                     Customers s1 = new Customers(rs.getString(1) ,rs.getString(2) , rs.getString(3) , rs.getString(4) , rs.getString(5), rs.getString(6) , rs.getString(7) , rs.getString(8));
-                    CustomerTable.getItems().add(s1);
-                }
-
-                query = "SELECT * FROM PRODUCT";
-                rs = ref1.sql(query);
-                while(rs.next())
-                {
-                    Product s1 = new Product(rs.getString(1) ,rs.getString(2) , rs.getString(3) , rs.getString(4) , rs.getString(5) , rs.getString(6) ,rs.getString(7), rs.getString(8));
-                    ProductTable.getItems().add(s1);
-                }
-
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
+                    customerTable.getItems().add(s1);
             }
 
-
+            query = "SELECT * FROM PRODUCT";
+            rs = ref1.sql(query);
+            while(rs.next())
+            {
+                Product s1 = new Product(rs.getString(1) ,rs.getString(2) , rs.getString(3) , rs.getString(4) , rs.getString(5) , rs.getString(6) ,rs.getString(7), rs.getString(8));
+                productTable.getItems().add(s1);
+            }
         }catch (Exception ex) {
-                System.out.println(ex);
+               Logger.getLogger(ex.toString());
             }
 
 
@@ -142,7 +134,7 @@ public class ViewAll implements Initializable {
 
 
     @FXML
-    public void UpdateWorkerName(TableColumn.CellEditEvent<Worker, String> event) {
+    public void updateWorkerName(TableColumn.CellEditEvent<Worker, String> event) {
         Worker worker = workerTable.getSelectionModel().getSelectedItem();
         worker.setName(event.getNewValue());
         String x = worker.getName();
@@ -154,11 +146,11 @@ public class ViewAll implements Initializable {
                     + "where id = '" + id + "'";
             ref.sql(query);
         }catch (Exception exception){
-            System.out.println(exception);
+            Logger.getLogger(exception.toString());
         }
     }
     @FXML
-    public void UpdateWorkerPhone(TableColumn.CellEditEvent<Worker, String> event) {
+    public void updateWorkerPhone(TableColumn.CellEditEvent<Worker, String> event) {
         Worker worker = workerTable.getSelectionModel().getSelectedItem();
         worker.setPhone(event.getNewValue());
         String x = worker.getPhone();
@@ -170,12 +162,12 @@ public class ViewAll implements Initializable {
                     + "where id = '" + id + "'";
             ref.sql(query);
         }catch (Exception exception){
-            System.out.println(exception);
+            Logger.getLogger(exception.toString());
         }
     }
 
     @FXML
-    public void UpdateWorkerAddress(TableColumn.CellEditEvent<Worker, String> event) {
+    public void updateWorkerAddress(TableColumn.CellEditEvent<Worker, String> event) {
         Worker worker = workerTable.getSelectionModel().getSelectedItem();
         worker.setAddress(event.getNewValue());
         String x = worker.getAddress();
@@ -187,171 +179,171 @@ public class ViewAll implements Initializable {
                     + "where id = '" + id + "'";
             ref.sql(query);
         }catch (Exception exception){
-            System.out.println(exception);
+            Logger.getLogger(exception.toString());
         }
     }
 
     @FXML
-    public void UpdateCustomerName(TableColumn.CellEditEvent<Customers, String> event) {
-        Customers customers = CustomerTable.getSelectionModel().getSelectedItem();
+    public void updateCustomerName(TableColumn.CellEditEvent<Customers, String> event) {
+        Customers customers = customerTable.getSelectionModel().getSelectedItem();
         customers.setName(event.getNewValue());
         String x = customers.getName();
         ObservableList<Customers> obs;
-        obs = CustomerTable.getSelectionModel().getSelectedItems();
+        obs = customerTable.getSelectionModel().getSelectedItems();
         String id = obs.get(0).getId();
         try {
             String query = "update Customer set name = '" + x + "' "
                     + "where id = '" + id + "'";
             ref.sql(query);
         }catch (Exception exception){
-            System.out.println(exception);
+            Logger.getLogger(exception.toString());
         }
     }
 
     @FXML
-    public void UpdateCustomerPhone(TableColumn.CellEditEvent<Customers, String> event) {
-        Customers customers = CustomerTable.getSelectionModel().getSelectedItem();
+    public void updateCustomerPhone(TableColumn.CellEditEvent<Customers, String> event) {
+        Customers customers = customerTable.getSelectionModel().getSelectedItem();
         customers.setPhone(event.getNewValue());
         String x = customers.getPhone();
         ObservableList<Customers> obs;
-        obs = CustomerTable.getSelectionModel().getSelectedItems();
+        obs = customerTable.getSelectionModel().getSelectedItems();
         String id = obs.get(0).getId();
         try {
             String query = "update Customer set phonenumber = '" + x + "' "
                     + "where id = '" + id + "'";
             ref.sql(query);
         }catch (Exception exception){
-            System.out.println(exception);
+            Logger.getLogger(exception.toString());
         }
     }
 
     @FXML
-    public void UpdateCustomerCity(TableColumn.CellEditEvent<Customers, String> event) {
-        Customers customers = CustomerTable.getSelectionModel().getSelectedItem();
+    public void updateCustomerCity(TableColumn.CellEditEvent<Customers, String> event) {
+        Customers customers = customerTable.getSelectionModel().getSelectedItem();
         customers.setCity(event.getNewValue());
         String x = customers.getCity();
         ObservableList<Customers> obs;
-        obs = CustomerTable.getSelectionModel().getSelectedItems();
+        obs = customerTable.getSelectionModel().getSelectedItems();
         String id = obs.get(0).getId();
         try {
             String query = "update Customer set city = '" + x + "' "
                     + "where id = '" + id + "'";
             ref.sql(query);
         }catch (Exception exception){
-            System.out.println(exception);
+            Logger.getLogger(exception.toString());
         }
     }
 
     @FXML
-    public void UpdateCustomerStreet(TableColumn.CellEditEvent<Customers, String> event) {
-        Customers customers = CustomerTable.getSelectionModel().getSelectedItem();
+    public void updateCustomerStreet(TableColumn.CellEditEvent<Customers, String> event) {
+        Customers customers = customerTable.getSelectionModel().getSelectedItem();
         customers.setStreet(event.getNewValue());
         String x = customers.getStreet();
         ObservableList<Customers> obs;
-        obs = CustomerTable.getSelectionModel().getSelectedItems();
+        obs = customerTable.getSelectionModel().getSelectedItems();
         String id = obs.get(0).getId();
         try {
             String query = "update Customer set street = '" + x + "' "
                     + "where id = '" + id + "'";
             ref.sql(query);
         }catch (Exception exception){
-            System.out.println(exception);
+            Logger.getLogger(exception.toString());
         }
     }
 
     @FXML
-    public void UpdateCustomerAddress(TableColumn.CellEditEvent<Customers, String> event) {
-        Customers customers = CustomerTable.getSelectionModel().getSelectedItem();
+    public void updateCustomerAddress(TableColumn.CellEditEvent<Customers, String> event) {
+        Customers customers = customerTable.getSelectionModel().getSelectedItem();
         customers.setAddress(event.getNewValue());
         String x = customers.getAddress();
         ObservableList<Customers> obs;
-        obs = CustomerTable.getSelectionModel().getSelectedItems();
+        obs = customerTable.getSelectionModel().getSelectedItems();
         String id = obs.get(0).getId();
         try {
             String query = "update Customer set address = '" + x + "' "
                     + "where id = '" + id + "'";
             ref.sql(query);
         }catch (Exception exception){
-            System.out.println(exception);
+            Logger.getLogger(exception.toString());
         }
 
     }
 
 
     @FXML
-    public void UpdateCustomerEmail(TableColumn.CellEditEvent<Customers, String> event) {
-        Customers customers = CustomerTable.getSelectionModel().getSelectedItem();
+    public void updateCustomerEmail(TableColumn.CellEditEvent<Customers, String> event) {
+        Customers customers = customerTable.getSelectionModel().getSelectedItem();
         customers.setEmail(event.getNewValue());
         String x = customers.getEmail();
         ObservableList<Customers> obs;
-        obs = CustomerTable.getSelectionModel().getSelectedItems();
+        obs = customerTable.getSelectionModel().getSelectedItems();
         String id = obs.get(0).getId();
         try {
             String query = "update Customer set email = '" + x + "' "
                     + "where id = '" + id + "'";
             ref.sql(query);
         }catch (Exception exception){
-            System.out.println(exception);
+            Logger.getLogger(exception.toString());
         }
     }
 
     @FXML
-    public void UpdateProductCategory(TableColumn.CellEditEvent<Product, String> event) {
-        Product product = ProductTable.getSelectionModel().getSelectedItem();
+    public void updateProductCategory(TableColumn.CellEditEvent<Product, String> event) {
+        Product product = productTable.getSelectionModel().getSelectedItem();
         product.setCategory(event.getNewValue());
         String x = product.getCategory();
         ObservableList<Product> obs;
-        obs = ProductTable.getSelectionModel().getSelectedItems();
+        obs = productTable.getSelectionModel().getSelectedItems();
         String id = obs.get(0).getId();
         try {
             String query = "update Product set category = '" + x + "' "
                     + "where id = '" + id + "'";
             ref.sql(query);
         }catch (Exception exception){
-            System.out.println(exception);
+            Logger.getLogger(exception.toString());
         }
     }
 
     @FXML
-    public void UpdateProductWidth(TableColumn.CellEditEvent<Product, String> event) {
-        Product product = ProductTable.getSelectionModel().getSelectedItem();
+    public void updateProductWidth(TableColumn.CellEditEvent<Product, String> event) {
+        Product product = productTable.getSelectionModel().getSelectedItem();
         product.setWidth(event.getNewValue());
         String x = product.getWidth();
         ObservableList<Product> obs;
-        obs = ProductTable.getSelectionModel().getSelectedItems();
+        obs = productTable.getSelectionModel().getSelectedItems();
         String id = obs.get(0).getId();
         try {
             String query = "update Product set width = '" + x + "' "
                     + "where id = '" + id + "'";
             ref.sql(query);
         }catch (Exception exception){
-            System.out.println(exception);
+            Logger.getLogger(exception.toString());
         }
     }
 
     @FXML
-    public void UpdateProductHigh(TableColumn.CellEditEvent<Product, String> event) {
-        Product product = ProductTable.getSelectionModel().getSelectedItem();
+    public void updateProductHigh(TableColumn.CellEditEvent<Product, String> event) {
+        Product product = productTable.getSelectionModel().getSelectedItem();
         product.setHigh(event.getNewValue());
         String x = product.getHigh();
         ObservableList<Product> obs;
-        obs = ProductTable.getSelectionModel().getSelectedItems();
+        obs = productTable.getSelectionModel().getSelectedItems();
         String id = obs.get(0).getId();
         try {
             String query = "update Product set high = '" + x + "' "
                     + "where id = '" + id + "'";
             ref.sql(query);
         }catch (Exception exception){
-            System.out.println(exception);
+            Logger.getLogger(exception.toString());
         }
 
     }
     @FXML
-    void AvailableWorker(ActionEvent event) throws SQLException {
+    void availableWorker() throws SQLException {
         String query = "SELECT * FROM Worker where status = 'available'";
-        ShowWorkerResultSet(query);
+        showWorkerResultSet(query);
     }
-    public void ShowWorkerResultSet(String query) throws SQLException {
+    public void showWorkerResultSet(String query) throws SQLException {
         ResultSet rs = ref1.sql(query);
         workerTable.getItems().clear();
         // Workers
@@ -362,16 +354,16 @@ public class ViewAll implements Initializable {
             workerTable.getItems().add(s1);
         }
     }
-    public String ShowCustomerInformation(String id) throws SQLException {
+    public String showCustomerInformation(String id) throws SQLException {
         int flag =  0 ;
         String result ;
         StringBuilder stringBuilder = new StringBuilder();
-        String Query = "Select * from customer where id = '" + id + "'";
+        String query = "Select * from customer where id = '" + id + "'";
         if (id.isEmpty()) {
             flag = 1;
         }
         else {
-                ResultSet rs = ref1.sql(Query);
+                ResultSet rs = ref1.sql(query);
                 while (rs.next()) {
                     stringBuilder.append(rs.getString(1)).append(",").append(rs.getString(2)).append(",").append(rs.getString(3)).append(",").append(rs.getString(4)).append(",").append(rs.getString(5)).append(",").append(rs.getString(6)).append(",").append(rs.getString(7)).append(",").append(rs.getString(8)).append(",").append(rs.getString(9));
                    flag = 2;
@@ -387,16 +379,16 @@ public class ViewAll implements Initializable {
         return result;
 
     }
-    public String showProductInformation(String id) throws SQLException {
+    public String showProductInformation(String id){
         int flag = 0;
         String result;
         StringBuilder stringBuilder = new StringBuilder();
         try {
-            String Query = "Select * from product where id = '" + id + "'";
+            String query = "Select * from product where id = '" + id + "'";
             if (id.isEmpty()) {
                 flag = 1;
             } else {
-                ResultSet rs = ref1.sql(Query);
+                ResultSet rs = ref1.sql(query);
                 while (rs.next()) {
                     stringBuilder.append(rs.getString(1)).append(",").append(rs.getString(2)).append(",").append(rs.getString(3)).append(",").append(rs.getString(4)).append(",").append(rs.getString(5)).append(",").append(rs.getString(6)).append(",").append(rs.getString(7)).append(",").append(rs.getString(8)).append(",").append(rs.getString(9)).append(",").append(rs.getString(10));
                     flag = 2;

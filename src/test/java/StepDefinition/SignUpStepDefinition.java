@@ -5,8 +5,7 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
-import java.sql.SQLException;
+import software.Customers;
 
 import static org.testng.AssertJUnit.assertEquals;
 
@@ -17,7 +16,6 @@ public class SignUpStepDefinition {
     @Before
     public static void setUp() {
         signUp = new SignUp();
-        result = "";
         result = "";
     }
 
@@ -39,8 +37,9 @@ public class SignUpStepDefinition {
     }
 
     @When("you write the {string}, {string}, {string}, {string}, {string}, {string}, {string} and \"{}")
-    public void youWriteTheAnd(String arg0, String arg1, String arg2, String arg3, String arg4, String arg5, String arg6, String arg7) throws Exception {
-        result = signUp.SignUpTest(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
+    public void youWriteTheAnd(String arg0, String arg1, String arg2, String arg3, String arg4, String arg5, String arg6, String arg7){
+        Customers customers = new Customers(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
+        result = signUp.signUpTest(customers);
     }
 
     @Then("You should Show please enter more than five character")

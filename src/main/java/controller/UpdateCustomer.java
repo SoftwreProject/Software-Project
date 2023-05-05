@@ -9,14 +9,55 @@ import java.util.logging.Logger;
 
 
 public class UpdateCustomer {
-    public String name;
-    public String address;
-    public String city;
-    public String street;
-    public String phone;
+    private String name;
+    private String address;
+    private String city;
+    private String street;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    private String phone;
     int flag = 0;
     String result ;
-    public void UpdateCustomers(String id) throws SQLException {
+    public void updateCustomers(String id) throws SQLException {
 
         OracleDataSource orc = new OracleDataSource();
         orc.setURL("jdbc:oracle:thin:@localhost:1521:orcl");
@@ -39,7 +80,7 @@ public class UpdateCustomer {
 
 
     }
-    public String GetResult() {
+    public String getResult() {
         if (flag == 1)
             result = "Please check the ID you entered";
         else result = "Customer Information Updated Successfully";
