@@ -49,7 +49,7 @@ public class HomePage {
 
     }
     @FXML
-    void add() throws Exception {
+    void add() throws IOException {
         loadPage("/AddAll");
     }
 
