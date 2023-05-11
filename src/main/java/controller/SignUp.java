@@ -97,9 +97,8 @@ public class SignUp {
         orc.setUser("software");
         orc.setPassword("123123");
         Connection conn = orc.getConnection();
-        try (Statement st = conn.createStatement()) {
-            return st.executeQuery(x);
-        }
+        Statement st = conn.createStatement();
+        return st.executeQuery(x);
     }
     public boolean emptyTextField() {
          return signUpID.getText().isEmpty() ||
