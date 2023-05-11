@@ -20,7 +20,7 @@ import javafx.stage.Stage;
 import oracle.jdbc.pool.OracleDataSource;
 
 public class LoginController{
-    private Pane loginPane;
+
     @FXML
     private PasswordField passwordTextField;
 
@@ -142,7 +142,7 @@ public class LoginController{
         Parent root = loader.load();
         new animatefx.animation.ZoomIn(root).play();
         signingPane.getChildren().setAll(root);
-        stage.setTitle("SignUp");
+        stage.setTitle("SignUp :)");
         stage.show();
     }
 
