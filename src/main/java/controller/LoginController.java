@@ -155,7 +155,6 @@ public class LoginController{
             SignUp ref = new SignUp();
             String query1 = "SELECT ID , PASSWORD FROM MANAGER WHERE ID = '" + username + "'";
             String query2 = "SELECT ID , PASSWORD FROM CUSTOMER WHERE ID = '" + username + "'";
-
             ResultSet rs = ref.sql(query1);
 
             while (rs.next()) {
