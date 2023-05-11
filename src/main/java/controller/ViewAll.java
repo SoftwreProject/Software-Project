@@ -360,16 +360,17 @@ public class ViewAll implements Initializable {
         String result ;
         StringBuilder stringBuilder = new StringBuilder();
         String query = "Select * from customer where id = '" + id + "'";
+
         if (id.isEmpty()) {
             flag = 1;
         }
         else {
-                ResultSet rs = ref1.sql(query);
+            ResultSet rs = ref1.sql(query);
                 while (rs.next()) {
                     stringBuilder.append(rs.getString(1)).append(",").append(rs.getString(2)).append(",").append(rs.getString(3)).append(",").append(rs.getString(4)).append(",").append(rs.getString(5)).append(",").append(rs.getString(6)).append(",").append(rs.getString(7)).append(",").append(rs.getString(8)).append(",").append(rs.getString(9));
                    flag = 2;
                 }
-
+            rs.close();
         }
         if (flag == 1)
             result = "Empty ID";
@@ -394,7 +395,7 @@ public class ViewAll implements Initializable {
                     stringBuilder.append(rs.getString(1)).append(",").append(rs.getString(2)).append(",").append(rs.getString(3)).append(",").append(rs.getString(4)).append(",").append(rs.getString(5)).append(",").append(rs.getString(6)).append(",").append(rs.getString(7)).append(",").append(rs.getString(8)).append(",").append(rs.getString(9)).append(",").append(rs.getString(10));
                     flag = 2;
                 }
-
+            rs.close();
             }
         }
         catch (Exception ex) {

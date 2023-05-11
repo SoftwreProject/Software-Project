@@ -130,20 +130,16 @@ public class SignUp {
         try {
             if (booleanTest(customers.getId() ,customers.getName() , customers.getPhone(), customers.getAddress() ) && booleanTest2(customers.getCity(), customers.getStreet() , customers.getEmail(), customers.getPassword()))
                 flag = 1;
-            else {
-                if (showID(customers.getId()))
+            else if (showID(customers.getId()))
                     flag = 2;
-                else {
-                    if (customers.getPassword().length() <= 5)
+            else if (customers.getPassword().length() <= 5)
                         flag =3;
-                    else {
+            else {
                         String s = "insert into CUSTOMER values ( '" + customers.getId() + "','" + customers.getName()
                                 + "','" + customers.getPhone() + "','" + customers.getAddress() + "','" + customers.getCity() +
                                 "','" + customers.getStreet() + "','" + customers.getEmail() + "','" + customers.getPassword() + "','" + "0" + "') ";
                         ref.sql(s);
                     }
-                }
-            }
         }catch (Exception ex) {
             Logger.getLogger("You are in signup page");
         }
