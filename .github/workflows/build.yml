@@ -34,4 +34,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=SoftwreProject_Software-Project
+          ORACLE_USERNAME: software
+          ORACLE_PASSWORD: 123123
+          ORACLE_URL: jdbc:oracle:thin:@localhost:1521:orcl
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=SoftwreProject_Software-Project -Doracle.username=${ORACLE_USERNAME} -Doracle.password=${ORACLE_PASSWORD} -Doracle.url=${ORACLE_URL}
