@@ -34,4 +34,4 @@ Feature: Delete Product
       | P13 | Omar    |
       | P14 |         |
       | P15 | Shareef |
-      | P16   | Khaled  |
+      | P16 | Khaled  |

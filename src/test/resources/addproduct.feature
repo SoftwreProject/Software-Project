@@ -13,7 +13,7 @@ Feature: Add Product
     Then I should see please enter new id
     Examples:
       | id | owner | category | high | width |  |
-      | P1  | 12    | Rug      | 0    | 0     |  |
+      | P1 | 12    | Rug      | 0    | 0     |  |
 
   Scenario Outline: fill all values
     Given you are in login page

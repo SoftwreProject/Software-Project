@@ -84,52 +84,64 @@ public class CustomerHomePage implements Initializable {
     }
 
 
-    private void showAll() throws SQLException {
+    public String showAll() throws SQLException {
+        idSinging = "C1";
         String query = "Select * From Product where owner = '"+ idSinging + "'";
         ResultSet resultSet = ref.sql(query);
-        allInformation.getItems().clear();
+//        allInformation.getItems().clear();
         while (resultSet.next()) {
             AllProductTable reference = new AllProductTable(resultSet.getString(1) , resultSet.getString(3) , resultSet.getString(4) ,resultSet.getString(5),
                     resultSet.getString(6) , resultSet.getString(7), resultSet.getString(8));
-            allInformation.getItems().add(reference);
+//            allInformation.getItems().add(reference);
+            return "Done";
         }
         query = "Select count(*) from Product where owner = '" + idSinging +"'";
         count = getCount(query);
-        numberOfProduct.setText(String.valueOf((int)count));
+//        numberOfProduct.setText(String.valueOf((int)count));
         query = "Select Sum(totalPrice) from Customer where id = '" + idSinging +"'";
         count = getCount(query);
         if (count > 500) {
             label.setText("Before = " + count + ", Discount By 5% for sales grater than 500");
             count = count - count * ((float) 15 / 100);
-            totalPriceTextField.setText(String.valueOf(count));
+//            totalPriceTextField.setText(String.valueOf(count));
 
         }
         else {
             label.setText("");
-            totalPriceTextField.setText(String.valueOf(count));
+//            totalPriceTextField.setText(String.valueOf(count));
         }
+        return "Done";
     }
 
-    public void setName(){
-        String query = "Select name from customer where id = '" + idSinging +"'";
+    public String setName(String id){
+        int flag = 0;
+        String x = "";
+        String query = "Select name from customer where id = '" + id +"'";
         try {
             ResultSet rs = ref.sql(query);
             while (rs.next()){
                 name = rs.getString(1);
+                x = rs.getString(1);
+                flag = 1;
             }
-            welcome.setText("Welcome, " + name);
-        } catch (SQLException e) {
-            throw new IllegalArgumentException(e);
+            //welcome.setText("Welcome, " + name);
+        } catch (Exception e) {
+            x = "Empty ID";
         }
+        if (flag == 1)
+            return x;
+        else return "Empty ID";
     }
-    public void setDate() {
+    public String setDate() {
         LocalDate day = LocalDate.now();
         DateTimeFormatter format = DateTimeFormatter.ofPattern("EEEE", Locale.getDefault());
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         Date dateOfToday = new Date();
-        todayDate.setText(day.format(format) +", " + formatter.format(dateOfToday));
+        String x = formatter.format(dateOfToday);
+//        todayDate.setText(day.format(format) +", " + formatter.format(dateOfToday));
         formatter = new SimpleDateFormat("HH:mm:ss");
-        enterTime.setText("Entry time at: " + formatter.format(dateOfToday));
+//        enterTime.setText("Entry time at: " + formatter.format(dateOfToday));
+        return x;
 
     }
     @FXML
@@ -174,7 +186,7 @@ public class CustomerHomePage implements Initializable {
                             "WHERE idSinging = '"+ resultSet.getString(1) +"'";
                     ref1.sql(query1);
                     query = "update Worker " +
-                    "set getStatus = 'Free' " +
+                            "set getStatus = 'Free' " +
                             "where idSinging = '" + resultSet.getString(1) + "'";
                     ref1.sql(query);
                     flag = 1;
@@ -194,26 +206,26 @@ public class CustomerHomePage implements Initializable {
     void paidFunction() {
 
         float paid;
-    try{
-        paid = Float.parseFloat(youPaid.getText());
-        paid = paid - count;
-        theRest.setText(String.valueOf(paid));
-        paid*= -1;
-        String s = "Update Customer " +
-                "Set totalPrice = '" + paid +"' " +
-                "Where idSinging = '" +idSinging+"'";
-        rest.setText("You have money left");
-        ref1.sql(s);
-    }catch(Exception ex) {
-        JOptionPane.showMessageDialog(null , "Please Enter a Number");
-    }
+        try{
+            paid = Float.parseFloat(youPaid.getText());
+            paid = paid - count;
+            theRest.setText(String.valueOf(paid));
+            paid*= -1;
+            String s = "Update Customer " +
+                    "Set totalPrice = '" + paid +"' " +
+                    "Where idSinging = '" +idSinging+"'";
+            rest.setText("You have money left");
+            ref1.sql(s);
+        }catch(Exception ex) {
+            JOptionPane.showMessageDialog(null , "Please Enter a Number");
+        }
 
     }
     public int getCount(String query) throws SQLException {
         int x = 0;
         ResultSet resultSet = ref.sql(query);
         while (resultSet.next())
-           x = resultSet.getInt(1);
+            x = resultSet.getInt(1);
         return x;
     }
 

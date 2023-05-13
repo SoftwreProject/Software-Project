@@ -10,8 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import software.Customers;
 import software.Product;
-
-import javafx.scene.control.ToggleGroup;
+import software.Worker;
 
 import javax.swing.*;
 import java.net.URL;
@@ -180,22 +179,27 @@ public class AddAll implements Initializable {
     }
 
     public void addWorkerFunc(){
-        if (workerSpecCovers.isSelected())
-            worker.addWorkers(workerID , workerName , workerPhone , workerAddress , workerSpecCovers,label );
-        else
-            worker.addWorkers(workerID , workerName , workerPhone , workerAddress , workerSpecCarpets,label );
+        if (workerSpecCovers.isSelected()) {
+            Worker worker1 = new Worker(workerID.getText(), workerName.getText(), workerPhone.getText(), workerAddress.getText(), workerSpecCovers.getText());
+            worker.addWorkers(worker1);
+        }
+        else {
+            Worker worker1 = new Worker(workerID.getText(), workerName.getText(), workerPhone.getText(), workerAddress.getText(), workerSpecCarpets.getText());
+            worker.addWorkers(worker1);
+        }
+
     }
     public void addCustomerFunc() {
         Customers customers = new Customers(customerID.getText() , customerName.getText(),customerPhone.getText(),
                 customerAddress.getText(),customerCity.getText(), customerStreet.getText() , customerEmail.getText() ,  customerPassword.getText());
-        customer.addCustomerGUI(customers,label);
+        customer.addCustomerGUI(customers);
     }
     public void addProductFunc() throws SQLException {
         Product product1 ;
         if (coversRadioButton.isSelected()) {
             if (!workerCombobox.getValue().equals("None")) {
                 product1 = new Product(productID.getText() , productOwner.getText() ,"Cover" , "0", "0",workerCombobox.getValue() ,"Treatment" , formatter1.format(date)  );
-                product.addProductGUI(product1, label);
+                product.addProductGUI(product1);
                 String query = "update Worker " +
                         "set status = ' Busy' " +
                         "where ID = '" + workerCombobox.getValue() +"'";
@@ -203,20 +207,20 @@ public class AddAll implements Initializable {
             }
             else {
                 product1 = new Product(productID.getText() , productOwner.getText() ,"Cover" , "0", "0",workerCombobox.getValue() ,"Waiting" , "Unknown" );
-                product.addProductGUI(product1, label);
+                product.addProductGUI(product1);
             }
         }
         else if (carpetsRadioButton.isSelected()) {
             if (!workerCombobox.getValue().equals("None")) {
                 product1 = new Product(productID.getText() , productOwner.getText() ,"Carpet" , productHigh.getText(), productWidth.getText(),workerCombobox.getValue() ,"Treatment" , formatter1.format(date));
-                product.addProductGUI(product1, label);
+                product.addProductGUI(product1);
                 String query = "update Worker " +
                         "set status = ' Busy' " +
                         "where ID = '" + workerCombobox.getValue()+ "'";
                 addCustomer.sql(query);
             } else {
                 product1 = new Product(productID.getText() , productOwner.getText() ,"Carpet" , productHigh.getText(), productWidth.getText(),workerCombobox.getValue() ,"Waiting" , "Unknown");
-                product.addProductGUI(product1, label);
+                product.addProductGUI(product1);
             }
         }
     }

@@ -6,7 +6,7 @@ import java.sql.Statement;
 import java.util.logging.Logger;
 
 public class DeleteCustomer {
-    
+
     String result;
     int flag = 0;
     public int sqlValue( String query){
