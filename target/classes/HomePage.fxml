@@ -11,16 +11,76 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<?import com.jfoenix.controls.JFXButton?>-->
+<!--<?import javafx.scene.chart.CategoryAxis?>-->
+<!--<?import javafx.scene.chart.NumberAxis?>-->
+<!--<?import javafx.scene.chart.StackedBarChart?>-->
+<!--<?import javafx.scene.image.Image?>-->
+<!--<?import javafx.scene.image.ImageView?>-->
+<!--<?import javafx.scene.layout.BorderPane?>-->
+<!--<?import javafx.scene.layout.Pane?>-->
+<!--<?import javafx.scene.text.Font?>-->
+<!--<BorderPane fx:id="homePagePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomePage">-->
+<!--   <left>-->
+<!--      <Pane prefHeight="487.0" prefWidth="166.0" style="-fx-background-color: #000000;" BorderPane.alignment="CENTER">-->
+<!--         <JFXButton layoutX="-1.0" layoutY="187.0" onAction="#viewAll" prefHeight="48.0" prefWidth="168.0" style="-fx-border-color: #2C3333; -fx-border-width: 1 0 1 0;" text="View All" textFill="#fac355">-->
+<!--            <font>-->
+<!--               <Font name="Bookman Old Style Bold" size="16.0" />-->
+<!--            </font>-->
+<!--         </JFXButton>-->
+<!--         <JFXButton layoutX="-1.0" layoutY="235.0" onAction="#add" prefHeight="48.0" prefWidth="168.0" style="-fx-border-color: #2C3333; -fx-border-width: 0 0 1 0;" text="Add " textFill="#fac355">-->
+<!--            <font>-->
+<!--               <Font name="Bookman Old Style Bold" size="16.0" />-->
+<!--            </font>-->
+<!--         </JFXButton>-->
+<!--         <ImageView fitHeight="139.0" fitWidth="141.0" layoutX="15.0" pickOnBounds="true" preserveRatio="true">-->
+<!--            <Image url="@images1/227-2277419_janitorial-service-in-sri-lanka-cleaning-service-icon_prev_ui.png" />-->
+<!--         </ImageView>-->
+<!--         <JFXButton layoutY="139.0" onAction="#centerHomePage" prefHeight="49.0" prefWidth="168.0" style="-fx-border-color: #2C3333; -fx-border-width: 1 0 1 0;" text="Home Page" textFill="#fac355">-->
+<!--            <font>-->
+<!--               <Font name="Bookman Old Style Bold" size="16.0" />-->
+<!--            </font>-->
+<!--         </JFXButton>-->
+<!--         <JFXButton layoutY="282.0" onAction="#backToLogin" prefHeight="49.0" prefWidth="168.0" style="-fx-border-color: #2C3333; -fx-border-width: 1 0 1 0;" text="Logout" textFill="#fac355">-->
+<!--            <font>-->
+<!--               <Font name="Bookman Old Style Bold" size="16.0" />-->
+<!--            </font>-->
+<!--         </JFXButton>-->
+<!--      </Pane>-->
+<!--   </left>-->
+<!--   <center>-->
+<!--      <Pane fx:id="homePane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">-->
+<!--         <StackedBarChart layoutX="10.0" layoutY="279.0" prefHeight="344.0" prefWidth="405.0">-->
+<!--            <xAxis>-->
+<!--               <CategoryAxis side="BOTTOM" />-->
+<!--            </xAxis>-->
+<!--            <yAxis>-->
+<!--               <NumberAxis side="LEFT" />-->
+<!--            </yAxis>-->
+<!--         </StackedBarChart>-->
+<!--         <StackedBarChart layoutX="414.0" layoutY="279.0" prefHeight="344.0" prefWidth="405.0">-->
+<!--            <xAxis>-->
+<!--               <CategoryAxis side="BOTTOM" />-->
+<!--            </xAxis>-->
+<!--            <yAxis>-->
+<!--               <NumberAxis side="LEFT" />-->
+<!--            </yAxis>-->
+<!--         </StackedBarChart>-->
+<!--      </Pane>-->
+<!--   </center>-->
+<!--</BorderPane>-->
+
 <BorderPane fx:id="HomePagePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomePage">
    <left>
       <Pane prefHeight="487.0" prefWidth="166.0" style="-fx-background-color: #000000;" BorderPane.alignment="CENTER">
          <children>
-            <JFXButton layoutX="-1.0" layoutY="187.0" onAction="#ViewAll" prefHeight="48.0" prefWidth="168.0" style="-fx-border-color: #2C3333; -fx-border-width: 1 0 1 0;" text="View All" textFill="#fac355">
+            <JFXButton layoutX="-1.0" layoutY="187.0" onAction="#viewAll" prefHeight="48.0" prefWidth="168.0" style="-fx-border-color: #2C3333; -fx-border-width: 1 0 1 0;" text="View All" textFill="#fac355">
                <font>
                   <Font name="Bookman Old Style Bold" size="16.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="-1.0" layoutY="235.0" onAction="#Add" prefHeight="48.0" prefWidth="168.0" style="-fx-border-color: #2C3333; -fx-border-width: 0 0 1 0;" text="Add " textFill="#fac355">
+            <JFXButton layoutX="-1.0" layoutY="235.0" onAction="#addFunction" prefHeight="48.0" prefWidth="168.0" style="-fx-border-color: #2C3333; -fx-border-width: 0 0 1 0;" text="Add " textFill="#fac355">
                <font>
                   <Font name="Bookman Old Style Bold" size="16.0" />
                </font>
@@ -187,64 +247,3 @@
       </Pane>
    </center>
 </BorderPane>
-<!--<?xml version="1.0" encoding="UTF-8"?>-->
-
-<!--<?import com.jfoenix.controls.JFXButton?>-->
-<!--<?import javafx.scene.chart.CategoryAxis?>-->
-<!--<?import javafx.scene.chart.NumberAxis?>-->
-<!--<?import javafx.scene.chart.StackedBarChart?>-->
-<!--<?import javafx.scene.image.Image?>-->
-<!--<?import javafx.scene.image.ImageView?>-->
-<!--<?import javafx.scene.layout.BorderPane?>-->
-<!--<?import javafx.scene.layout.Pane?>-->
-<!--<?import javafx.scene.text.Font?>-->
-
-<!--<BorderPane fx:id="homePagePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomePage">-->
-<!--   <left>-->
-<!--      <Pane prefHeight="487.0" prefWidth="166.0" style="-fx-background-color: #000000;" BorderPane.alignment="CENTER">-->
-<!--         <JFXButton layoutX="-1.0" layoutY="187.0" onAction="#viewAll" prefHeight="48.0" prefWidth="168.0" style="-fx-border-color: #2C3333; -fx-border-width: 1 0 1 0;" text="View All" textFill="#fac355">-->
-<!--            <font>-->
-<!--               <Font name="Bookman Old Style Bold" size="16.0" />-->
-<!--            </font>-->
-<!--         </JFXButton>-->
-<!--         <JFXButton layoutX="-1.0" layoutY="235.0" onAction="#add" prefHeight="48.0" prefWidth="168.0" style="-fx-border-color: #2C3333; -fx-border-width: 0 0 1 0;" text="Add " textFill="#fac355">-->
-<!--            <font>-->
-<!--               <Font name="Bookman Old Style Bold" size="16.0" />-->
-<!--            </font>-->
-<!--         </JFXButton>-->
-<!--         <ImageView fitHeight="139.0" fitWidth="141.0" layoutX="15.0" pickOnBounds="true" preserveRatio="true">-->
-<!--            <Image url="@images1/227-2277419_janitorial-service-in-sri-lanka-cleaning-service-icon_prev_ui.png" />-->
-<!--         </ImageView>-->
-<!--         <JFXButton layoutY="139.0" onAction="#centerHomePage" prefHeight="49.0" prefWidth="168.0" style="-fx-border-color: #2C3333; -fx-border-width: 1 0 1 0;" text="Home Page" textFill="#fac355">-->
-<!--            <font>-->
-<!--               <Font name="Bookman Old Style Bold" size="16.0" />-->
-<!--            </font>-->
-<!--         </JFXButton>-->
-<!--         <JFXButton layoutY="282.0" onAction="#backToLogin" prefHeight="49.0" prefWidth="168.0" style="-fx-border-color: #2C3333; -fx-border-width: 1 0 1 0;" text="Logout" textFill="#fac355">-->
-<!--            <font>-->
-<!--               <Font name="Bookman Old Style Bold" size="16.0" />-->
-<!--            </font>-->
-<!--         </JFXButton>-->
-<!--      </Pane>-->
-<!--   </left>-->
-<!--   <center>-->
-<!--      <Pane fx:id="homePane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">-->
-<!--         <StackedBarChart layoutX="10.0" layoutY="279.0" prefHeight="344.0" prefWidth="405.0">-->
-<!--            <xAxis>-->
-<!--               <CategoryAxis side="BOTTOM" />-->
-<!--            </xAxis>-->
-<!--            <yAxis>-->
-<!--               <NumberAxis side="LEFT" />-->
-<!--            </yAxis>-->
-<!--         </StackedBarChart>-->
-<!--         <StackedBarChart layoutX="414.0" layoutY="279.0" prefHeight="344.0" prefWidth="405.0">-->
-<!--            <xAxis>-->
-<!--               <CategoryAxis side="BOTTOM" />-->
-<!--            </xAxis>-->
-<!--            <yAxis>-->
-<!--               <NumberAxis side="LEFT" />-->
-<!--            </yAxis>-->
-<!--         </StackedBarChart>-->
-<!--      </Pane>-->
-<!--   </center>-->
-<!--</BorderPane>-->

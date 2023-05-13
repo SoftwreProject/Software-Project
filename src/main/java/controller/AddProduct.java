@@ -1,7 +1,6 @@
 package controller;
 
 import javafx.beans.property.SimpleStringProperty;
-import javafx.scene.control.Label;
 import software.Product;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -10,6 +9,7 @@ import java.util.logging.Logger;
 public class AddProduct {
     String result;
     String insert = "insert into product values ( '";
+    String fill = "Please fill in all information";
     int flag;
 
     AddCustomer ref = new AddCustomer();
@@ -48,7 +48,7 @@ public class AddProduct {
 
     public String getResult() {
         if (flag == 1)
-            result = "Please fill in all information";
+            result = fill;
         else if (flag == 2)
             result = "Please Enter a new ID";
 
@@ -58,24 +58,22 @@ public class AddProduct {
     }
 
     public String addProductGUI(Product product) {
-        int flag = 0;
+        int flag1 = 0;
         String s = null;
         String string = "";
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         Date date = new Date();
         if (product.getId().equals("") || product.getOwner().equals("") || product.getCategory().isEmpty() ||
                 product.getHigh().equals("") || product.getWidth().equals("")) {
-            //label.setText("Please Fill All Informations");
-            flag = 1;
-            string = "Please fill in all information";
+            flag1 = 1;
+            string = fill;
 
         } else {
             if (product.getCategory().equals("Cover")) {
                 s = insert + product.getId() + "','" + product.getOwner() + "','" + product.getCategory()
                         + "','" + product.getHigh() + "','" + product.getWidth()
                         + "','" + formatter.format(date) + "','" + product.getStatus() + "','" + "25" + "','" + product.getEndDate() + "','" + product.getWorker() +"')";
-                //label.setText("Product Added Successfully");
-                flag = 2;
+                flag1 = 2;
                 string = "Cover Product added";
 
             }
@@ -84,7 +82,7 @@ public class AddProduct {
                 s = insert + product.getId() + "','" + product.getOwner() + "','" + product.getCategory()
                         + "','" + product.getHigh() + "','" + product.getWidth() + "','" + formatter.format(date) + "','" + product.getStatus() + "','" + price +"','" + product.getEndDate()+"','" + product.getWorker()+ "')";
                 string = "Carpet Product added";
-                flag = 3;// label.setText("Product Added Successfully");
+                flag1 = 3;
 
             }
             try {
@@ -98,16 +96,14 @@ public class AddProduct {
 
 
             } catch (Exception ex) {
-                //label.setText("Check The Owner ID or Enter new ID ofr product");
-                //new animatefx.animation.Shake(label).play();
                 Logger.getLogger(ex.toString());
             }
         }
-        if (flag == 1)
-            string = "Please fill in all information";
-        else if (flag == 2)
+        if (flag1 == 1)
+            string = fill;
+        else if (flag1 == 2)
             string = "Cover Product added";
-        else if (flag == 3)
+        else if (flag1 == 3)
             string = "Carpet Product added";
 
         return string;

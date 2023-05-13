@@ -86,16 +86,16 @@ public class CustomerHomePage implements Initializable {
         idSinging = "C1";
         String query = "Select * From Product where owner = '"+ idSinging + "'";
         ResultSet resultSet = ref.sql(query);
-//        allInformation.getItems().clear();
+        allInformation.getItems().clear();
         while (resultSet.next()) {
             AllProductTable reference = new AllProductTable(resultSet.getString(1) , resultSet.getString(3) , resultSet.getString(4) ,resultSet.getString(5),
                     resultSet.getString(6) , resultSet.getString(7), resultSet.getString(8));
-//            allInformation.getItems().add(reference);
-            return "Done";
+            allInformation.getItems().add(reference);
+
         }
         query = "Select count(*) from Product where owner = '" + idSinging +"'";
         count = getCount(query);
-//        numberOfProduct.setText(String.valueOf((int)count));
+        numberOfProduct.setText(String.valueOf((int)count));
         query = "Select Sum(totalPrice) from Customer where id = '" + idSinging +"'";
         count = getCount(query);
         if (count > 500) {
@@ -112,7 +112,7 @@ public class CustomerHomePage implements Initializable {
     }
 
     public String setName(String id){
-        int flag = 0;
+        int flag1 = 0;
         String x = "";
         String query = "Select name from customer where id = '" + id +"'";
         try {
@@ -120,13 +120,13 @@ public class CustomerHomePage implements Initializable {
             while (rs.next()){
                 name = rs.getString(1);
                 x = rs.getString(1);
-                flag = 1;
+                flag1 = 1;
             }
             //welcome.setText("Welcome, " + name);
         } catch (Exception e) {
             x = "Empty ID";
         }
-        if (flag == 1)
+        if (flag1 == 1)
             return x;
         else return "Empty ID";
     }
@@ -136,21 +136,20 @@ public class CustomerHomePage implements Initializable {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         Date dateOfToday = new Date();
         String x = formatter.format(dateOfToday);
-//        todayDate.setText(day.format(format) +", " + formatter.format(dateOfToday));
+        todayDate.setText(day.format(format) +", " + formatter.format(dateOfToday));
         formatter = new SimpleDateFormat("HH:mm:ss");
-//        enterTime.setText("Entry time at: " + formatter.format(dateOfToday));
+        enterTime.setText("Entry time at: " + formatter.format(dateOfToday));
         return x;
 
     }
     @FXML
     public String showAllInformation() throws SQLException {
-//        paidButton.setDisable(false);
+        paidButton.setDisable(false);
         return showAll();
     }
     @FXML
     String refreshFunction(){
-       String x =  refreshStat(idSinging);
-       return x;
+       return refreshStat(idSinging);
     }
 
     public String test () {

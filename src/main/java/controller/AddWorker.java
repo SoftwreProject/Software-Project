@@ -1,8 +1,4 @@
 package controller;
-import com.jfoenix.controls.JFXRadioButton;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import software.Product;
 import software.Worker;
 
 
@@ -13,7 +9,6 @@ public class AddWorker {
         int flag ;
         if (worker.getId().equals("") || worker.getName().equals("") || worker.getPhone().equals("") || worker.getAddress().equals("") || worker.getSpecialization().equals("")) {
             flag = 1;
-            //label.setText("Please Fill All information About worker");
         } else {
             String s = "insert into WORKER values ('" + worker.getId() + "'" + "," + "'" + worker.getName() + "'" + "," + "'" + worker.getPhone() + "'" + "," + "'" + worker.getAddress() + "'" + "," + "'" + worker.getSpecialization() + "','" +  "available" + "')";
             try {
