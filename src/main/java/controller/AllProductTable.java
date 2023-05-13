@@ -11,6 +11,7 @@ public class AllProductTable {
     SimpleStringProperty status;
     SimpleStringProperty totalPrice;
 
+    public AllProductTable() {}
     public AllProductTable(String id, String category, String high, String width, String date, String status, String totalPrice) {
         this.id = new SimpleStringProperty(id);
         this.category = new SimpleStringProperty(category);

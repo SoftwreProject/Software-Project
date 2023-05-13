@@ -101,7 +101,7 @@ public class SignUp {
         return st.executeQuery(x);
     }
     public boolean emptyTextField() {
-         return signUpID.getText().isEmpty() ||
+        return signUpID.getText().isEmpty() ||
                 signUpName.getText().isEmpty() ||
                 signUpPhoneNumber.getText().isEmpty() ||
                 signUpAddress.getText().isEmpty() ||
@@ -111,7 +111,7 @@ public class SignUp {
                 signUpCity.getText().isEmpty();
     }
     public boolean booleanTest (String id, String name, String phoneNumber , String address ) {
-         return id.isEmpty() ||
+        return id.isEmpty() ||
                 name.isEmpty() ||
                 phoneNumber.isEmpty() ||
                 address .isEmpty();
@@ -130,15 +130,15 @@ public class SignUp {
             if (booleanTest(customers.getId() ,customers.getName() , customers.getPhone(), customers.getAddress() ) && booleanTest2(customers.getCity(), customers.getStreet() , customers.getEmail(), customers.getPassword()))
                 flag = 1;
             else if (showID(customers.getId()))
-                    flag = 2;
+                flag = 2;
             else if (customers.getPassword().length() <= 5)
-                        flag =3;
+                flag =3;
             else {
-                        String s = "insert into CUSTOMER values ( '" + customers.getId() + "','" + customers.getName()
-                                + "','" + customers.getPhone() + "','" + customers.getAddress() + "','" + customers.getCity() +
-                                "','" + customers.getStreet() + "','" + customers.getEmail() + "','" + customers.getPassword() + "','" + "0" + "') ";
-                        ref.sql(s);
-                    }
+                String s = "insert into CUSTOMER values ( '" + customers.getId() + "','" + customers.getName()
+                        + "','" + customers.getPhone() + "','" + customers.getAddress() + "','" + customers.getCity() +
+                        "','" + customers.getStreet() + "','" + customers.getEmail() + "','" + customers.getPassword() + "','" + "0" + "') ";
+                ref.sql(s);
+            }
         }catch (Exception ex) {
             Logger.getLogger("You are in signup page");
         }
@@ -153,4 +153,4 @@ public class SignUp {
             result = "The Customer Added Successfully";
         return result;
     }
- }
+}

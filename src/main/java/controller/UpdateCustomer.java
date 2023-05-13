@@ -42,9 +42,11 @@ public class UpdateCustomer {
         return street;
     }
 
-    public void setStreet(String street) {
+    public void setStreet(String street){
         this.street = street;
     }
+
+
 
     public String getPhone() {
         return phone;
@@ -58,15 +60,14 @@ public class UpdateCustomer {
     int flag = 0;
     String result ;
     public void updateCustomers(String id) throws SQLException {
-
         OracleDataSource orc = new OracleDataSource();
         orc.setURL("jdbc:oracle:thin:@localhost:1521:orcl");
         orc.setUser("software");
         orc.setPassword("123123");
         Connection conn = orc.getConnection();
         try(Statement stm = conn.createStatement()) {
-            String query = "update customer set name = '" + name + "' , address = '" + address + "' ,phonenumber =  '" + phone + "', " +
-                    "city = '" + city + "' , street = '" + street + "' " +
+            String query = "update customer set name = '" + getName() + "' , address = '" + getAddress() + "' ,phonenumber =  '" + getPhone() + "', " +
+                    "city = '" + getCity() + "' , street = '" + getStreet() + "' " +
                     " where id ='" + id + "'";
             try {
                 int t = stm.executeUpdate(query);

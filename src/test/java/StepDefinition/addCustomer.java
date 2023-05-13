@@ -5,16 +5,15 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import javafx.beans.property.SimpleStringProperty;
-import software.Customers;
 
-import java.sql.SQLException;
+import software.Customers;
 
 import static org.testng.AssertJUnit.assertEquals;
 
 public class addCustomer {
     static String  result;
     static AddCustomer ref ;
+
     @Before
     public static void setUp() {
         ref = new AddCustomer();
@@ -42,9 +41,15 @@ public class addCustomer {
     }
 
     @When("you type in {string} ,{string}, {string}, {string}, {string}, {string} and  {string} , {string}")
-    public void youTypeInAnd(String arg0, String arg1, String arg2, String arg3, String arg4, String arg5, String arg6, String arg7) throws SQLException {
+    public void youTypeInAnd(String arg0, String arg1, String arg2, String arg3, String arg4, String arg5, String arg6, String arg7) {
         Customers customers = new Customers(arg0 , arg1 , arg2 , arg3 , arg4 , arg5 , arg6 , arg7);
         ref.addCustomerTest(customers);
+        result = ref.addCustomerGUI(customers);
         result = ref.getResult();
+    }
+
+    @Then("I should see the customers added successfully")
+    public void iShouldSeeTheCustomersAddedSuccessfully() {
+        assertEquals("the customer added successfully" , result);
     }
 }

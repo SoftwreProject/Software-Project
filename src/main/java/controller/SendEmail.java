@@ -22,7 +22,14 @@ public class SendEmail {
     @FXML
     private TextField CustomerID;
     @FXML
-    private Label errorMessageLabel;
+    public Label errorMessageLabel;
+    public void setup() {
+        Properties properties = System.getProperties();
+        properties.put("mail.smtp.port", "587");
+        properties.put("mail.smtp.auth", "true");
+        properties.put("mail.smtp.starttls.enable", "true");
+        newSession = Session.getDefaultInstance(properties, null);
+    }
 
     @FXML
     void sendEmailToTheCustomer(ActionEvent event) throws SQLException, MessagingException {
@@ -50,43 +57,30 @@ public class SendEmail {
         }
 
 
-        if(flag==1){
-            SendEmail s =new SendEmail();
-            s.setup();
-            s.draft(customerEmail);
-            s.sendemail();
+        if (flag == 1) {
+            setup(); // Call the setup method before sending the email
+            draft(customerEmail);
+            sendemail();
             errorMessageLabel.setText("The email has been sent successfully");
-
-        }
-        else{
+        } else {
             errorMessageLabel.setText("Customer Not Found");
         }
-
-
-
     }
-    private void setup() {
-
-        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-
-        Properties properties = System.getProperties();
-        properties.put("mail.smtp.port", "587");
-        properties.put("mail.smtp.auth", "true");
-        properties.put("mail.smtp.starttls.enable", "true");
-        newSession = Session.getDefaultInstance(properties,null);
-
-    }
-    private void sendemail() throws NoSuchProviderException, MessagingException {
-        // throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-        String fromUser = "cleaning.services7890@gmail.com";  //Enter sender email id
-        String fromUserPassword = "flhnsjbxlxddizsj";  //Enter sender gmail password , this will be authenticated by gmail smtp server
+    public void sendemail() throws NoSuchProviderException, MessagingException {
+        String fromUser = "cleaning.services7890@gmail.com";
+        String fromUserPassword = "z";
         String emailHost = "smtp.gmail.com";
-        Transport transport = newSession.getTransport("smtp");
-        transport.connect(emailHost, fromUser, fromUserPassword);
-        transport.sendMessage(mimeMessage, mimeMessage.getAllRecipients());
-        transport.close();
+
+        if (newSession != null) {
+            Transport transport = newSession.getTransport("smtp");
+            transport.connect(emailHost, fromUser, fromUserPassword);
+            transport.sendMessage(mimeMessage, mimeMessage.getAllRecipients());
+            transport.close();
+        } else {
+            throw new IllegalStateException("Session is not set up. Call the setup method before sending the email.");
+        }
     }
-    private MimeMessage draft( String email ) throws AddressException, MessagingException {
+    public MimeMessage draft(String email) throws AddressException, MessagingException {
         // throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
         String[] emailReceipients = {email};  //Enter list of email recepients
         String emailSubject = "Your Order has been completed";
@@ -98,8 +92,6 @@ public class SendEmail {
             mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(emailReceipients[i]));
         }
         mimeMessage.setSubject(emailSubject);
-
-
         MimeBodyPart bodyPart = new MimeBodyPart();
         bodyPart.setContent(emailBody,"text/html;charset=utf-8");
         MimeMultipart multiPart = new MimeMultipart();

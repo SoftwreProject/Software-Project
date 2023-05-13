@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 
 public class UpdateProduct {
     String result;
-     int flag = 0;
+    int flag = 0;
 
     String id;
     String owner;
@@ -22,17 +22,17 @@ public class UpdateProduct {
         orc.setUser("software");
         orc.setPassword("123123");
         Connection conn = orc.getConnection();
-       try (Statement stm = conn.createStatement()) {
-           String query = "update product set owner = '" + getOwner() +"' , category = '" + getCategory() +"' ,high =  '" + getHigh() +"', " +
-                   "width = '" + getWidth() +"' where id = '" +id+"'";
+        try (Statement stm = conn.createStatement()) {
+            String query = "update product set owner = '" + getOwner() +"' , category = '" + getCategory() +"' ,high =  '" + getHigh() +"', " +
+                    "width = '" + getWidth() +"' where id = '" +id+"'";
 
-           int t = stm.executeUpdate(query);
-           if (t == 0)
-               flag =1;
-       }
-       catch (Exception ex) {
-           Logger.getLogger("You are in update product page");
-       }
+            int t = stm.executeUpdate(query);
+            if (t == 0)
+                flag =1;
+        }
+        catch (Exception ex) {
+            Logger.getLogger("You are in update product page");
+        }
     }
     public String getResult() {
         if (flag == 1)
