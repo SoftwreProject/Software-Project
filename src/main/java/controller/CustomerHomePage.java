@@ -90,7 +90,7 @@ public class CustomerHomePage implements Initializable {
         while (resultSet.next()) {
             AllProductTable reference = new AllProductTable(resultSet.getString(1) , resultSet.getString(3) , resultSet.getString(4) ,resultSet.getString(5),
                     resultSet.getString(6) , resultSet.getString(7), resultSet.getString(8));
-            allInformation.getItems().add(reference);
+//            allInformation.getItems().add(reference);
             return "Done";
         }
         query = "Select count(*) from Product where owner = '" + idSinging +"'";
@@ -136,15 +136,15 @@ public class CustomerHomePage implements Initializable {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         Date dateOfToday = new Date();
         String x = formatter.format(dateOfToday);
-        todayDate.setText(day.format(format) +", " + formatter.format(dateOfToday));
+//        todayDate.setText(day.format(format) +", " + formatter.format(dateOfToday));
         formatter = new SimpleDateFormat("HH:mm:ss");
-        enterTime.setText("Entry time at: " + formatter.format(dateOfToday));
+//        enterTime.setText("Entry time at: " + formatter.format(dateOfToday));
         return x;
 
     }
     @FXML
     public String showAllInformation() throws SQLException {
-        paidButton.setDisable(false);
+//        paidButton.setDisable(false);
         return showAll();
     }
     @FXML
