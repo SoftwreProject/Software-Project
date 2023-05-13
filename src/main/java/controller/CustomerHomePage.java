@@ -25,8 +25,6 @@ public class CustomerHomePage implements Initializable {
     String idSinging ;
     String name;
     @FXML
-    private Label welcome;
-    @FXML
     private Label todayDate;
     @FXML
     private Label enterTime;
@@ -92,7 +90,7 @@ public class CustomerHomePage implements Initializable {
         while (resultSet.next()) {
             AllProductTable reference = new AllProductTable(resultSet.getString(1) , resultSet.getString(3) , resultSet.getString(4) ,resultSet.getString(5),
                     resultSet.getString(6) , resultSet.getString(7), resultSet.getString(8));
-//            allInformation.getItems().add(reference);
+            allInformation.getItems().add(reference);
             return "Done";
         }
         query = "Select count(*) from Product where owner = '" + idSinging +"'";
@@ -103,12 +101,12 @@ public class CustomerHomePage implements Initializable {
         if (count > 500) {
             label.setText("Before = " + count + ", Discount By 5% for sales grater than 500");
             count = count - count * ((float) 15 / 100);
-//            totalPriceTextField.setText(String.valueOf(count));
+            totalPriceTextField.setText(String.valueOf(count));
 
         }
         else {
             label.setText("");
-//            totalPriceTextField.setText(String.valueOf(count));
+            totalPriceTextField.setText(String.valueOf(count));
         }
         return "Done";
     }
@@ -138,21 +136,21 @@ public class CustomerHomePage implements Initializable {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         Date dateOfToday = new Date();
         String x = formatter.format(dateOfToday);
-//        todayDate.setText(day.format(format) +", " + formatter.format(dateOfToday));
+        todayDate.setText(day.format(format) +", " + formatter.format(dateOfToday));
         formatter = new SimpleDateFormat("HH:mm:ss");
-//        enterTime.setText("Entry time at: " + formatter.format(dateOfToday));
+        enterTime.setText("Entry time at: " + formatter.format(dateOfToday));
         return x;
 
     }
     @FXML
-    public void showAllInformation() throws SQLException {
-        showAll();
+    public String showAllInformation() throws SQLException {
         paidButton.setDisable(false);
-
+        return showAll();
     }
     @FXML
-    void refreshFunction(){
-        refreshStat(idSinging);
+    String refreshFunction(){
+       String x =  refreshStat(idSinging);
+       return x;
     }
 
     public String test () {
@@ -169,7 +167,7 @@ public class CustomerHomePage implements Initializable {
 
 
 
-    public void refreshStat(String idSinging) {
+    public String refreshStat(String idSinging) {
         String query = "SELECT idSinging , EndDate , Status + FROM Product " + "WHERE owner = '"+ idSinging + "'";
         try {
             ResultSet resultSet = ref.sql(query);
@@ -200,10 +198,11 @@ public class CustomerHomePage implements Initializable {
             flag = 0;
             Logger.getLogger("You are in get status of customer");
         }
+        return "Done";
     }
 
     @FXML
-    void paidFunction() {
+    public void paidFunction() {
 
         float paid;
         try{

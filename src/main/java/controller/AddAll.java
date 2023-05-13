@@ -3,6 +3,7 @@ package controller;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXRadioButton;
+import io.cucumber.java.sl.In;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -307,9 +308,10 @@ public class AddAll implements Initializable {
     public String getStatus(int flag) {
         if (flag == 0)
             result = "Empty ID";
-        else if (flag == 2)
+        else if (flag == 1)
+            result = "Get the status";
+        else
             result = "Wrong ID";
-
         return result;
 
     }

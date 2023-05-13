@@ -18,10 +18,20 @@ Feature: Customer Home Page
       Given you are in customer page
       Then you will have the Date of Today
 
-      Scenario Outline: Show All function
-        Given you are in customer page
-        When You enter the "<id>"
-        Then You will show Done Word
-        Examples:
-          | id |
-          | C1 |
+  Scenario Outline: Show All function
+    Given you are in customer page
+    When You enter the "<id>"
+    Then You will show Done Word
+    Examples:
+      | id |
+      | C1 |
+
+  Scenario: Show All
+    Given you are in customer page
+    When You enter the "<id>"
+    Then You will show Done
+
+    Scenario: Refresh State
+      Given you are in customer page
+      When You enter the "<id>"
+      Then You will Show refresh state
