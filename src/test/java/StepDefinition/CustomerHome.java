@@ -38,7 +38,7 @@ public class CustomerHome {
 
     @Then("you will have the Date of Today")
     public void youWillHaveTheDateOfToday() {
-        assertEquals(result1 , "13/05/2023");
+        assertEquals(result1 , "14/05/2023");
     }
 
     @Then("you should show the name")
@@ -49,10 +49,23 @@ public class CustomerHome {
     @When("You enter the {string}")
     public void youEnterThe(String arg0) throws SQLException {
         result = ref.showAll();
+        result = ref.showAllInformation();
+        result = ref.refreshStat(arg0);
+        ref.paidFunction();
     }
 
     @Then("You will show Done Word")
     public void youWillShowDoneWord() {
+        assertEquals(result, "Done");
+    }
+
+    @Then("You will show Done")
+    public void youWillShowDone() {
+        assertEquals(result, "Done");
+    }
+
+    @Then("You will Show refresh state")
+    public void youWillShowRefreshState() {
         assertEquals(result, "Done");
     }
 }

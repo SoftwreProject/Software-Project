@@ -97,7 +97,7 @@ public class LoginController{
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("/HomePage.fxml"));
                         Parent root = loader.load();
                         HomePage ref = loader.getController();
-                        ref.managerid = managerUserName;
+                        ref.managerId = managerUserName;
                         Stage stage1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
                         Scene scene1 = new Scene(root);
                         stage1.setScene(scene1);

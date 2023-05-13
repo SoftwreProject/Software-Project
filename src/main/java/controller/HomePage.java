@@ -1,73 +1,7 @@
-//package controller;
-//import javafx.fxml.FXML;
-//import javafx.fxml.FXMLLoader;
-//import javafx.scene.Parent;
-//import javafx.scene.Scene;
-//import javafx.scene.control.Alert;
-//import javafx.scene.control.ButtonType;
-//import javafx.scene.layout.BorderPane;
-//import javafx.scene.layout.Pane;
-//import javafx.stage.Stage;
-//import java.io.IOException;
-//import java.util.Objects;
-//import java.util.Optional;
-//
-//public class HomePage {
-//
-//    int managerId;
-//    @FXML
-//    private BorderPane homePagePane;
-//
-//    @FXML
-//    private Pane homePane ;
-//    @FXML
-//    private void backToLogin () throws IOException {
-//        Alert alert = new Alert (Alert.AlertType.CONFIRMATION);
-//        alert.setTitle("Logout");
-//        alert.setHeaderText("You are about to logout?");
-//        Optional<ButtonType> result = alert.showAndWait();
-//        if(result.isPresent() && result.get() == ButtonType.OK) {
-//            closePage();
-//        }
-//    }
-//    private void closePage() throws IOException {
-//        Stage stage = (Stage) homePagePane.getScene().getWindow();
-//        close(stage);
-//
-//    }
-//    public void close ( Stage stage ) throws IOException {
-//        stage.close();
-//        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/login.fxml")));
-//        stage.setTitle("Cleaning Services");
-//        stage.setScene(new Scene(root, 770, 561));
-//        stage.show();
-//    }
-//
-//    @FXML
-//    void centerHomePage(){
-//        homePagePane.setCenter(homePane);
-//
-//    }
-//    @FXML
-//    void add() throws IOException {
-//        loadPage("/AddAll");
-//    }
-//
-//    @FXML
-//    void viewAll() throws IOException {
-//        loadPage("/ViewAll");
-//    }
-//    private void loadPage (String page) throws IOException {
-//        Parent root ;
-//        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(page + ".fxml")));
-//        homePagePane.setCenter(root);
-//    }
-//}
 package controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -79,18 +13,15 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import oracle.jdbc.datasource.impl.OracleDataSource;
-import software.Product;
-
 import java.io.IOException;
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.Objects;
+import java.util.Optional;
 
 public class HomePage {
 
-    int managerid;
+    int managerId;
 
     @FXML
     public BorderPane HomePagePane;
@@ -131,33 +62,26 @@ public class HomePage {
 
 
     @FXML
-    private void backToLogin (ActionEvent event) throws IOException {
+    private void backToLogin () throws IOException {
         Alert alert = new Alert (Alert.AlertType.CONFIRMATION);
         alert.setTitle("Logout");
         alert.setHeaderText("You are about to logout?");
-        if(alert.showAndWait().get() == ButtonType.OK )
-        {
+        Optional<ButtonType> result = alert.showAndWait();
+        if(result.isPresent() && result.get() == ButtonType.OK) {
             Stage stage = (Stage) HomePagePane.getScene().getWindow();
             stage.close();
-            Parent root = FXMLLoader.load(getClass().getResource("/login.fxml"));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/login.fxml")));
             stage.setTitle("Cleaning Services");
             stage.setScene(new Scene(root, 770, 561));
             stage.show();
-
-
         }
     }
-    public  String getFromDatabse(String s) throws SQLException {
-        oracle.jdbc.datasource.impl.OracleDataSource orc = new OracleDataSource();
-        orc.setURL("jdbc:oracle:thin:@localhost:1521:orcl");
-        orc.setUser("software");
-        orc.setPassword("123123");
-        Connection conn = orc.getConnection();
-        Statement stm = conn.createStatement();
-        ResultSet rs = stm.executeQuery(s);
+    public  String getFromDatabase(String s) throws SQLException {
+        SignUp signUp = new SignUp();
+        ResultSet rs = signUp.sql(s);
         String m ="";
         while(rs.next()){
-            m = (rs.getInt(1)+"");
+            m = (String.valueOf(rs.getInt(1)));
         }
 
         return m;
@@ -167,7 +91,7 @@ public class HomePage {
 
 
     @FXML
-    public void centerHomePage(ActionEvent event) throws Exception {
+    public void centerHomePage() throws Exception {
 
         HomePagePane.setCenter(HomePane);
         String numOfWorker = "select count(ID) from worker";
@@ -180,22 +104,22 @@ public class HomePage {
         String allMoneyForCarpet = "select sum(totalPrice) from Product where CATEGORY = 'carpet'";
         String allMoneyForCover = "select sum(totalPrice) from Product where CATEGORY = 'cover'";
 
-        WorkerCountLabel.setText(getFromDatabse(numOfWorker));
-        customerCountLabel.setText(getFromDatabse(numOfCustomer));
-        carpetsWorkerCountLabel.setText(getFromDatabse(numOfCarpetsWorker));
-        coverWorkerContLabel.setText(getFromDatabse(numOfCoverWorker));
+        WorkerCountLabel.setText(getFromDatabase(numOfWorker));
+        customerCountLabel.setText(getFromDatabase(numOfCustomer));
+        carpetsWorkerCountLabel.setText(getFromDatabase(numOfCarpetsWorker));
+        coverWorkerContLabel.setText(getFromDatabase(numOfCoverWorker));
 
-        carpetProductCountLabel.setText(getFromDatabse(numOfCarpetProduct));
-        coverProductCountLabel.setText(getFromDatabse(numOfCoverProduct));
-        moneyForCarpetLabel.setText(getFromDatabse(allMoneyForCarpet));
-        moneyForCoverLabels.setText(getFromDatabse(allMoneyForCover));
+        carpetProductCountLabel.setText(getFromDatabase(numOfCarpetProduct));
+        coverProductCountLabel.setText(getFromDatabase(numOfCoverProduct));
+        moneyForCarpetLabel.setText(getFromDatabase(allMoneyForCarpet));
+        moneyForCoverLabels.setText(getFromDatabase(allMoneyForCover));
 
 
         ObservableList<PieChart.Data> personChartData = FXCollections.observableArrayList(
-                new PieChart.Data("All Worker", Double.parseDouble(getFromDatabse(numOfWorker))),
-                new PieChart.Data("All Customer",Double.parseDouble(getFromDatabse(numOfCustomer))),
-                new PieChart.Data("Carpet Worker", Double.parseDouble(getFromDatabse(numOfCarpetsWorker))),
-                new PieChart.Data("Cover Worker", Double.parseDouble(getFromDatabse(numOfCoverWorker))));
+                new PieChart.Data("All Worker", Double.parseDouble(getFromDatabase(numOfWorker))),
+                new PieChart.Data("All Customer",Double.parseDouble(getFromDatabase(numOfCustomer))),
+                new PieChart.Data("Carpet Worker", Double.parseDouble(getFromDatabase(numOfCarpetsWorker))),
+                new PieChart.Data("Cover Worker", Double.parseDouble(getFromDatabase(numOfCoverWorker))));
 
         personChart.setData(personChartData);
         personChart.setTitle("Persone Chart");
@@ -203,10 +127,10 @@ public class HomePage {
 
 
         ObservableList<PieChart.Data> productChartData = FXCollections.observableArrayList(
-                new PieChart.Data("Carpet Product", Double.parseDouble(getFromDatabse(numOfCarpetProduct))),
-                new PieChart.Data("Cover Product",Double.parseDouble(getFromDatabse(numOfCoverProduct))),
-                new PieChart.Data("Carpet Money", Double.parseDouble(getFromDatabse(allMoneyForCarpet))),
-                new PieChart.Data("Cover Money", Double.parseDouble(getFromDatabse(allMoneyForCover))));
+                new PieChart.Data("Carpet Product", Double.parseDouble(getFromDatabase(numOfCarpetProduct))),
+                new PieChart.Data("Cover Product",Double.parseDouble(getFromDatabase(numOfCoverProduct))),
+                new PieChart.Data("Carpet Money", Double.parseDouble(getFromDatabase(allMoneyForCarpet))),
+                new PieChart.Data("Cover Money", Double.parseDouble(getFromDatabase(allMoneyForCover))));
 
         productChart.setData(productChartData);
         productChart.setTitle("Product Chart");
@@ -215,23 +139,23 @@ public class HomePage {
 
     }
     @FXML
-    void Add(ActionEvent event) throws IOException {
+    void Add() throws IOException {
         loadpage("/AddAll");
     }
 
     @FXML
-    void ViewAll(ActionEvent event) throws IOException {
+    void ViewAll() throws IOException {
         loadpage("/ViewAll");
     }
     @FXML
-    void openSendEmailPane(ActionEvent event) throws IOException {
+    void openSendEmailPane() throws IOException {
         loadpage("/SendEmail");
     }
 
 
     private void loadpage (String page) throws IOException {
         Parent root = null ;
-        root = FXMLLoader.load(getClass().getResource(page+".fxml"));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(page + ".fxml")));
         HomePagePane.setCenter(root);
     }
 

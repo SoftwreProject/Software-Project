@@ -6,13 +6,11 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-import java.sql.SQLException;
-
 import static org.testng.AssertJUnit.assertEquals;
 
 public class ShowProductStatus {
     static String result;
-    static AddAll addAll = new AddAll();
+    static AddAll addAll;
     @Before
     public static void setUp() {
         addAll = new AddAll();
@@ -24,7 +22,7 @@ public class ShowProductStatus {
     }
 
     @When("you enter an {string}")
-    public void youEnterAn(String arg0) throws SQLException {
+    public void youEnterAn(String arg0){
         int flag = addAll.showStatus(arg0);
         result = addAll.getStatus(flag);
     }
