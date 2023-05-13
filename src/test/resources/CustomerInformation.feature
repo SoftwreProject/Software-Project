@@ -7,13 +7,13 @@ Feature: Show the Information of Customer
       | id |
       |    |
 
-    Scenario Outline: Enter an wrong id
-      Given you are in customer page
-      When you enter the "<id>"
-      Then you must show Wrong ID
-      Examples:
-        | id  |
-        | C99 |
+  Scenario Outline: Enter an wrong id
+    Given you are in customer page
+    When you enter the "<id>"
+    Then you must show Wrong ID
+    Examples:
+      | id  |
+      | C99 |
 
   Scenario Outline: Enter a correct ID
     Given you are in customer page

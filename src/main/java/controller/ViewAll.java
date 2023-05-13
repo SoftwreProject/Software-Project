@@ -113,8 +113,8 @@ public class ViewAll implements Initializable {
             ResultSet rs = ref1.sql(query);
             while(rs.next())
             {
-                    Customers s1 = new Customers(rs.getString(1) ,rs.getString(2) , rs.getString(3) , rs.getString(4) , rs.getString(5), rs.getString(6) , rs.getString(7) , rs.getString(8));
-                    customerTable.getItems().add(s1);
+                Customers s1 = new Customers(rs.getString(1) ,rs.getString(2) , rs.getString(3) , rs.getString(4) , rs.getString(5), rs.getString(6) , rs.getString(7) , rs.getString(8));
+                customerTable.getItems().add(s1);
             }
 
             query = "SELECT * FROM PRODUCT";
@@ -125,8 +125,8 @@ public class ViewAll implements Initializable {
                 productTable.getItems().add(s1);
             }
         }catch (Exception ex) {
-               Logger.getLogger(ex.toString());
-            }
+            Logger.getLogger(ex.toString());
+        }
 
 
 
@@ -366,10 +366,10 @@ public class ViewAll implements Initializable {
         }
         else {
             ResultSet rs = ref1.sql(query);
-                while (rs.next()) {
-                    stringBuilder.append(rs.getString(1)).append(",").append(rs.getString(2)).append(",").append(rs.getString(3)).append(",").append(rs.getString(4)).append(",").append(rs.getString(5)).append(",").append(rs.getString(6)).append(",").append(rs.getString(7)).append(",").append(rs.getString(8)).append(",").append(rs.getString(9));
-                   flag = 2;
-                }
+            while (rs.next()) {
+                stringBuilder.append(rs.getString(1)).append(",").append(rs.getString(2)).append(",").append(rs.getString(3)).append(",").append(rs.getString(4)).append(",").append(rs.getString(5)).append(",").append(rs.getString(6)).append(",").append(rs.getString(7)).append(",").append(rs.getString(8)).append(",").append(rs.getString(9));
+                flag = 2;
+            }
             rs.close();
         }
         if (flag == 1)
@@ -395,7 +395,7 @@ public class ViewAll implements Initializable {
                     stringBuilder.append(rs.getString(1)).append(",").append(rs.getString(2)).append(",").append(rs.getString(3)).append(",").append(rs.getString(4)).append(",").append(rs.getString(5)).append(",").append(rs.getString(6)).append(",").append(rs.getString(7)).append(",").append(rs.getString(8)).append(",").append(rs.getString(9)).append(",").append(rs.getString(10));
                     flag = 2;
                 }
-            rs.close();
+                rs.close();
             }
         }
         catch (Exception ex) {

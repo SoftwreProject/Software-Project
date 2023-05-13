@@ -18,13 +18,13 @@ public class DeleteProduct {
             orc.setPassword("123123");
             Connection conn = orc.getConnection();
 
-           try (Statement stm = conn.createStatement()) {
-               int x = stm.executeUpdate(query);
-               if (x <= 0)
-                   flag = 0;
-               else
-                   flag = 1;
-           }
+            try (Statement stm = conn.createStatement()) {
+                int x = stm.executeUpdate(query);
+                if (x <= 0)
+                    flag = 0;
+                else
+                    flag = 1;
+            }
         }catch(Exception ex){
             Logger.getLogger("You are in delete product");
         }

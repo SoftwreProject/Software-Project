@@ -15,16 +15,16 @@ public class AddProduct {
     AddCustomer ref = new AddCustomer();
     CustomerHomePage customerHomePage = new CustomerHomePage();
     public void addProduct(SimpleStringProperty id, SimpleStringProperty owner, SimpleStringProperty category, SimpleStringProperty high, SimpleStringProperty width) {
-    Date date = new Date();
-    SimpleDateFormat formatter1 = new SimpleDateFormat( "dd/MM/yyyy");
-    String s;
+        Date date = new Date();
+        SimpleDateFormat formatter1 = new SimpleDateFormat( "dd/MM/yyyy");
+        String s;
         if (id.get().equals("") || owner.get().equals("") || category.get().equals("") ||
                 high.get().equals("") || width.get().equals("")) {
             flag = 1;
 
         } else {
             if (category.get().equals("Carpet")){
-                 s = insert + id.get() + "','" + owner.get() + "','" + category.get()
+                s = insert + id.get() + "','" + owner.get() + "','" + category.get()
                         + "','" + high.get() + "','" + width.get() + "','" + formatter1.format(date) + "','" + "Waiting" + "','" + (Integer.parseInt(high.get())*Integer.parseInt(high.get()) *4)
                         + "','" +"Unknown" + "','" + "None" + "')";
             }
@@ -57,44 +57,59 @@ public class AddProduct {
 
     }
 
-    public void addProductGUI(Product product,  Label label) {
+    public String addProductGUI(Product product) {
+        int flag = 0;
         String s = null;
+        String string = "";
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         Date date = new Date();
         if (product.getId().equals("") || product.getOwner().equals("") || product.getCategory().isEmpty() ||
                 product.getHigh().equals("") || product.getWidth().equals("")) {
-            label.setText("Please Fill All Informations");
+            //label.setText("Please Fill All Informations");
+            flag = 1;
+            string = "Please fill in all information";
 
         } else {
             if (product.getCategory().equals("Cover")) {
-                 s = insert + product.getId() + "','" + product.getOwner() + "','" + product.getCategory()
+                s = insert + product.getId() + "','" + product.getOwner() + "','" + product.getCategory()
                         + "','" + product.getHigh() + "','" + product.getWidth()
-                         + "','" + formatter.format(date) + "','" + product.getStatus() + "','" + "25" + "','" + product.getEndDate() + "','" + product.getWorker() +"')";
-                label.setText("Product Added Successfully");
+                        + "','" + formatter.format(date) + "','" + product.getStatus() + "','" + "25" + "','" + product.getEndDate() + "','" + product.getWorker() +"')";
+                //label.setText("Product Added Successfully");
+                flag = 2;
+                string = "Cover Product added";
 
             }
             else if (product.getCategory().equals("Carpet")){
                 int price = Integer.parseInt(product.getHigh()) * Integer.parseInt(product.getWidth()) * 4;
-                 s = insert + product.getId() + "','" + product.getOwner() + "','" + product.getCategory()
+                s = insert + product.getId() + "','" + product.getOwner() + "','" + product.getCategory()
                         + "','" + product.getHigh() + "','" + product.getWidth() + "','" + formatter.format(date) + "','" + product.getStatus() + "','" + price +"','" + product.getEndDate()+"','" + product.getWorker()+ "')";
-                label.setText("Product Added Successfully");
+                string = "Carpet Product added";
+                flag = 3;// label.setText("Product Added Successfully");
 
             }
             try {
                 ref.sql(s);
                 s = "Select Sum(TotalPrice) from Product where owner = '" + product.getOwner() +"'";
-               int x = customerHomePage.getCount(s);
-               s = "Update Customer " +
-                       "Set TotalPrice = '" + x +"' " +
-                       "Where id = '" + product.getOwner()+"'";
-               ref.sql(s);
+                int x = customerHomePage.getCount(s);
+                s = "Update Customer " +
+                        "Set TotalPrice = '" + x +"' " +
+                        "Where id = '" + product.getOwner()+"'";
+                ref.sql(s);
 
 
             } catch (Exception ex) {
-                label.setText("Check The Owner ID or Enter new ID ofr product");
-                new animatefx.animation.Shake(label).play();
+                //label.setText("Check The Owner ID or Enter new ID ofr product");
+                //new animatefx.animation.Shake(label).play();
                 Logger.getLogger(ex.toString());
             }
         }
+        if (flag == 1)
+            string = "Please fill in all information";
+        else if (flag == 2)
+            string = "Cover Product added";
+        else if (flag == 3)
+            string = "Carpet Product added";
+
+        return string;
     }
 }

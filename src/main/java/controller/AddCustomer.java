@@ -3,6 +3,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import oracle.jdbc.datasource.impl.OracleDataSource;
 import software.Customers;
+
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -14,20 +16,18 @@ public class AddCustomer {
 
     public void sql(String s) throws SQLException {
 
-            OracleDataSource orc = new OracleDataSource();
-            orc.setURL("jdbc:oracle:thin:@localhost:1521:orcl");
-            orc.setUser("software");
-            orc.setPassword("123123");
-            Connection conn = orc.getConnection();
-            try ( Statement stm = conn.createStatement()) {
-                stm.executeUpdate(s);
-            } catch (SQLException e) {
-                throw new IllegalArgumentException(e);
-            }
-
-
+        OracleDataSource orc = new OracleDataSource();
+        orc.setURL("jdbc:oracle:thin:@localhost:1521:orcl");
+        orc.setUser("software");
+        orc.setPassword("123123");
+        Connection conn = orc.getConnection();
+        try ( Statement stm = conn.createStatement()) {
+            stm.executeUpdate(s);
+        } catch (SQLException e) {
+            throw new IllegalArgumentException(e);
+        }
     }
-        @FXML
+    @FXML
     public void addCustomerTest(Customers customers)  {
 
         if (customers.getId().equals("") || customers.getName().equals("") || customers.getPhone().equals("") || customers.getAddress().equals("") || customers.getCity().equals("") || customers.getStreet().equals("") || customers.getEmail().equals("") || customers.getPassword().equals("")) {
@@ -61,25 +61,36 @@ public class AddCustomer {
 
     }
 
-    public void addCustomerGUI(Customers customers, Label label) {
+    public String addCustomerGUI(Customers customers) {
+        int flag = 0;
+        String x = "";
+//        Label label = new Label();
         if (customers.getId().equals("") || customers.getName().equals("")
                 || customers.getPhone().equals("") || customers.getAddress().equals("")
                 || customers.getCity().equals("") || customers.getStreet().equals("") ||
                 customers.getEmail().equals("") || customers.getPassword().equals("")) {
-            label.setText("Please Enter All information");
+//            label.setText("Please Enter All information");
+            flag = 1;
         } else {
             String s = "insert into CUSTOMER values ( '" + customers.getId() + "','" + customers.getName()
                     + "','" + customers.getPhone() + "','" + customers.getAddress()
                     + "','" + customers.getCity() + "','" + customers.getStreet()
                     + "','" + customers.getEmail() + "','" + customers.getPassword() + "')";
-            label.setText("Customer Added Successfully");
+//            label.setText("Customer Added Successfully");
             try {
                 sql(s);
             } catch (Exception ex) {
-                label.setText("Use Another ID");
-                new animatefx.animation.Shake(label).play();
+//                label.setText("Use Another ID");
+                flag = 3;
+//                new animatefx.animation.Shake(label).play();
             }
         }
+        if (flag == 1)
+            x = "Please fill in all information about yourself";
+        else if (flag == 0)
+            x = "the customer added successfully";
+        else x = "Please Enter a new ID";
 
+        return x;
     }
 }

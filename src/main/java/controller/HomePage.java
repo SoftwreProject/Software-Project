@@ -167,7 +167,7 @@ public class HomePage {
 
 
     @FXML
-    void centerHomePage(ActionEvent event) throws Exception {
+    public void centerHomePage(ActionEvent event) throws Exception {
 
         HomePagePane.setCenter(HomePane);
         String numOfWorker = "select count(ID) from worker";

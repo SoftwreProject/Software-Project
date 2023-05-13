@@ -44,8 +44,8 @@ public class LoginController{
             orc.setPassword("123123");
             Connection conn = orc.getConnection();
             try (Statement stm = conn.createStatement()) {
-                 username = usernameTextField.getText();
-                 password = passwordTextField.getText();
+                username = usernameTextField.getText();
+                password = passwordTextField.getText();
                 if ((username.equals("") && password.equals(""))) {
                     usernameTextField.setStyle("-fx-background-color:  #000000 ; -fx-border-width:0 0 2 0 ; -fx-border-color : red ; -fx-text-inner-color: white");
                     passwordTextField.setStyle("-fx-background-color:  #000000 ; -fx-border-width:0 0 2 0 ; -fx-border-color : red ;-fx-text-inner-color: white");
@@ -111,7 +111,7 @@ public class LoginController{
                         Parent root = loader.load();
                         CustomerHomePage ref = loader.getController();
                         ref.idSinging = username;
-                        ref.setName();
+                        ref.setName(username);
 //                    ref.setDate();
                         Stage stage1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
                         Scene scene1 = new Scene(root);
@@ -129,7 +129,7 @@ public class LoginController{
             }catch (Exception ex) {
                 Logger.getLogger("You are in Signing page");
             }
-            } catch (SQLException e) {
+        } catch (SQLException e) {
             throw new IllegalArgumentException(e);
         }
 

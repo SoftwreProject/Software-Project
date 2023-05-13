@@ -20,6 +20,7 @@ public class UpdateProductSteps {
     @When("you type in {string} ,{string}, {string}, {string}, {string}")
     public void youTypeIn(String id, String owner, String category, String high, String width) throws SQLException {
         ref.setId(id);
+        ref.getId();
         ref.setOwner(owner);
         ref.setCategory(category);
         ref.setHigh(high);

@@ -14,8 +14,8 @@ public class ShowCustomerInformation {
     static ViewAll ref = new ViewAll();
     @Before
     public static void setUp() {
-         ref = new ViewAll();
-         result = "";
+        ref = new ViewAll();
+        result = "";
     }
 
     @When("you enter the {string}")
@@ -35,7 +35,7 @@ public class ShowCustomerInformation {
 
     @Then("you must show the information of customer")
     public void youMustShowTheInformationOfCustomer() {
-        String customer = "C111,Ayham Dw,898989,Buliding 12,Nablus,Sofen,ayham.1399@gmail.com,123456,0";
+        String customer = "C111,Ayham Dw,898989,Buliding 12,Nablus,Sofen,ayham.1399@gmail.com,123456,50";
         assertEquals(result , customer);
     }
 }
