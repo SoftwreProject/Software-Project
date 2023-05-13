@@ -5,7 +5,6 @@ import oracle.jdbc.datasource.impl.OracleDataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.logging.Logger;
 
 public class UpdateProduct {

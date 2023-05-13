@@ -2,7 +2,6 @@ package controller;
 
 import java.io.IOException;
 import java.sql.*;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,6 +28,7 @@ public class LoginController{
 
     @FXML
     Pane signingPane;
+    String style = "-fx-background-color: #000000; -fx-border-width: 0 0 2 0; -fx-border-color: red; -fx-text-inner-color: white";
 
     public void loginFunction(ActionEvent event) {
         String username = usernameTextField.getText();
@@ -43,10 +43,9 @@ public class LoginController{
             authenticateUser(username, password, event);
         }
     }
-
     public void authenticateUser(String username, String password, ActionEvent event) {
         try {
-            int flag = 0;
+            int flag ;
             int managerUserName = 0;
 
             OracleDataSource orc = new OracleDataSource();
@@ -55,31 +54,9 @@ public class LoginController{
             orc.setPassword("123123");
             Connection conn = orc.getConnection();
 
-            try (PreparedStatement stm = conn.prepareStatement("SELECT ID, PASSWORD FROM MANAGER WHERE ID = ?")) {
-                stm.setString(1, username);
-                ResultSet rs = stm.executeQuery();
-
-                while (rs.next()) {
-                    if (username.equals(rs.getString(1)) && password.equals(rs.getString(2))) {
-                        flag = 1; // for manager
-                        managerUserName = rs.getInt(1);
-                    }
-                }
-            } catch (SQLException e) {
-                // Handle the exception
-            }
-            try (PreparedStatement stm = conn.prepareStatement("SELECT ID, PASSWORD FROM CUSTOMER WHERE ID = ?")) {
-                stm.setString(1, username);
-                ResultSet rs = stm.executeQuery();
-
-                while (rs.next()) {
-                    if (username.equals(rs.getString(1)) && password.equals(rs.getString(2))) {
-                        flag = 2; // for Customer
-                        username = rs.getString(1);
-                    }
-                }
-            } catch (SQLException e) {
-                // Handle the exception
+            flag = authenticateManager(conn, username, password);
+            if (flag == 0) {
+                flag = authenticateCustomer(conn, username, password);
             }
 
             if (flag == 1) {
@@ -89,28 +66,54 @@ public class LoginController{
             } else {
                 handleInvalidCredentials();
             }
-        } catch (SQLException e) {
+        } catch (SQLException | IOException e) {
             throw new IllegalArgumentException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
     }
+
+    private int authenticateManager(Connection conn, String username, String password) throws SQLException {
+        try (PreparedStatement stm = conn.prepareStatement("SELECT ID, PASSWORD FROM MANAGER WHERE ID = ?")) {
+            stm.setString(1, username);
+            ResultSet rs = stm.executeQuery();
+
+            while (rs.next()) {
+                if (username.equals(rs.getString(1)) && password.equals(rs.getString(2))) {
+                    return 1; // for manager
+                }
+            }
+        }
+        return 0;
+    }
+
+    private int authenticateCustomer(Connection conn, String username, String password) throws SQLException {
+        try (PreparedStatement stm = conn.prepareStatement("SELECT ID, PASSWORD FROM CUSTOMER WHERE ID = ?")) {
+            stm.setString(1, username);
+            ResultSet rs = stm.executeQuery();
+
+            while (rs.next()) {
+                if (username.equals(rs.getString(1)) && password.equals(rs.getString(2))) {
+                    return 2; // for customer
+                }
+            }
+        }
+        return 0;
+    }
     private void handleEmptyCredentials() {
-        usernameTextField.setStyle("-fx-background-color: #000000; -fx-border-width: 0 0 2 0; -fx-border-color: red; -fx-text-inner-color: white");
-        passwordTextField.setStyle("-fx-background-color: #000000; -fx-border-width: 0 0 2 0; -fx-border-color: red; -fx-text-inner-color: white");
+        usernameTextField.setStyle(style);
+        passwordTextField.setStyle(style);
         new animatefx.animation.Shake(usernameTextField).play();
         new animatefx.animation.Shake(passwordTextField).play();
         wrongMessage.setText("Empty UserName and Password!!");
     }
     private void handleEmptyPassword() {
         usernameTextField.setStyle("-fx-background-color: #000000; -fx-border-width: 0 0 2 0; -fx-border-color: #fac355; -fx-text-inner-color: white");
-        passwordTextField.setStyle("-fx-background-color: #000000; -fx-border-width: 0 0 2 0; -fx-border-color: red; -fx-text-inner-color: white");
+        passwordTextField.setStyle(style);
         new animatefx.animation.Shake(passwordTextField).play();
         wrongMessage.setText("Empty Password!!");
     }
 
     private void handleEmptyUsername() {
-        usernameTextField.setStyle("-fx-background-color: #000000; -fx-border-width: 0 0 2 0; -fx-border-color: red; -fx-text-inner-color: white");
+        usernameTextField.setStyle(style);
         passwordTextField.setStyle("-fx-background-color: #000000; -fx-border-width: 0 0 2 0; -fx-border-color: #fac355; -fx-text-inner-color: white");
         new animatefx.animation.Shake(usernameTextField).play();
         wrongMessage.setText("Empty UserName!!");

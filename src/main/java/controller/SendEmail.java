@@ -7,10 +7,7 @@ import oracle.jdbc.pool.OracleDataSource;
 
 import javax.mail.*;
 import javax.mail.internet.*;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Properties;
 
 
@@ -32,18 +29,19 @@ public class SendEmail {
 
     @FXML
     void sendEmailToTheCustomer() throws SQLException, MessagingException {
-        int flag=-1;
-        String customerEmail="";
-        String query = "SELECT * FROM Customer WHERE ID = '" + customerId.getText() + "'" ;
-
+        int flag = -1;
+        String customerEmail = "";
+        String query = "SELECT * FROM Customer WHERE ID = ?";
 
         OracleDataSource orc = new OracleDataSource();
         orc.setURL("jdbc:oracle:thin:@localhost:1521:orcl");
         orc.setUser("software");
         orc.setPassword("123123");
         Connection conn = orc.getConnection();
-        try (Statement stm = conn.createStatement()) {
-            ResultSet rs = stm.executeQuery(query);
+        try (PreparedStatement stm = conn.prepareStatement(query)) {
+            stm.setString(1, customerId.getText());
+
+            ResultSet rs = stm.executeQuery();
             while (rs.next()) {
                 if (rs.getString(1).equals(customerId.getText() + "")) {
                     customerEmail = rs.getString(7);
