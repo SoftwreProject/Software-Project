@@ -28,9 +28,9 @@ public class HomePage {
 
 
     @FXML
-    public Pane HomePane;
+    public Pane homePane;
     @FXML
-    public Label WorkerCountLabel ;
+    public Label workerCountLabel ;
 
     @FXML
     public Label carpetsWorkerCountLabel;
@@ -83,7 +83,7 @@ public class HomePage {
         while(rs.next()){
             m = (String.valueOf(rs.getInt(1)));
         }
-
+        rs.close();
         return m;
     }
 
@@ -91,9 +91,9 @@ public class HomePage {
 
 
     @FXML
-    public void centerHomePage() throws Exception {
+    public void centerHomePage() throws SQLException {
 
-        HomePagePane.setCenter(HomePane);
+        HomePagePane.setCenter(homePane);
         String numOfWorker = "select count(ID) from worker";
         String numOfCustomer = "select count(ID) from customer";
         String numOfCarpetsWorker = "select count(ID) from worker where SPECIALIZATION='carpet'";
@@ -104,7 +104,7 @@ public class HomePage {
         String allMoneyForCarpet = "select sum(totalPrice) from Product where CATEGORY = 'carpet'";
         String allMoneyForCover = "select sum(totalPrice) from Product where CATEGORY = 'cover'";
 
-        WorkerCountLabel.setText(getFromDatabase(numOfWorker));
+        workerCountLabel.setText(getFromDatabase(numOfWorker));
         customerCountLabel.setText(getFromDatabase(numOfCustomer));
         carpetsWorkerCountLabel.setText(getFromDatabase(numOfCarpetsWorker));
         coverWorkerContLabel.setText(getFromDatabase(numOfCoverWorker));
@@ -139,13 +139,13 @@ public class HomePage {
 
     }
     @FXML
-    void Add() throws IOException {
+    void addFunction() throws IOException {
         loadpage("/AddAll");
     }
 
     @FXML
-    void ViewAll() throws IOException {
-        loadpage("/ViewAll");
+    void viewAll() throws IOException {
+        loadpage("/viewAll");
     }
     @FXML
     void openSendEmailPane() throws IOException {

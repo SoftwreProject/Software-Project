@@ -3,7 +3,6 @@ package controller;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXRadioButton;
-import io.cucumber.java.sl.In;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -12,7 +11,6 @@ import javafx.scene.control.TextField;
 import software.Customers;
 import software.Product;
 import software.Worker;
-
 import javax.swing.*;
 import java.net.URL;
 import java.sql.ResultSet;

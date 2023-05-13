@@ -3,8 +3,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import oracle.jdbc.datasource.impl.OracleDataSource;
 import software.Customers;
-
-import javax.swing.*;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -62,32 +60,32 @@ public class AddCustomer {
     }
 
     public String addCustomerGUI(Customers customers) {
-        int flag = 0;
-        String x = "";
-//        Label label = new Label();
+        int flag1 = 0;
+        String x;
+        Label label = new Label();
         if (customers.getId().equals("") || customers.getName().equals("")
                 || customers.getPhone().equals("") || customers.getAddress().equals("")
                 || customers.getCity().equals("") || customers.getStreet().equals("") ||
                 customers.getEmail().equals("") || customers.getPassword().equals("")) {
-//            label.setText("Please Enter All information");
-            flag = 1;
+            label.setText("Please Enter All information");
+            flag1 = 1;
         } else {
             String s = "insert into CUSTOMER values ( '" + customers.getId() + "','" + customers.getName()
                     + "','" + customers.getPhone() + "','" + customers.getAddress()
                     + "','" + customers.getCity() + "','" + customers.getStreet()
                     + "','" + customers.getEmail() + "','" + customers.getPassword() + "')";
-//            label.setText("Customer Added Successfully");
+            label.setText("Customer Added Successfully");
             try {
                 sql(s);
             } catch (Exception ex) {
-//                label.setText("Use Another ID");
-                flag = 3;
-//                new animatefx.animation.Shake(label).play();
+                label.setText("Use Another ID");
+                flag1 = 3;
+                new animatefx.animation.Shake(label).play();
             }
         }
-        if (flag == 1)
+        if (flag1 == 1)
             x = "Please fill in all information about yourself";
-        else if (flag == 0)
+        else if (flag1 == 0)
             x = "the customer added successfully";
         else x = "Please Enter a new ID";
 

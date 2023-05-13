@@ -3,8 +3,8 @@ package controller;
 import oracle.jdbc.datasource.impl.OracleDataSource;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.logging.Logger;
 
 
@@ -65,18 +65,21 @@ public class UpdateCustomer {
         orc.setUser("software");
         orc.setPassword("123123");
         Connection conn = orc.getConnection();
-        try(Statement stm = conn.createStatement()) {
-            String query = "update customer set name = '" + getName() + "' , address = '" + getAddress() + "' ,phonenumber =  '" + getPhone() + "', " +
-                    "city = '" + getCity() + "' , street = '" + getStreet() + "' " +
-                    " where id ='" + id + "'";
-            try {
-                int t = stm.executeUpdate(query);
-                if (t == 0) {
-                    flag = 1;
-                }
-            } catch (Exception e) {
-                Logger.getLogger("You are in update customer page");
+
+        try (PreparedStatement stm = conn.prepareStatement("UPDATE customer SET name = ?, address = ?, phonenumber = ?, city = ?, street = ? WHERE id = ?")) {
+            stm.setString(1, getName());
+            stm.setString(2, getAddress());
+            stm.setString(3, getPhone());
+            stm.setString(4, getCity());
+            stm.setString(5, getStreet());
+            stm.setString(6, id);
+
+            int t = stm.executeUpdate();
+            if (t == 0) {
+                flag = 1;
             }
+        } catch (SQLException e) {
+            Logger.getLogger("You are in update customer page");
         }
     }
     public String getResult() {

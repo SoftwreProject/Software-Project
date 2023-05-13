@@ -3,6 +3,7 @@ package controller;
 
 import oracle.jdbc.datasource.impl.OracleDataSource;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Logger;
@@ -22,15 +23,19 @@ public class UpdateProduct {
         orc.setUser("software");
         orc.setPassword("123123");
         Connection conn = orc.getConnection();
-        try (Statement stm = conn.createStatement()) {
-            String query = "update product set owner = '" + getOwner() +"' , category = '" + getCategory() +"' ,high =  '" + getHigh() +"', " +
-                    "width = '" + getWidth() +"' where id = '" +id+"'";
 
-            int t = stm.executeUpdate(query);
-            if (t == 0)
-                flag =1;
-        }
-        catch (Exception ex) {
+        try (PreparedStatement stm = conn.prepareStatement("UPDATE product SET owner = ?, category = ?, high = ?, width = ? WHERE id = ?")) {
+            stm.setString(1, getOwner());
+            stm.setString(2, getCategory());
+            stm.setString(3, getHigh());
+            stm.setString(4, getWidth());
+            stm.setString(5, id);
+
+            int t = stm.executeUpdate();
+            if (t == 0) {
+                flag = 1;
+            }
+        } catch (SQLException e) {
             Logger.getLogger("You are in update product page");
         }
     }

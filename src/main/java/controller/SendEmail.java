@@ -1,6 +1,5 @@
 package controller;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -20,7 +19,7 @@ public class SendEmail {
     MimeMessage mimeMessage;
 
     @FXML
-    private TextField CustomerID;
+    private TextField customerId;
     @FXML
     public Label errorMessageLabel;
     public void setup() {
@@ -32,10 +31,10 @@ public class SendEmail {
     }
 
     @FXML
-    void sendEmailToTheCustomer(ActionEvent event) throws SQLException, MessagingException {
+    void sendEmailToTheCustomer() throws SQLException, MessagingException {
         int flag=-1;
         String customerEmail="";
-        String Query = "SELECT * FROM Customer WHERE ID = '" + CustomerID.getText() + "'" ;
+        String query = "SELECT * FROM Customer WHERE ID = '" + customerId.getText() + "'" ;
 
 
         OracleDataSource orc = new OracleDataSource();
@@ -43,22 +42,18 @@ public class SendEmail {
         orc.setUser("software");
         orc.setPassword("123123");
         Connection conn = orc.getConnection();
-        Statement stm = conn.createStatement();
-        ResultSet rs = stm.executeQuery(Query);
-//        JOptionPane.showMessageDialog(null,rs.getString(1)+"");
-        while (rs.next()){
-            if(rs.getString(1).equals(CustomerID.getText()+"")){
-                customerEmail=rs.getString(7);
-                flag=1;
-            }
-            else {
-                flag =0;
+        try (Statement stm = conn.createStatement()) {
+            ResultSet rs = stm.executeQuery(query);
+            while (rs.next()) {
+                if (rs.getString(1).equals(customerId.getText() + "")) {
+                    customerEmail = rs.getString(7);
+                    flag = 1;
+                } else
+                    flag = 0;
             }
         }
-
-
         if (flag == 1) {
-            setup(); // Call the setup method before sending the email
+            setup();
             draft(customerEmail);
             sendemail();
             errorMessageLabel.setText("The email has been sent successfully");
@@ -66,11 +61,10 @@ public class SendEmail {
             errorMessageLabel.setText("Customer Not Found");
         }
     }
-    public void sendemail() throws NoSuchProviderException, MessagingException {
+    public void sendemail() throws MessagingException {
         String fromUser = "cleaning.services7890@gmail.com";
         String fromUserPassword = "z";
         String emailHost = "smtp.gmail.com";
-
         if (newSession != null) {
             Transport transport = newSession.getTransport("smtp");
             transport.connect(emailHost, fromUser, fromUserPassword);
@@ -80,9 +74,8 @@ public class SendEmail {
             throw new IllegalStateException("Session is not set up. Call the setup method before sending the email.");
         }
     }
-    public MimeMessage draft(String email) throws AddressException, MessagingException {
-        // throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-        String[] emailReceipients = {email};  //Enter list of email recepients
+    public MimeMessage draft(String email) throws MessagingException {
+        String[] emailReceipients = {email};
         String emailSubject = "Your Order has been completed";
         String emailBody = "Your order has been completed successfully. You can collect your product from the showroom";
         mimeMessage = new MimeMessage(newSession);
